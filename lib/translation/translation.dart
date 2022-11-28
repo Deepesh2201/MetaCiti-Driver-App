@@ -88,6 +88,7 @@ Map<String, dynamic> languages = {
     "text_enable_history": "History",
     "text_enable_wallet": "Wallet",
     "text_enable_referal": "Referal",
+    "text_your_referal": "Your Referals",
     "text_faq": "FAQ",
     "text_sos": "SOS",
     "text_change_language": "Change Language",
@@ -256,6 +257,7 @@ Map<String, dynamic> languages = {
         "Your wallet balance is low, please add some money to continue service",
     "text_otp_error": "Please enter correct Otp or resend",
     "text_code_copied": "Referral Code Copied",
+    "text_all_field": "All Fields are Required.",
     "text_loc_permission_user": "Allow Location - To book a taxi",
     "text_low_wallet_for_ride":
         "Your Wallet Balance is too low to make this race",

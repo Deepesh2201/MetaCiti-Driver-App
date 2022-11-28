@@ -32,6 +32,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:tagyourtaxi_driver/pages/vehicleInformations/vehicle_year.dart';
 import 'package:tagyourtaxi_driver/styles/styles.dart';
 import 'package:url_launcher/url_launcher.dart';
+import '../models/UserReferal.dart';
 import '../pages/NavigatorPages/fleetdocuments.dart';
 import '../pages/login/ownerregister.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -58,7 +59,7 @@ String ischeckownerordriver = '';
 String url =
     'https://metaciti.nexteck.in/public/';
 //add '/' at the end of url as 'yourwebsite.com/'
-String mapkey ='AIzaSyCBEiVm0_77RIhNyGqa_GVqlZZpULAdHxk'; // enter the google map api key
+String mapkey ='AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ'; // enter the google map api key
 String mapStyle = '';
 
 getDetailsOfDevice() async {
@@ -814,16 +815,20 @@ fleetDriver(Map<String, dynamic> map) async {
 
 //update referral code
 
-updateReferral() async {
+updateReferral(String txt) async {
   dynamic result;
   try {
+    if(pref.getString("userphone")!=txt){
+
+
     var response =
-        await http.post(Uri.parse('${url}api/v1/update/driver/referral'),
+        await http.post(Uri.parse('${url}api/v1/update/driver-mobile-referral'),
             headers: {
               'Authorization': 'Bearer ${bearerToken[0].token}',
               'Content-Type': 'application/json'
             },
-            body: jsonEncode({"refferal_code": referralCode}));
+            body: jsonEncode({"refferal_mobile_num": txt}));
+    print('Bearer ${bearerToken[0].token}');
     if (response.statusCode == 200) {
       if (jsonDecode(response.body)['success'] == true) {
         result = 'true';
@@ -835,10 +840,82 @@ updateReferral() async {
       debugPrint(response.body);
       result = 'false';
     }
+    }else{
+      result = 'false';
+    }
   } catch (e) {
     if (e is SocketException) {
       internet = false;
       result = 'no internet';
+    }
+  }
+  return result;
+}
+
+Future<List<UserReferal>> getReferalList() async {
+  List<UserReferal> result=[];
+  try {
+    var response =
+    await http.get(Uri.parse('${url}api/v1/getDriverReferral'),
+
+        headers: {
+          'Authorization': 'Bearer ${bearerToken[0].token}',
+          'Content-Type': 'application/json'
+        });
+    print('Bearer ${bearerToken[0].token}');
+    if (response.statusCode == 200) {
+      if (jsonDecode(response.body)['success'] == true) {
+        var jsonResponse = jsonDecode(response.body)['data'];
+
+        print("json response $jsonResponse");
+
+        // final res = jsonDecode(jsonResponse).cast<Map<String, dynamic>>();
+
+        // print("json response1 ${jsonResponse["data"]}");
+        List<UserReferal> leads = jsonResponse.map<UserReferal>((json) {
+          return UserReferal.fromJson(json);
+        }).toList();
+        result = leads;
+      } else {
+        debugPrint(response.body);
+        result = [];
+      }
+    } else {
+      debugPrint(response.body);
+      result = [];
+    }
+  } catch (e) {
+    if (e is SocketException) {
+      internet = false;
+      result = [];
+    }
+  }
+  return result;
+}
+getReferral() async {
+  dynamic result;
+  try {
+    var response =
+    await http.get(Uri.parse('${url}api/v1/get/referral'), headers: {
+      'Authorization': 'Bearer ${bearerToken[0].token}',
+      'Content-Type': 'application/json'
+    });
+    if (response.statusCode == 200) {
+      result = 'success';
+      // Map<String,String> code=<String,String>{};
+      myReferralCode.putIfAbsent("refferal_code", () => pref.getString("userphone"));
+      myReferralCode.putIfAbsent("referral_comission_string", () => jsonDecode(response.body)["data"]["referral_comission_string"]);
+
+      // myReferralCode = jsonDecode(code.toString());
+      valueNotifierHome.incrementNotifier();
+    } else {
+      debugPrint(response.body);
+      result = 'failure';
+    }
+  } catch (e) {
+    if (e is SocketException) {
+      result = 'no internet';
+      internet = false;
     }
   }
   return result;
@@ -977,6 +1054,8 @@ driverLogin() async {
           "login_by": (platform == TargetPlatform.android) ? 'android' : 'ios',
           "role": ischeckownerordriver,
         }));
+    // var pref=SharedPreferences.getInstance();
+    pref.setString("userphone",phnumber);
     if (response.statusCode == 200) {
       var jsonVal = jsonDecode(response.body);
       bearerToken.add(BearerClass(
@@ -2539,30 +2618,30 @@ deleteSos(id) async {
 //get user referral
 
 Map<String, dynamic> myReferralCode = {};
-getReferral() async {
-  dynamic result;
-  try {
-    var response =
-        await http.get(Uri.parse('${url}api/v1/get/referral'), headers: {
-      'Authorization': 'Bearer ${bearerToken[0].token}',
-      'Content-Type': 'application/json'
-    });
-    if (response.statusCode == 200) {
-      result = 'success';
-      myReferralCode = jsonDecode(response.body)['data'];
-      valueNotifierHome.incrementNotifier();
-    } else {
-      debugPrint(response.body);
-      result = 'failure';
-    }
-  } catch (e) {
-    if (e is SocketException) {
-      result = 'no internet';
-      internet = false;
-    }
-  }
-  return result;
-}
+// getReferral() async {
+//   dynamic result;
+//   try {
+//     var response =
+//         await http.get(Uri.parse('${url}api/v1/get/referral'), headers: {
+//       'Authorization': 'Bearer ${bearerToken[0].token}',
+//       'Content-Type': 'application/json'
+//     });
+//     if (response.statusCode == 200) {
+//       result = 'success';
+//       myReferralCode = jsonDecode(response.body)['data'];
+//       valueNotifierHome.incrementNotifier();
+//     } else {
+//       debugPrint(response.body);
+//       result = 'failure';
+//     }
+//   } catch (e) {
+//     if (e is SocketException) {
+//       result = 'no internet';
+//       internet = false;
+//     }
+//   }
+//   return result;
+// }
 
 //stripe payment
 

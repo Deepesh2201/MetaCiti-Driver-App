@@ -566,44 +566,44 @@ class _NavDrawerState extends State<NavDrawer> {
                             : Container(),
 
                         //language
-                        InkWell(
-                          onTap: () async {
-                            var nav = await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SelectLanguage()));
-                            if (nav) {
-                              setState(() {});
-                            }
-                          },
-                          child: Container(
-                            padding: EdgeInsets.all(media.width * 0.025),
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  'assets/images/changeLanguage.png',
-                                  fit: BoxFit.contain,
-                                  width: media.width * 0.075,
-                                ),
-                                SizedBox(
-                                  width: media.width * 0.025,
-                                ),
-                                SizedBox(
-                                  width: media.width * 0.55,
-                                  child: Text(
-                                    languages[choosenLanguage]
-                                        ['text_change_language'],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: GoogleFonts.roboto(
-                                        fontSize: media.width * sixteen,
-                                        color: textColor),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
+                        // InkWell(
+                        //   onTap: () async {
+                        //     var nav = await Navigator.push(
+                        //         context,
+                        //         MaterialPageRoute(
+                        //             builder: (context) =>
+                        //                 const SelectLanguage()));
+                        //     if (nav) {
+                        //       setState(() {});
+                        //     }
+                        //   },
+                        //   child: Container(
+                        //     padding: EdgeInsets.all(media.width * 0.025),
+                        //     child: Row(
+                        //       children: [
+                        //         Image.asset(
+                        //           'assets/images/changeLanguage.png',
+                        //           fit: BoxFit.contain,
+                        //           width: media.width * 0.075,
+                        //         ),
+                        //         SizedBox(
+                        //           width: media.width * 0.025,
+                        //         ),
+                        //         SizedBox(
+                        //           width: media.width * 0.55,
+                        //           child: Text(
+                        //             languages[choosenLanguage]
+                        //                 ['text_change_language'],
+                        //             overflow: TextOverflow.ellipsis,
+                        //             style: GoogleFonts.roboto(
+                        //                 fontSize: media.width * sixteen,
+                        //                 color: textColor),
+                        //           ),
+                        //         )
+                        //       ],
+                        //     ),
+                        //   ),
+                        // ),
 
                         //bank details
                         userDetails['owner_id'] == null
@@ -713,42 +713,42 @@ class _NavDrawerState extends State<NavDrawer> {
                         ),
 
                         //delete account
-                        userDetails['owner_id'] == null
-                            ? InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    deleteAccount = true;
-                                  });
-                                  valueNotifierHome.incrementNotifier();
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  padding: EdgeInsets.all(media.width * 0.025),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.delete_forever,
-                                        size: media.width * 0.075,
-                                      ),
-                                      SizedBox(
-                                        width: media.width * 0.025,
-                                      ),
-                                      SizedBox(
-                                        width: media.width * 0.55,
-                                        child: Text(
-                                          languages[choosenLanguage]
-                                              ['text_delete_account'],
-                                          overflow: TextOverflow.ellipsis,
-                                          style: GoogleFonts.roboto(
-                                              fontSize: media.width * sixteen,
-                                              color: textColor),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              )
-                            : Container(),
+                        // userDetails['owner_id'] == null
+                        //     ? InkWell(
+                        //         onTap: () {
+                        //           setState(() {
+                        //             deleteAccount = true;
+                        //           });
+                        //           valueNotifierHome.incrementNotifier();
+                        //           Navigator.pop(context);
+                        //         },
+                        //         child: Container(
+                        //           padding: EdgeInsets.all(media.width * 0.025),
+                        //           child: Row(
+                        //             children: [
+                        //               Icon(
+                        //                 Icons.delete_forever,
+                        //                 size: media.width * 0.075,
+                        //               ),
+                        //               SizedBox(
+                        //                 width: media.width * 0.025,
+                        //               ),
+                        //               SizedBox(
+                        //                 width: media.width * 0.55,
+                        //                 child: Text(
+                        //                   languages[choosenLanguage]
+                        //                       ['text_delete_account'],
+                        //                   overflow: TextOverflow.ellipsis,
+                        //                   style: GoogleFonts.roboto(
+                        //                       fontSize: media.width * sixteen,
+                        //                       color: textColor),
+                        //                 ),
+                        //               )
+                        //             ],
+                        //           ),
+                        //         ),
+                        //       )
+                        //     : Container(),
 
                         //logout
                         InkWell(

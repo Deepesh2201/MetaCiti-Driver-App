@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -26,6 +27,7 @@ dynamic proImageFile1;
 class _GetStartedState extends State<GetStarted> {
   bool _loading = false;
   var verifyEmailError = '';
+  bool _showToast = false;
 
   TextEditingController emailText =
       TextEditingController(); //email textediting controller
@@ -43,7 +45,16 @@ class _GetStartedState extends State<GetStarted> {
     }
     return status;
   }
-
+  showToast() {
+    setState(() {
+      _showToast = true;
+    });
+    Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        _showToast = false;
+      });
+    });
+  }
 //get camera permission
   getCameraPermission() async {
     var status = await Permission.camera.status;
@@ -230,9 +241,10 @@ class _GetStartedState extends State<GetStarted> {
                             text: languages[choosenLanguage]['text_email'],
                             onTap: (val) {
                               setState(() {
-                                email = emailText.text;
+                                email = emailText.text.trim();
                               });
                             },
+                            inputType: TextInputType.emailAddress,
                             textController: emailText,
                             color: (verifyEmailError == '') ? null : Colors.red,
                           ),
@@ -297,10 +309,26 @@ class _GetStartedState extends State<GetStarted> {
                           SizedBox(
                             height: media.height * 0.065,
                           ),
-                          (nameText.text.isNotEmpty &&
-                                  emailText.text.isNotEmpty &&
-                                  proImageFile1 != null)
-                              ? Container(
+                          (_showToast == true)
+                              ? Positioned(
+                              bottom: media.height * 0.1,
+                              right:media.width ,
+
+
+                              child: Container(
+                                padding: EdgeInsets.all(media.width * 0.025),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.transparent.withOpacity(0.6)),
+                                child: Text(
+                                  languages[choosenLanguage]['text_all_field'],
+                                  style: GoogleFonts.roboto(
+                                      fontSize: media.width * twelve,
+                                      color: Colors.white),
+                                ),
+                              ))
+                              : Container(),
+                          Container(
                                   width: media.width * 1,
                                   alignment: Alignment.center,
                                   child: Button(
@@ -308,7 +336,11 @@ class _GetStartedState extends State<GetStarted> {
                                         String pattern =
                                             r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])*$";
                                         RegExp regex = RegExp(pattern);
-                                        if (regex.hasMatch(emailText.text)) {
+                                        if(nameText.text.isNotEmpty &&
+                                            emailText.text.isNotEmpty &&
+                                            proImageFile1 != null){
+
+                                        if (regex.hasMatch(emailText.text.trim())) {
                                           FocusManager.instance.primaryFocus
                                               ?.unfocus();
                                           setState(() {
@@ -339,10 +371,21 @@ class _GetStartedState extends State<GetStarted> {
                                                     ['text_email_validation'];
                                           });
                                         }
+                                        }else{
+                                          Fluttertoast.showToast(
+                                              msg: languages[choosenLanguage]['text_all_field'],
+                                              toastLength: Toast.LENGTH_SHORT,
+                                              gravity: ToastGravity.BOTTOM,
+                                              timeInSecForIosWeb: 1,
+                                              backgroundColor: Colors.red,
+                                              textColor: Colors.white,
+                                              fontSize: 16.0
+                                          );
+                                        }
                                       },
                                       text: languages[choosenLanguage]
                                           ['text_next']))
-                              : Container()
+
                         ],
                       ),
                     )),

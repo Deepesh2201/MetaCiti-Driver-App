@@ -61,7 +61,7 @@ dependencies:
   vector_math: ^2.1.1
   awesome_notifications: ^0.6.21
   webview_flutter: ^3.0.4
-
+  fluttertoast: ^8.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

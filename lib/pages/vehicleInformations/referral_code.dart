@@ -8,11 +8,14 @@ import 'package:tagyourtaxi_driver/styles/styles.dart';
 import 'package:tagyourtaxi_driver/translation/translation.dart';
 import 'package:tagyourtaxi_driver/widgets/widgets.dart';
 
+import '../../models/UserReferal.dart';
+
 class Referral extends StatefulWidget {
   const Referral({Key? key}) : super(key: key);
 
   @override
   State<Referral> createState() => _ReferralState();
+
 }
 
 dynamic referralCode;
@@ -27,11 +30,13 @@ class _ReferralState extends State<Referral> {
         context, MaterialPageRoute(builder: (context) => Docs()));
   }
 
+
   @override
   void initState() {
     referralCode = '';
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +124,7 @@ class _ReferralState extends State<Referral> {
                               _error = '';
                               _loading = true;
                             });
-                            var result = await updateReferral();
+                            var result = await updateReferral(referralCode);
                             if (result == 'true') {
                               navigate();
                             } else {
@@ -139,7 +144,9 @@ class _ReferralState extends State<Referral> {
                             : Colors.grey,
                       )
                     ],
-                  )
+                  ),
+
+
                 ],
               ),
             ),

@@ -26,14 +26,22 @@ Color inputUnderline = const Color(0xff12121D).withOpacity(0.3);
 Color inputfocusedUnderline = const Color(0xff12121D);
 Color topBar = const Color(0xffFFFFFF);
 Color page = const Color(0xffFFFFFF);
-Color buttonColor = const Color(0xffFCB13D);
+// Color buttonColor = const Color(0xffFCB13D);
+Color buttonColor = Colors.red;
+
 Color buttonText = const Color(0xffFFFFFF);
 Color inputFieldSeparator = const Color(0xff1DA1F2);
 Color termsCheckBox = const Color(0xff39BF4E);
-Color loaderColor = const Color(0xffFCB13D);
-Color notUploadedColor = Colors.orange;
+// Color loaderColor = const Color(0xffFCB13D);
+Color loaderColor = Colors.red;
+
+// Color notUploadedColor = Colors.orange;
+Color notUploadedColor = Colors.redAccent;
+
 Color verifyPendingBck = const Color(0xffFEF2F2);
-Color verifyPending = const Color(0xffFFB800);
+// Color verifyPending = const Color(0xffFFB800);
+Color verifyPending = Colors.red;
+
 Color verifyDeclined = const Color(0xffE70000);
 Color offline = const Color(0xff898989);
 Color online = const Color(0xff309700);
