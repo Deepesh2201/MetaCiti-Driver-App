@@ -818,7 +818,7 @@ fleetDriver(Map<String, dynamic> map) async {
 updateReferral(String txt) async {
   dynamic result;
   try {
-    if(pref.getString("userphone")!=txt){
+    // if(pref.getString("userphone")!=txt){
 
 
     var response =
@@ -840,9 +840,9 @@ updateReferral(String txt) async {
       debugPrint(response.body);
       result = 'false';
     }
-    }else{
-      result = 'false';
-    }
+    // }else{
+    //   result = 'false';
+    // }
   } catch (e) {
     if (e is SocketException) {
       internet = false;
