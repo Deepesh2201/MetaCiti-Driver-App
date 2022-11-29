@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/pages/loadingPage/loading.dart';
@@ -81,7 +82,7 @@ class _ReferralState extends State<Referral> {
                     textController: controller,
                     onTap: (val) {
                       setState(() {
-                        referralCode = controller.text;
+                        referralCode = controller.text.trim();
                       });
                     },
                     color: (_error == '') ? null : Colors.red,
@@ -122,15 +123,26 @@ class _ReferralState extends State<Referral> {
                             FocusManager.instance.primaryFocus?.unfocus();
                             setState(() {
                               _error = '';
-                              _loading = true;
-                            });
+                              _loading = true;});
                             var result = await updateReferral(referralCode);
                             if (result == 'true') {
                               navigate();
+                            }else if(result=='fatal'){
+                              Fluttertoast.showToast(
+                                  msg: languages[choosenLanguage]['text_same_ref'],
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 1,
+                                  backgroundColor: Colors.red,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0
+                              );
+
+
                             } else {
                               setState(() {
                                 _error = languages[choosenLanguage]
-                                    ['text_referral_code'];
+                                ['text_referral_code'];
                               });
                             }
                             setState(() {

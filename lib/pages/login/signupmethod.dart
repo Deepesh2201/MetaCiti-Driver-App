@@ -186,6 +186,8 @@ class _SignupMethodState extends State<SignupMethod> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Login()));
+
+
                         },
                         text: languages[choosenLanguage]['text_continue']),
                   )
