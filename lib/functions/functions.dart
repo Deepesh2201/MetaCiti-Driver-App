@@ -818,9 +818,9 @@ fleetDriver(Map<String, dynamic> map) async {
 updateReferral(String txt) async {
   dynamic result;
   try {
-    // if(pref.getString("userphone")!=txt){
-
-
+    print("usernumber"+pref.getString("userphone"));
+    String cmp=pref.getString("userphone");
+    if(cmp!=txt){
     var response =
         await http.post(Uri.parse('${url}api/v1/update/driver-mobile-referral'),
             headers: {
@@ -840,9 +840,9 @@ updateReferral(String txt) async {
       debugPrint(response.body);
       result = 'false';
     }
-    // }else{
-    //   result = 'false';
-    // }
+    }else{
+      result = 'fatal';
+    }
   } catch (e) {
     if (e is SocketException) {
       internet = false;
@@ -998,7 +998,7 @@ otpCall() async {
       internet = false;
       result = 'no Internet';
       valueNotifierHome.incrementNotifier();
-      print("testing sir "+ e.message);
+      print("testing sir ${e.message}");
     }
   }
   return result;

@@ -11,7 +11,7 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
    <application
-        android:label="${applicationName}"
+        android:label="Meta City"
         android:name="${applicationName}"
         android:icon="@mipmap/metacity">
         <activity

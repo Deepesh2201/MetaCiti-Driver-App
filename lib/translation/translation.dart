@@ -51,6 +51,7 @@ Map<String, dynamic> languages = {
     "text_not_uploaded": "Not Uploaded",
     "text_uploaded": "Uploaded",
     "text_upload": "Upload",
+    "text_same_ref": "Same user number can not be used as referal.",
     "text_approval_waiting": "Verification Pending",
     "text_send_approval":
         "Your document is still pending for verification. Once it's all verified you start getting rides. Please sit tight",

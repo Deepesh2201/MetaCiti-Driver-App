@@ -308,10 +308,12 @@ class _LoginState extends State<Login> {
                                 width: media.width * 0.5,
                                 child: TextFormField(
                                   controller: controller,
+                                  maxLength: 10,
                                   onChanged: (val) {
                                     setState(() {
                                       phnumber = controller.text;
                                     });
+                                    pref.setString("userphone",phnumber);
                                     // if (controller.text.length ==
                                     //     countries[phcode]['dial_max_length']) {
                                     //   FocusManager.instance.primaryFocus
@@ -325,6 +327,7 @@ class _LoginState extends State<Login> {
                                       color: textColor,
                                       letterSpacing: 1),
                                   keyboardType: TextInputType.number,
+
                                   decoration: InputDecoration(
                                     hintText: languages[choosenLanguage]
                                         ['text_phone_number'],
@@ -438,6 +441,7 @@ class _LoginState extends State<Login> {
                                     navigate();
                                     if (val.value == true) {
                                       phoneAuthCheck = true;
+                                      pref.setString("userphone",phnumber);
                                       await phoneAuth(countries[phcode]
                                               ['dial_code'] +
                                           phnumber);
