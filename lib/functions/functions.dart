@@ -57,7 +57,7 @@ String ischeckownerordriver = '';
 
 //base url
 String url =
-    'https://metaciti.nexteck.in/public/';
+    'http://metaciti.in/public/';
 //add '/' at the end of url as 'yourwebsite.com/'
 String mapkey ='AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ'; // enter the google map api key
 String mapStyle = '';
