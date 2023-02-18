@@ -7,7 +7,9 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart' as geolocs;
+import 'package:http_interceptor/http_interceptor.dart';
 import 'package:location/location.dart';
+import 'package:tagyourtaxi_driver/global/interceptor/authentication.dart';
 // import 'package:location/location.dart';
 import 'package:tagyourtaxi_driver/pages/NavigatorPages/editprofile.dart';
 import 'package:tagyourtaxi_driver/pages/NavigatorPages/history.dart';
@@ -25,7 +27,7 @@ import 'package:tagyourtaxi_driver/pages/vehicleInformations/vehicle_make.dart';
 import 'package:tagyourtaxi_driver/pages/vehicleInformations/vehicle_model.dart';
 import 'package:tagyourtaxi_driver/pages/vehicleInformations/vehicle_number.dart';
 import 'package:tagyourtaxi_driver/pages/vehicleInformations/vehicle_type.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http_;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -61,6 +63,9 @@ String url =
 //add '/' at the end of url as 'yourwebsite.com/'
 String mapkey ='AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ'; // enter the google map api key
 String mapStyle = '';
+Client http = InterceptedClient.build(interceptors:[
+  AuthenticationInterceptor(),
+]);
 
 getDetailsOfDevice() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
@@ -228,12 +233,12 @@ List languagesCode = [
 uploadDocs() async {
   dynamic result;
   try {
-    var response = http.MultipartRequest(
+    var response = MultipartRequest(
         'POST', Uri.parse('${url}api/v1/driver/upload/documents'));
     response.headers
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
     response.files
-        .add(await http.MultipartFile.fromPath('document', imageFile));
+        .add(await MultipartFile.fromPath('document', imageFile));
     if (documentsNeeded[choosenDocs]['has_expiry_date'] == true) {
       response.fields['expiry_date'] = expDate.toString().substring(0, 19);
     }
@@ -244,9 +249,9 @@ uploadDocs() async {
 
     response.fields['document_id'] = docsId.toString();
 
-    var request = await response.send();
+    var request = await http.send(response);
 
-    var respon = await http.Response.fromStream(request);
+    var respon = await Response.fromStream(request);
 
     final val = jsonDecode(respon.body);
     if (request.statusCode == 200) {
@@ -275,13 +280,13 @@ uploadDocs() async {
 uploadFleetDocs(fleetid) async {
   dynamic result;
   try {
-    var response = http.MultipartRequest(
+    var response = MultipartRequest(
         'POST', Uri.parse('${url}api/v1/driver/upload/documents'));
     response.headers
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
 
     response.files
-        .add(await http.MultipartFile.fromPath('document', fleetimageFile));
+        .add(await MultipartFile.fromPath('document', fleetimageFile));
 
     if (fleetdocumentsNeeded[fleetchoosenDocs]['has_expiry_date'] == true) {
       response.fields['expiry_date'] = fleetexpDate.toString().substring(0, 19);
@@ -294,8 +299,8 @@ uploadFleetDocs(fleetid) async {
     response.fields['fleet_id'] = fleetid.toString();
 
     response.fields['document_id'] = fleetdocsId.toString();
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
 
     final val = jsonDecode(respon.body);
 
@@ -548,13 +553,13 @@ registerDriver() async {
   bearerToken.clear();
   dynamic result;
   try {
-    final response = http.MultipartRequest(
+    final response = MultipartRequest(
         'POST', Uri.parse('${url}api/v1/driver/register'));
 
     response.headers.addAll({'Content-Type': 'application/json'});
 
     response.files.add(
-        await http.MultipartFile.fromPath('profile_picture', proImageFile1));
+        await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": name,
       "mobile": phnumber,
@@ -571,8 +576,8 @@ registerDriver() async {
       "vehicle_year": modelYear,
       'lang': choosenLanguage,
     });
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
 
     if (request.statusCode == 200) {
       var jsonVal = jsonDecode(respon.body);
@@ -650,10 +655,10 @@ registerOwner() async {
   dynamic result;
   try {
     final response =
-        http.MultipartRequest('POST', Uri.parse('${url}api/v1/owner/register'));
+        MultipartRequest('POST', Uri.parse('${url}api/v1/owner/register'));
     response.headers.addAll({'Content-Type': 'application/json'});
     response.files.add(
-        await http.MultipartFile.fromPath('profile_picture', proImageFile1));
+        await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": ownerName,
       "mobile": phnumber,
@@ -669,8 +674,8 @@ registerOwner() async {
       "login_by": (platform == TargetPlatform.android) ? 'android' : 'ios',
       'lang': choosenLanguage,
     });
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
 
     if (respon.statusCode == 200) {
       var jsonVal = jsonDecode(respon.body);
@@ -2322,18 +2327,18 @@ updateVehicle() async {
 updateProfile(name, email) async {
   dynamic result;
   try {
-    var response = http.MultipartRequest(
+    var response = MultipartRequest(
       'POST',
       Uri.parse('${url}api/v1/user/driver-profile'),
     );
     response.headers
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
     response.files.add(
-        await http.MultipartFile.fromPath('profile_picture', proImageFile));
+        await MultipartFile.fromPath('profile_picture', proImageFile));
     response.fields['email'] = email;
     response.fields['name'] = name;
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
     final val = jsonDecode(respon.body);
     if (request.statusCode == 200) {
       result = 'success';
@@ -2363,7 +2368,7 @@ updateProfile(name, email) async {
 updateProfileWithoutImage(name, email) async {
   dynamic result;
   try {
-    var response = http.MultipartRequest(
+    var response = MultipartRequest(
       'POST',
       Uri.parse('${url}api/v1/user/driver-profile'),
     );
@@ -2371,8 +2376,8 @@ updateProfileWithoutImage(name, email) async {
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
     response.fields['email'] = email;
     response.fields['name'] = name;
-    var request = await response.send();
-    var respon = await http.Response.fromStream(request);
+    var request = await http.send(response);
+    var respon = await Response.fromStream(request);
     final val = jsonDecode(respon.body);
     if (request.statusCode == 200) {
       result = 'success';
