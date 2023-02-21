@@ -422,9 +422,7 @@ class _LoginState extends State<Login> {
                         SizedBox(
                           height: media.height * 0.1,
                         ),
-                        (controller.text.length >=
-                                    countries[phcode]['dial_min_length'] &&
-                                terms == true)
+                        (controller.text.length >= countries[currentCountryIndex]['dial_min_length'] && terms == true)
                             ? Container(
                                 width: media.width * 1 - media.width * 0.08,
                                 alignment: Alignment.center,

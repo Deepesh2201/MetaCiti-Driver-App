@@ -66,7 +66,7 @@ String mapStyle = '';
 Client http = InterceptedClient.build(interceptors:[
   AuthenticationInterceptor(),
 ]);
-
+int currentCountryIndex=0;
 getDetailsOfDevice() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.none) {
@@ -338,9 +338,11 @@ getCountryCode() async {
     if (response.statusCode == 200) {
       countries = jsonDecode(response.body)['data'];
       phcode =
-          (countries.where((element) => element['default'] == true).isNotEmpty)
+          countries.where((element) => element['default'] == true).isNotEmpty
               ? countries.indexWhere((element) => element['default'] == true)
               : 0;
+      int selectedCountryIndex=countries.indexOf((country)=>country['default']==true);
+      currentCountryIndex=selectedCountryIndex!=-1?selectedCountryIndex:0;
       result = 'success';
     } else {
       debugPrint(response.body);
