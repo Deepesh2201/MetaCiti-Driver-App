@@ -5,10 +5,8 @@ import 'model/app_failure_model.dart';
 
 part 'failure.freezed.dart';
 @freezed
-class Failure extends Equatable{
+class Failure with _$Failure{
   const Failure._();
-  @override
-  List<Object> get props => [];
   // Expected value is null or empty
   const factory Failure.empty() = _EmptyFailure;
 

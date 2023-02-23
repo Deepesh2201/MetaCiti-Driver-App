@@ -23,10 +23,20 @@ CreateBidResponseModel _$CreateBidResponseModelFromJson(
 mixin _$CreateBidResponseModel {
   @JsonKey(name: 'success')
   bool? get success => throw _privateConstructorUsedError;
+  @JsonKey(name: 'success')
+  set success(bool? value) => throw _privateConstructorUsedError;
   @JsonKey(name: 'message')
   String? get message => throw _privateConstructorUsedError;
+  @JsonKey(name: 'message')
+  set message(String? value) => throw _privateConstructorUsedError;
   @JsonKey(name: 'data')
   CreateBidResponseData? get data => throw _privateConstructorUsedError;
+  @JsonKey(name: 'data')
+  set data(CreateBidResponseData? value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bidStatus')
+  BidStatus get bidStatus => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bidStatus')
+  set bidStatus(BidStatus value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +53,8 @@ abstract class $CreateBidResponseModelCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'success') bool? success,
       @JsonKey(name: 'message') String? message,
-      @JsonKey(name: 'data') CreateBidResponseData? data});
+      @JsonKey(name: 'data') CreateBidResponseData? data,
+      @JsonKey(name: 'bidStatus') BidStatus bidStatus});
 
   $CreateBidResponseDataCopyWith<$Res>? get data;
 }
@@ -65,6 +76,7 @@ class _$CreateBidResponseModelCopyWithImpl<$Res,
     Object? success = freezed,
     Object? message = freezed,
     Object? data = freezed,
+    Object? bidStatus = null,
   }) {
     return _then(_value.copyWith(
       success: freezed == success
@@ -79,6 +91,10 @@ class _$CreateBidResponseModelCopyWithImpl<$Res,
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as CreateBidResponseData?,
+      bidStatus: null == bidStatus
+          ? _value.bidStatus
+          : bidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
     ) as $Val);
   }
 
@@ -106,7 +122,8 @@ abstract class _$$_CreateBidResponseModelCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'success') bool? success,
       @JsonKey(name: 'message') String? message,
-      @JsonKey(name: 'data') CreateBidResponseData? data});
+      @JsonKey(name: 'data') CreateBidResponseData? data,
+      @JsonKey(name: 'bidStatus') BidStatus bidStatus});
 
   @override
   $CreateBidResponseDataCopyWith<$Res>? get data;
@@ -127,6 +144,7 @@ class __$$_CreateBidResponseModelCopyWithImpl<$Res>
     Object? success = freezed,
     Object? message = freezed,
     Object? data = freezed,
+    Object? bidStatus = null,
   }) {
     return _then(_$_CreateBidResponseModel(
       success: freezed == success
@@ -141,6 +159,10 @@ class __$$_CreateBidResponseModelCopyWithImpl<$Res>
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as CreateBidResponseData?,
+      bidStatus: null == bidStatus
+          ? _value.bidStatus
+          : bidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
     ));
   }
 }
@@ -148,42 +170,32 @@ class __$$_CreateBidResponseModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateBidResponseModel implements _CreateBidResponseModel {
-  const _$_CreateBidResponseModel(
+  _$_CreateBidResponseModel(
       {@JsonKey(name: 'success') this.success,
       @JsonKey(name: 'message') this.message,
-      @JsonKey(name: 'data') this.data});
+      @JsonKey(name: 'data') this.data,
+      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.Create});
 
   factory _$_CreateBidResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_CreateBidResponseModelFromJson(json);
 
   @override
   @JsonKey(name: 'success')
-  final bool? success;
+  bool? success;
   @override
   @JsonKey(name: 'message')
-  final String? message;
+  String? message;
   @override
   @JsonKey(name: 'data')
-  final CreateBidResponseData? data;
+  CreateBidResponseData? data;
+  @override
+  @JsonKey(name: 'bidStatus')
+  BidStatus bidStatus;
 
   @override
   String toString() {
-    return 'CreateBidResponseModel(success: $success, message: $message, data: $data)';
+    return 'CreateBidResponseModel(success: $success, message: $message, data: $data, bidStatus: $bidStatus)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_CreateBidResponseModel &&
-            (identical(other.success, success) || other.success == success) &&
-            (identical(other.message, message) || other.message == message) &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, success, message, data);
 
   @JsonKey(ignore: true)
   @override
@@ -201,10 +213,11 @@ class _$_CreateBidResponseModel implements _CreateBidResponseModel {
 }
 
 abstract class _CreateBidResponseModel implements CreateBidResponseModel {
-  const factory _CreateBidResponseModel(
-          {@JsonKey(name: 'success') final bool? success,
-          @JsonKey(name: 'message') final String? message,
-          @JsonKey(name: 'data') final CreateBidResponseData? data}) =
+  factory _CreateBidResponseModel(
+          {@JsonKey(name: 'success') bool? success,
+          @JsonKey(name: 'message') String? message,
+          @JsonKey(name: 'data') CreateBidResponseData? data,
+          @JsonKey(name: 'bidStatus') BidStatus bidStatus}) =
       _$_CreateBidResponseModel;
 
   factory _CreateBidResponseModel.fromJson(Map<String, dynamic> json) =
@@ -213,12 +226,23 @@ abstract class _CreateBidResponseModel implements CreateBidResponseModel {
   @override
   @JsonKey(name: 'success')
   bool? get success;
+  @JsonKey(name: 'success')
+  set success(bool? value);
   @override
   @JsonKey(name: 'message')
   String? get message;
+  @JsonKey(name: 'message')
+  set message(String? value);
   @override
   @JsonKey(name: 'data')
   CreateBidResponseData? get data;
+  @JsonKey(name: 'data')
+  set data(CreateBidResponseData? value);
+  @override
+  @JsonKey(name: 'bidStatus')
+  BidStatus get bidStatus;
+  @JsonKey(name: 'bidStatus')
+  set bidStatus(BidStatus value);
   @override
   @JsonKey(ignore: true)
   _$$_CreateBidResponseModelCopyWith<_$_CreateBidResponseModel> get copyWith =>

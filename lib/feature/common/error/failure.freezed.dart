@@ -114,6 +114,20 @@ class _$_EmptyFailure extends _EmptyFailure {
   const _$_EmptyFailure() : super._();
 
   @override
+  String toString() {
+    return 'Failure.empty()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_EmptyFailure);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() empty,
@@ -240,6 +254,22 @@ class _$_UnprocessableEntityFailure extends _UnprocessableEntityFailure {
 
   @override
   final String message;
+
+  @override
+  String toString() {
+    return 'Failure.unprocessableEntity(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UnprocessableEntityFailure &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
@@ -390,6 +420,23 @@ class _$_UnauthorizedFailure extends _UnauthorizedFailure {
   @override
   final AppFailureModel appFailureModel;
 
+  @override
+  String toString() {
+    return 'Failure.unauthorized(appFailureModel: $appFailureModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UnauthorizedFailure &&
+            (identical(other.appFailureModel, appFailureModel) ||
+                other.appFailureModel == appFailureModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appFailureModel);
+
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -539,6 +586,23 @@ class _$_BadRequestFailure extends _BadRequestFailure {
   @override
   final AppFailureModel appFailureModel;
 
+  @override
+  String toString() {
+    return 'Failure.badRequest(appFailureModel: $appFailureModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BadRequestFailure &&
+            (identical(other.appFailureModel, appFailureModel) ||
+                other.appFailureModel == appFailureModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appFailureModel);
+
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -687,6 +751,23 @@ class _$_ServerFailure extends _ServerFailure {
 
   @override
   final AppFailureModel appFailureModel;
+
+  @override
+  String toString() {
+    return 'Failure.server(appFailureModel: $appFailureModel)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ServerFailure &&
+            (identical(other.appFailureModel, appFailureModel) ||
+                other.appFailureModel == appFailureModel));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appFailureModel);
 
   @JsonKey(ignore: true)
   @override

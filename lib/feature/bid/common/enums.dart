@@ -1,7 +1,17 @@
-enum BidEnum{
+enum BidStatus{
   None,
+  Init,
   Create,
   Update,
   Delete,
-  GetRecent
+  GetRecent,
+  Waiting,
+  ReceiveBidByAnotherDriver,
+  CloseCurrentBid,
+  TimeUpCurrentBid,
+  CancelByDriver,
+  CancelByUser,
+  CancelByAdmin,
+  Error,
+  Exception,
 }

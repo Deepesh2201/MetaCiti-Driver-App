@@ -71,6 +71,8 @@ dependencies:
   flutter_bloc: ^8.1.2
   get_it_mixin: ^3.1.4+2
   network_manager: ^0.1.5
+  vexana: ^3.3.2
+  get_it: ^7.2.0
 
 dependency_overrides:
   intl: ^0.17.0

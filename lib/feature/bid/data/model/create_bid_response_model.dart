@@ -1,14 +1,16 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tagyourtaxi_driver/feature/bid/common/enums.dart';
 
 part 'create_bid_response_model.freezed.dart';
 part 'create_bid_response_model.g.dart';
 
-@freezed
+@unfreezed
 class CreateBidResponseModel with _$CreateBidResponseModel {
-  const factory CreateBidResponseModel({
+   factory CreateBidResponseModel({
     @JsonKey(name: 'success') bool? success,
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'data') CreateBidResponseData? data,
+     @JsonKey(name: 'bidStatus') @Default(BidStatus.Create) BidStatus bidStatus,
   }) = _CreateBidResponseModel;
 
   factory CreateBidResponseModel.fromJson(Map<String, Object?> json) => _$CreateBidResponseModelFromJson(json);

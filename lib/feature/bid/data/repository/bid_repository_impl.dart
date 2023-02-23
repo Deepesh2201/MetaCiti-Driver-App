@@ -14,11 +14,11 @@ class BidRepositoryImpl implements BidRepository{
     try {
       // create bid
       if (createBidEntity.bidId == null) {
-        return await bidRemoteDataSource.createBid(BidEnum.Create, createBidEntity);
+        return await bidRemoteDataSource.createBid(createBidEntity.bidStatus, createBidEntity);
       }
       // update bid
       else {
-        return await bidRemoteDataSource.updateBid(BidEnum.Update, createBidEntity);
+        return await bidRemoteDataSource.updateBid(createBidEntity.bidStatus, createBidEntity);
       }
     }catch(e){
       return Left(Failure.unprocessableEntity(message: e.toString()));

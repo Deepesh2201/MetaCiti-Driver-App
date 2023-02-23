@@ -15,6 +15,8 @@ _$_CreateBidResponseModel _$$_CreateBidResponseModelFromJson(
           ? null
           : CreateBidResponseData.fromJson(
               json['data'] as Map<String, dynamic>),
+      bidStatus: $enumDecodeNullable(_$BidStatusEnumMap, json['bidStatus']) ??
+          BidStatus.Create,
     );
 
 Map<String, dynamic> _$$_CreateBidResponseModelToJson(
@@ -23,7 +25,26 @@ Map<String, dynamic> _$$_CreateBidResponseModelToJson(
       'success': instance.success,
       'message': instance.message,
       'data': instance.data,
+      'bidStatus': _$BidStatusEnumMap[instance.bidStatus]!,
     };
+
+const _$BidStatusEnumMap = {
+  BidStatus.None: 'None',
+  BidStatus.Init: 'Init',
+  BidStatus.Create: 'Create',
+  BidStatus.Update: 'Update',
+  BidStatus.Delete: 'Delete',
+  BidStatus.GetRecent: 'GetRecent',
+  BidStatus.Waiting: 'Waiting',
+  BidStatus.ReceiveBidByAnotherDriver: 'ReceiveBidByAnotherDriver',
+  BidStatus.CloseCurrentBid: 'CloseCurrentBid',
+  BidStatus.TimeUpCurrentBid: 'TimeUpCurrentBid',
+  BidStatus.CancelByDriver: 'CancelByDriver',
+  BidStatus.CancelByUser: 'CancelByUser',
+  BidStatus.CancelByAdmin: 'CancelByAdmin',
+  BidStatus.Error: 'Error',
+  BidStatus.Exception: 'Exception',
+};
 
 _$_CreateBidResponseData _$$_CreateBidResponseDataFromJson(
         Map<String, dynamic> json) =>
