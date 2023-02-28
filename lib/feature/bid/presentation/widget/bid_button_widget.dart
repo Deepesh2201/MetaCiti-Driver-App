@@ -64,6 +64,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
   // TextField
   TextEditingController currentBidPriceController = TextEditingController();
   double currentBidPrice = 1.0;
+  bool hasTextFormFieldEnable = false;
 
   // Create and update bid entity
   CreateBidEntity? createBidEntity;
@@ -106,18 +107,39 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                 loading: (bidEnum, text, isLoading) {
                   bidStatus = bidEnum;
                 },
-                createAndUpdateBid: (createBidResponseModel, bidEnum) {
+                createAndUpdateBid: (createBidResponseModel,
+                    bidEnum,
+                    buttonState,
+                    data,
+                    currentBidStatus,
+                    hasTextFormFieldEnable) {
                   bidStatus = bidEnum;
                 },
                 error: (failure, bidEnum) {
                   bidStatus = bidEnum;
                 },
-                bidRequestCancel: (bidEnum) {
+                bidRequestCancel: (asyncCancelButtonStatesController,
+                    bidEnum,
+                    buttonState,
+                    data,
+                    currentBidStatus,
+                    hasTextFormFieldEnable) {
                   bidStatus = bidEnum;
+                  bidCancelStateController = asyncCancelButtonStatesController!;
                 },
-                updateBidStatus: (bidEnum, name) {
+                updateBidStatus: (asyncSubmitButtonStatesController,
+                    bidEnum,
+                    name,
+                    buttonState,
+                    data,
+                    currentBidStatus,
+                    hasTextFormFieldEnabled) {
                   bidStatus = bidEnum;
                   textOfAcceptButton = name;
+                  //updateBidSubmitStateController = asyncSubmitButtonStatesController!;
+                  updateBidSubmitStateController.update(buttonState,
+                      data: data);
+                  hasTextFormFieldEnable = hasTextFormFieldEnabled;
                 },
                 getCurrentTextOfAcceptButton: (getTextWithBidStatus) {
                   textOfAcceptButton = getTextWithBidStatus.value2;
@@ -145,6 +167,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                                     bidStatus = BidStatus.create;
                                     context.read<BidRequestBloc>().add(
                                         BidRequestEvent.updateBidStatusEvent(
+                                            bidCancelStateController,
                                             bidEnum: bidStatus));
 
                                     bidCancelStateController.update(
@@ -164,7 +187,6 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                                 ),
                           },
                           fallbackBuilder: (BuildContext context) => SizedBox(
-                            //height: 42,
                             child: TextFormField(
                               controller: currentBidPriceController,
                               decoration: InputDecoration(
@@ -172,35 +194,35 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                                     borderSide: const BorderSide(
                                       width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   disabledBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                       width: 1,
                                     ),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                         width: 1, color: Colors.redAccent),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                         width: 1, color: Colors.redAccent),
-                                    borderRadius: BorderRadius.circular(6.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   hintText: 'Enter bid price',
                                   prefix: const Text('\u20B9 '),
@@ -208,7 +230,10 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                                       vertical: 8, horizontal: 12)),
                               onChanged: (value) {},
                               onSaved: (newValue) {},
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
                               keyboardType: TextInputType.number,
+                              enabled: hasTextFormFieldEnable,
                               inputFormatters: [
                                 CurrencyTextInputFormatter(
                                   integerDigits: 6,
@@ -295,55 +320,102 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
           valueBuilder: () => bidStatus,
           caseBuilders: {
             BidStatus.none: () {
-              bidStatus = BidStatus.create;
+              //bidStatus = BidStatus.create;
               context.read<BidRequestBloc>().add(
                   BidRequestEvent.updateBidStatusEvent(
-                      bidEnum: bidStatus, name: 'Submit'));
+                      updateBidSubmitStateController,
+                      bidEnum: BidStatus.create,
+                      currentBidStatus: bidStatus,
+                      name: 'Submit'));
               return;
             },
             BidStatus.create: () {
               // Create bid price with post method
               if (_bidCreateFormStateKey.currentState!.validate()) {
-                bidStatus = BidStatus.pending;
+                _bidCreateFormStateKey.currentState!.save();
+                //bidStatus = BidStatus.pending;
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Processing Data')),
                 );
                 context.read<BidRequestBloc>().add(
                     BidRequestEvent.updateBidStatusEvent(
-                        bidEnum: bidStatus, name: 'Edit'));
+                        updateBidSubmitStateController,
+                        bidEnum: BidStatus.pending,
+                        currentBidStatus: bidStatus,
+                        name: 'Edit'));
               }
 
               return;
             },
             BidStatus.pending: () {
-              bidStatus = BidStatus.update;
               context.read<BidRequestBloc>().add(
                   BidRequestEvent.updateBidStatusEvent(
-                      bidEnum: bidStatus, name: 'Update'));
+                      updateBidSubmitStateController,
+                      bidEnum: BidStatus.update,
+                      currentBidStatus: bidStatus,
+                      name: 'Update'));
               return;
             },
             BidStatus.update: () {
               // Update bid price with put method
               if (_bidCreateFormStateKey.currentState!.validate()) {
-                bidStatus = BidStatus.update;
+                _bidCreateFormStateKey.currentState!.save();
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Processing Data')),
                 );
                 context.read<BidRequestBloc>().add(
                     BidRequestEvent.updateBidStatusEvent(
-                        bidEnum: bidStatus, name: 'Update'));
+                        updateBidSubmitStateController,
+                        bidEnum: BidStatus.pending,
+                        currentBidStatus: bidStatus,
+                        name: 'Edit'));
               }
               return;
             },
           },
           fallbackBuilder: () {
-            bidStatus = BidStatus.create;
+            //bidStatus = BidStatus.create;
             context.read<BidRequestBloc>().add(
                 BidRequestEvent.updateBidStatusEvent(
-                    bidEnum: bidStatus, name: 'Submit'));
+                    updateBidSubmitStateController,
+                    bidEnum: BidStatus.create,
+                    currentBidStatus: bidStatus,
+                    name: 'Submit'));
             return;
           },
         );
+      },
+      loadingStyle: AsyncBtnStateStyle(
+        style: injector<ElevatedButtonStyleConfig>().style!.copyWith(
+              backgroundColor: MaterialStatePropertyAll<Color>(
+                acceptButtonLoadingColor,
+              ),
+            ),
+        widget: const Text('Processing...'),
+      ),
+      successStyle: AsyncBtnStateStyle(
+        style: injector<ElevatedButtonStyleConfig>().style!.copyWith(
+              backgroundColor: MaterialStatePropertyAll<Color>(
+                acceptButtonColor,
+              ),
+            ),
+        widget: Text(textOfAcceptButton),
+      ),
+      failureStyle: AsyncBtnStateStyle(
+        style: injector<ElevatedButtonStyleConfig>().style!.copyWith(
+              backgroundColor: const MaterialStatePropertyAll<Color>(
+                Colors.redAccent,
+              ),
+            ),
+        widget: const Text('Error Occurred!'),
+      ),
+      styleBuilder: (data) {
+        if (data is String) {
+          return AsyncBtnStateStyle(
+            widget: Text(data),
+          );
+        }
+        return null;
       },
       child: Text(textOfAcceptButton),
     );

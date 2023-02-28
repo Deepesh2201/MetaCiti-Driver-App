@@ -77,7 +77,7 @@ class MyApp extends StatelessWidget {
                 OverrideFormBuilderLocalizationsEn.delegate,
                 FormBuilderLocalizations.delegate,
               ],
-              home: const LoadingPage())),
+              home: const BidButtonWidget())),
     );
   }
 }

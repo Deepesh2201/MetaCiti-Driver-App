@@ -22,16 +22,18 @@ Future<void> setupInjection() async {
 }
 
 void setupApplicationConfiguration() {
-  injector.registerFactory<ElevatedButtonStyleConfig>(
-      () => ElevatedButtonStyleConfig(
-            style: ElevatedButton.styleFrom(
-              textStyle: GoogleFonts.roboto(
-                fontSize: size.width * sixteen,
-                color: buttonText,
-                fontWeight: FontWeight.bold,
+  injector.registerFactory<ElevatedButtonStyleConfig>(() =>
+      ElevatedButtonStyleConfig(
+        style: ElevatedButton.styleFrom(
+          textStyle: GoogleFonts.roboto(
+              //fontSize: size.width * sixteen,
+              //color: buttonText,
+              //fontWeight: FontWeight.w700,
               ),
-            ),
-          ));
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+      ));
   return;
 }
 

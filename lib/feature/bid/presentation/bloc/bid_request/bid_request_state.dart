@@ -12,18 +12,35 @@ class BidRequestState with _$BidRequestState {
       @Default(false) bool isLoading}) = _Loading;
 
   const factory BidRequestState.createAndUpdateBid(
-      CreateBidResponseModel createBidResponseModel,
-      {@Default(BidStatus.create) BidStatus bidEnum}) = _CreateAndUpdateBid;
+    CreateBidResponseModel createBidResponseModel, {
+    @Default(BidStatus.create) BidStatus bidEnum,
+    @Default(AsyncBtnState.idle) AsyncBtnState buttonState,
+    dynamic data,
+    @Default(BidStatus.create) BidStatus currentBidStatus,
+    @Default(false) bool hasTextFormFieldEnable,
+  }) = _CreateAndUpdateBid;
 
   const factory BidRequestState.error(Failure failure,
       {@Default(BidStatus.error) BidStatus bidEnum}) = _DOrError;
 
   const factory BidRequestState.bidRequestCancel(
-          {@Default(BidStatus.requestCancelByDriver) BidStatus bidEnum}) =
-      _BidRequestCancel;
+    AsyncBtnStatesController? asyncCancelButtonStatesController, {
+    @Default(BidStatus.requestCancelByDriver) BidStatus bidEnum,
+    @Default(AsyncBtnState.idle) AsyncBtnState buttonState,
+    dynamic data,
+    @Default(BidStatus.create) BidStatus currentBidStatus,
+    @Default(false) bool hasTextFormFieldEnable,
+  }) = _BidRequestCancel;
+
   const factory BidRequestState.updateBidStatus(
-      {@Default(BidStatus.pending) BidStatus bidEnum,
-      @Default('Create Bid') String name}) = _UpdateBidStatus;
+    AsyncBtnStatesController? asyncSubmitButtonStatesController, {
+    @Default(BidStatus.pending) BidStatus bidEnum,
+    @Default('Create Bid') String name,
+    @Default(AsyncBtnState.idle) AsyncBtnState buttonState,
+    dynamic data,
+    @Default(BidStatus.create) BidStatus currentBidStatus,
+    @Default(false) bool hasTextFormFieldEnable,
+  }) = _UpdateBidStatus;
 
   const factory BidRequestState.getCurrentTextOfAcceptButton(
           Tuple2<BidStatus, String> getTextWithBidStatus) =

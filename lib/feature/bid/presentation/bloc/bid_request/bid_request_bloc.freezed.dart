@@ -19,10 +19,25 @@ mixin _$BidRequestEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateBidEntity bidEntity)
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
         createAndUpdateBidEvent,
-    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
-    required TResult Function(BidStatus bidEnum, String name)
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -31,9 +46,26 @@ mixin _$BidRequestEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
   }) =>
@@ -41,9 +73,26 @@ mixin _$BidRequestEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -140,10 +189,25 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateBidEntity bidEntity)
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
         createAndUpdateBidEvent,
-    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
-    required TResult Function(BidStatus bidEnum, String name)
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -155,9 +219,26 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
   }) {
@@ -168,9 +249,26 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -237,7 +335,10 @@ abstract class _$$_CreateAndUpdateBidEventCopyWith<$Res> {
           $Res Function(_$_CreateAndUpdateBidEvent) then) =
       __$$_CreateAndUpdateBidEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({CreateBidEntity bidEntity});
+  $Res call(
+      {CreateBidEntity bidEntity,
+      BidStatus currentBidStatus,
+      bool hasTextFormFieldEnable});
 
   $CreateBidEntityCopyWith<$Res> get bidEntity;
 }
@@ -254,12 +355,22 @@ class __$$_CreateAndUpdateBidEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? bidEntity = null,
+    Object? currentBidStatus = null,
+    Object? hasTextFormFieldEnable = null,
   }) {
     return _then(_$_CreateAndUpdateBidEvent(
       null == bidEntity
           ? _value.bidEntity
           : bidEntity // ignore: cast_nullable_to_non_nullable
               as CreateBidEntity,
+      currentBidStatus: null == currentBidStatus
+          ? _value.currentBidStatus
+          : currentBidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      hasTextFormFieldEnable: null == hasTextFormFieldEnable
+          ? _value.hasTextFormFieldEnable
+          : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -275,14 +386,22 @@ class __$$_CreateAndUpdateBidEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
-  const _$_CreateAndUpdateBidEvent(this.bidEntity);
+  const _$_CreateAndUpdateBidEvent(this.bidEntity,
+      {this.currentBidStatus = BidStatus.create,
+      this.hasTextFormFieldEnable = false});
 
   @override
   final CreateBidEntity bidEntity;
+  @override
+  @JsonKey()
+  final BidStatus currentBidStatus;
+  @override
+  @JsonKey()
+  final bool hasTextFormFieldEnable;
 
   @override
   String toString() {
-    return 'BidRequestEvent.createAndUpdateBidEvent(bidEntity: $bidEntity)';
+    return 'BidRequestEvent.createAndUpdateBidEvent(bidEntity: $bidEntity, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
   }
 
   @override
@@ -291,11 +410,16 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
         (other.runtimeType == runtimeType &&
             other is _$_CreateAndUpdateBidEvent &&
             (identical(other.bidEntity, bidEntity) ||
-                other.bidEntity == bidEntity));
+                other.bidEntity == bidEntity) &&
+            (identical(other.currentBidStatus, currentBidStatus) ||
+                other.currentBidStatus == currentBidStatus) &&
+            (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bidEntity);
+  int get hashCode => Object.hash(
+      runtimeType, bidEntity, currentBidStatus, hasTextFormFieldEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -309,43 +433,95 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateBidEntity bidEntity)
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
         createAndUpdateBidEvent,
-    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
-    required TResult Function(BidStatus bidEnum, String name)
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
   }) {
-    return createAndUpdateBidEvent(bidEntity);
+    return createAndUpdateBidEvent(
+        bidEntity, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
   }) {
-    return createAndUpdateBidEvent?.call(bidEntity);
+    return createAndUpdateBidEvent?.call(
+        bidEntity, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (createAndUpdateBidEvent != null) {
-      return createAndUpdateBidEvent(bidEntity);
+      return createAndUpdateBidEvent(
+          bidEntity, currentBidStatus, hasTextFormFieldEnable);
     }
     return orElse();
   }
@@ -397,10 +573,13 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
 }
 
 abstract class _CreateAndUpdateBidEvent implements BidRequestEvent {
-  const factory _CreateAndUpdateBidEvent(final CreateBidEntity bidEntity) =
-      _$_CreateAndUpdateBidEvent;
+  const factory _CreateAndUpdateBidEvent(final CreateBidEntity bidEntity,
+      {final BidStatus currentBidStatus,
+      final bool hasTextFormFieldEnable}) = _$_CreateAndUpdateBidEvent;
 
   CreateBidEntity get bidEntity;
+  BidStatus get currentBidStatus;
+  bool get hasTextFormFieldEnable;
   @JsonKey(ignore: true)
   _$$_CreateAndUpdateBidEventCopyWith<_$_CreateAndUpdateBidEvent>
       get copyWith => throw _privateConstructorUsedError;
@@ -412,7 +591,13 @@ abstract class _$$_BidRequestCancelEventCopyWith<$Res> {
           $Res Function(_$_BidRequestCancelEvent) then) =
       __$$_BidRequestCancelEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({BidStatus bidEnum});
+  $Res call(
+      {AsyncBtnStatesController? asyncCancelButtonStatesController,
+      BidStatus bidEnum,
+      AsyncBtnState buttonState,
+      dynamic data,
+      BidStatus currentBidStatus,
+      bool hasTextFormFieldEnable});
 }
 
 /// @nodoc
@@ -426,13 +611,38 @@ class __$$_BidRequestCancelEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? asyncCancelButtonStatesController = freezed,
     Object? bidEnum = null,
+    Object? buttonState = null,
+    Object? data = freezed,
+    Object? currentBidStatus = null,
+    Object? hasTextFormFieldEnable = null,
   }) {
     return _then(_$_BidRequestCancelEvent(
+      freezed == asyncCancelButtonStatesController
+          ? _value.asyncCancelButtonStatesController
+          : asyncCancelButtonStatesController // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnStatesController?,
       bidEnum: null == bidEnum
           ? _value.bidEnum
           : bidEnum // ignore: cast_nullable_to_non_nullable
               as BidStatus,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnState,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      currentBidStatus: null == currentBidStatus
+          ? _value.currentBidStatus
+          : currentBidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      hasTextFormFieldEnable: null == hasTextFormFieldEnable
+          ? _value.hasTextFormFieldEnable
+          : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -440,16 +650,33 @@ class __$$_BidRequestCancelEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
-  const _$_BidRequestCancelEvent(
-      {this.bidEnum = BidStatus.requestCancelByDriver});
+  const _$_BidRequestCancelEvent(this.asyncCancelButtonStatesController,
+      {this.bidEnum = BidStatus.requestCancelByDriver,
+      this.buttonState = AsyncBtnState.idle,
+      this.data,
+      this.currentBidStatus = BidStatus.create,
+      this.hasTextFormFieldEnable = false});
 
+  @override
+  final AsyncBtnStatesController? asyncCancelButtonStatesController;
   @override
   @JsonKey()
   final BidStatus bidEnum;
+  @override
+  @JsonKey()
+  final AsyncBtnState buttonState;
+  @override
+  final dynamic data;
+  @override
+  @JsonKey()
+  final BidStatus currentBidStatus;
+  @override
+  @JsonKey()
+  final bool hasTextFormFieldEnable;
 
   @override
   String toString() {
-    return 'BidRequestEvent.bidRequestCancelEvent(bidEnum: $bidEnum)';
+    return 'BidRequestEvent.bidRequestCancelEvent(asyncCancelButtonStatesController: $asyncCancelButtonStatesController, bidEnum: $bidEnum, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
   }
 
   @override
@@ -457,11 +684,29 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BidRequestCancelEvent &&
-            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
+            (identical(other.asyncCancelButtonStatesController,
+                    asyncCancelButtonStatesController) ||
+                other.asyncCancelButtonStatesController ==
+                    asyncCancelButtonStatesController) &&
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
+            (identical(other.buttonState, buttonState) ||
+                other.buttonState == buttonState) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            (identical(other.currentBidStatus, currentBidStatus) ||
+                other.currentBidStatus == currentBidStatus) &&
+            (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bidEnum);
+  int get hashCode => Object.hash(
+      runtimeType,
+      asyncCancelButtonStatesController,
+      bidEnum,
+      buttonState,
+      const DeepCollectionEquality().hash(data),
+      currentBidStatus,
+      hasTextFormFieldEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -474,43 +719,95 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateBidEntity bidEntity)
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
         createAndUpdateBidEvent,
-    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
-    required TResult Function(BidStatus bidEnum, String name)
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
   }) {
-    return bidRequestCancelEvent(bidEnum);
+    return bidRequestCancelEvent(asyncCancelButtonStatesController, bidEnum,
+        buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
   }) {
-    return bidRequestCancelEvent?.call(bidEnum);
+    return bidRequestCancelEvent?.call(asyncCancelButtonStatesController,
+        bidEnum, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (bidRequestCancelEvent != null) {
-      return bidRequestCancelEvent(bidEnum);
+      return bidRequestCancelEvent(asyncCancelButtonStatesController, bidEnum,
+          buttonState, data, currentBidStatus, hasTextFormFieldEnable);
     }
     return orElse();
   }
@@ -562,10 +859,20 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
 }
 
 abstract class _BidRequestCancelEvent implements BidRequestEvent {
-  const factory _BidRequestCancelEvent({final BidStatus bidEnum}) =
-      _$_BidRequestCancelEvent;
+  const factory _BidRequestCancelEvent(
+      final AsyncBtnStatesController? asyncCancelButtonStatesController,
+      {final BidStatus bidEnum,
+      final AsyncBtnState buttonState,
+      final dynamic data,
+      final BidStatus currentBidStatus,
+      final bool hasTextFormFieldEnable}) = _$_BidRequestCancelEvent;
 
+  AsyncBtnStatesController? get asyncCancelButtonStatesController;
   BidStatus get bidEnum;
+  AsyncBtnState get buttonState;
+  dynamic get data;
+  BidStatus get currentBidStatus;
+  bool get hasTextFormFieldEnable;
   @JsonKey(ignore: true)
   _$$_BidRequestCancelEventCopyWith<_$_BidRequestCancelEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -577,7 +884,14 @@ abstract class _$$_UpdateBidStatusEventCopyWith<$Res> {
           $Res Function(_$_UpdateBidStatusEvent) then) =
       __$$_UpdateBidStatusEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({BidStatus bidEnum, String name});
+  $Res call(
+      {AsyncBtnStatesController? asyncSubmitButtonStatesController,
+      BidStatus bidEnum,
+      String name,
+      AsyncBtnState buttonState,
+      dynamic data,
+      BidStatus currentBidStatus,
+      bool hasTextFormFieldEnable});
 }
 
 /// @nodoc
@@ -591,10 +905,19 @@ class __$$_UpdateBidStatusEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? asyncSubmitButtonStatesController = freezed,
     Object? bidEnum = null,
     Object? name = null,
+    Object? buttonState = null,
+    Object? data = freezed,
+    Object? currentBidStatus = null,
+    Object? hasTextFormFieldEnable = null,
   }) {
     return _then(_$_UpdateBidStatusEvent(
+      freezed == asyncSubmitButtonStatesController
+          ? _value.asyncSubmitButtonStatesController
+          : asyncSubmitButtonStatesController // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnStatesController?,
       bidEnum: null == bidEnum
           ? _value.bidEnum
           : bidEnum // ignore: cast_nullable_to_non_nullable
@@ -603,6 +926,22 @@ class __$$_UpdateBidStatusEventCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnState,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      currentBidStatus: null == currentBidStatus
+          ? _value.currentBidStatus
+          : currentBidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      hasTextFormFieldEnable: null == hasTextFormFieldEnable
+          ? _value.hasTextFormFieldEnable
+          : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -610,19 +949,37 @@ class __$$_UpdateBidStatusEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
-  const _$_UpdateBidStatusEvent(
-      {this.bidEnum = BidStatus.pending, this.name = 'Create Bid'});
+  const _$_UpdateBidStatusEvent(this.asyncSubmitButtonStatesController,
+      {this.bidEnum = BidStatus.pending,
+      this.name = 'Create Bid',
+      this.buttonState = AsyncBtnState.idle,
+      this.data,
+      this.currentBidStatus = BidStatus.create,
+      this.hasTextFormFieldEnable = false});
 
+  @override
+  final AsyncBtnStatesController? asyncSubmitButtonStatesController;
   @override
   @JsonKey()
   final BidStatus bidEnum;
   @override
   @JsonKey()
   final String name;
+  @override
+  @JsonKey()
+  final AsyncBtnState buttonState;
+  @override
+  final dynamic data;
+  @override
+  @JsonKey()
+  final BidStatus currentBidStatus;
+  @override
+  @JsonKey()
+  final bool hasTextFormFieldEnable;
 
   @override
   String toString() {
-    return 'BidRequestEvent.updateBidStatusEvent(bidEnum: $bidEnum, name: $name)';
+    return 'BidRequestEvent.updateBidStatusEvent(asyncSubmitButtonStatesController: $asyncSubmitButtonStatesController, bidEnum: $bidEnum, name: $name, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
   }
 
   @override
@@ -630,12 +987,31 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateBidStatusEvent &&
+            (identical(other.asyncSubmitButtonStatesController,
+                    asyncSubmitButtonStatesController) ||
+                other.asyncSubmitButtonStatesController ==
+                    asyncSubmitButtonStatesController) &&
             (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.buttonState, buttonState) ||
+                other.buttonState == buttonState) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            (identical(other.currentBidStatus, currentBidStatus) ||
+                other.currentBidStatus == currentBidStatus) &&
+            (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bidEnum, name);
+  int get hashCode => Object.hash(
+      runtimeType,
+      asyncSubmitButtonStatesController,
+      bidEnum,
+      name,
+      buttonState,
+      const DeepCollectionEquality().hash(data),
+      currentBidStatus,
+      hasTextFormFieldEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -648,43 +1024,101 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateBidEntity bidEntity)
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
         createAndUpdateBidEvent,
-    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
-    required TResult Function(BidStatus bidEnum, String name)
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
   }) {
-    return updateBidStatusEvent(bidEnum, name);
+    return updateBidStatusEvent(asyncSubmitButtonStatesController, bidEnum,
+        name, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
   }) {
-    return updateBidStatusEvent?.call(bidEnum, name);
+    return updateBidStatusEvent?.call(
+        asyncSubmitButtonStatesController,
+        bidEnum,
+        name,
+        buttonState,
+        data,
+        currentBidStatus,
+        hasTextFormFieldEnable);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (updateBidStatusEvent != null) {
-      return updateBidStatusEvent(bidEnum, name);
+      return updateBidStatusEvent(asyncSubmitButtonStatesController, bidEnum,
+          name, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
     }
     return orElse();
   }
@@ -737,10 +1171,21 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
 
 abstract class _UpdateBidStatusEvent implements BidRequestEvent {
   const factory _UpdateBidStatusEvent(
-      {final BidStatus bidEnum, final String name}) = _$_UpdateBidStatusEvent;
+      final AsyncBtnStatesController? asyncSubmitButtonStatesController,
+      {final BidStatus bidEnum,
+      final String name,
+      final AsyncBtnState buttonState,
+      final dynamic data,
+      final BidStatus currentBidStatus,
+      final bool hasTextFormFieldEnable}) = _$_UpdateBidStatusEvent;
 
+  AsyncBtnStatesController? get asyncSubmitButtonStatesController;
   BidStatus get bidEnum;
   String get name;
+  AsyncBtnState get buttonState;
+  dynamic get data;
+  BidStatus get currentBidStatus;
+  bool get hasTextFormFieldEnable;
   @JsonKey(ignore: true)
   _$$_UpdateBidStatusEventCopyWith<_$_UpdateBidStatusEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -818,10 +1263,25 @@ class _$_SetCurrentTextOfAcceptButtonEvent
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(CreateBidEntity bidEntity)
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
         createAndUpdateBidEvent,
-    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
-    required TResult Function(BidStatus bidEnum, String name)
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -833,9 +1293,26 @@ class _$_SetCurrentTextOfAcceptButtonEvent
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
   }) {
@@ -846,9 +1323,26 @@ class _$_SetCurrentTextOfAcceptButtonEvent
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
-    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -925,11 +1419,31 @@ mixin _$BidRequestState {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) =>
@@ -939,11 +1453,31 @@ mixin _$BidRequestState {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) =>
@@ -953,11 +1487,31 @@ mixin _$BidRequestState {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -1061,11 +1615,31 @@ class _$_Initial extends _Initial {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
@@ -1078,11 +1652,31 @@ class _$_Initial extends _Initial {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
@@ -1095,11 +1689,31 @@ class _$_Initial extends _Initial {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -1256,11 +1870,31 @@ class _$_Loading extends _Loading {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
@@ -1273,11 +1907,31 @@ class _$_Loading extends _Loading {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
@@ -1290,11 +1944,31 @@ class _$_Loading extends _Loading {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -1376,7 +2050,13 @@ abstract class _$$_CreateAndUpdateBidCopyWith<$Res> {
           $Res Function(_$_CreateAndUpdateBid) then) =
       __$$_CreateAndUpdateBidCopyWithImpl<$Res>;
   @useResult
-  $Res call({CreateBidResponseModel createBidResponseModel, BidStatus bidEnum});
+  $Res call(
+      {CreateBidResponseModel createBidResponseModel,
+      BidStatus bidEnum,
+      AsyncBtnState buttonState,
+      dynamic data,
+      BidStatus currentBidStatus,
+      bool hasTextFormFieldEnable});
 
   $CreateBidResponseModelCopyWith<$Res> get createBidResponseModel;
 }
@@ -1394,6 +2074,10 @@ class __$$_CreateAndUpdateBidCopyWithImpl<$Res>
   $Res call({
     Object? createBidResponseModel = null,
     Object? bidEnum = null,
+    Object? buttonState = null,
+    Object? data = freezed,
+    Object? currentBidStatus = null,
+    Object? hasTextFormFieldEnable = null,
   }) {
     return _then(_$_CreateAndUpdateBid(
       null == createBidResponseModel
@@ -1404,6 +2088,22 @@ class __$$_CreateAndUpdateBidCopyWithImpl<$Res>
           ? _value.bidEnum
           : bidEnum // ignore: cast_nullable_to_non_nullable
               as BidStatus,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnState,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      currentBidStatus: null == currentBidStatus
+          ? _value.currentBidStatus
+          : currentBidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      hasTextFormFieldEnable: null == hasTextFormFieldEnable
+          ? _value.hasTextFormFieldEnable
+          : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -1421,7 +2121,11 @@ class __$$_CreateAndUpdateBidCopyWithImpl<$Res>
 
 class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
   const _$_CreateAndUpdateBid(this.createBidResponseModel,
-      {this.bidEnum = BidStatus.create})
+      {this.bidEnum = BidStatus.create,
+      this.buttonState = AsyncBtnState.idle,
+      this.data,
+      this.currentBidStatus = BidStatus.create,
+      this.hasTextFormFieldEnable = false})
       : super._();
 
   @override
@@ -1429,10 +2133,21 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
   @override
   @JsonKey()
   final BidStatus bidEnum;
+  @override
+  @JsonKey()
+  final AsyncBtnState buttonState;
+  @override
+  final dynamic data;
+  @override
+  @JsonKey()
+  final BidStatus currentBidStatus;
+  @override
+  @JsonKey()
+  final bool hasTextFormFieldEnable;
 
   @override
   String toString() {
-    return 'BidRequestState.createAndUpdateBid(createBidResponseModel: $createBidResponseModel, bidEnum: $bidEnum)';
+    return 'BidRequestState.createAndUpdateBid(createBidResponseModel: $createBidResponseModel, bidEnum: $bidEnum, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
   }
 
   @override
@@ -1442,11 +2157,25 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
             other is _$_CreateAndUpdateBid &&
             (identical(other.createBidResponseModel, createBidResponseModel) ||
                 other.createBidResponseModel == createBidResponseModel) &&
-            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
+            (identical(other.buttonState, buttonState) ||
+                other.buttonState == buttonState) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            (identical(other.currentBidStatus, currentBidStatus) ||
+                other.currentBidStatus == currentBidStatus) &&
+            (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, createBidResponseModel, bidEnum);
+  int get hashCode => Object.hash(
+      runtimeType,
+      createBidResponseModel,
+      bidEnum,
+      buttonState,
+      const DeepCollectionEquality().hash(data),
+      currentBidStatus,
+      hasTextFormFieldEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -1462,15 +2191,36 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
-    return createAndUpdateBid(createBidResponseModel, bidEnum);
+    return createAndUpdateBid(createBidResponseModel, bidEnum, buttonState,
+        data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
@@ -1479,15 +2229,36 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
-    return createAndUpdateBid?.call(createBidResponseModel, bidEnum);
+    return createAndUpdateBid?.call(createBidResponseModel, bidEnum,
+        buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
@@ -1496,17 +2267,38 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (createAndUpdateBid != null) {
-      return createAndUpdateBid(createBidResponseModel, bidEnum);
+      return createAndUpdateBid(createBidResponseModel, bidEnum, buttonState,
+          data, currentBidStatus, hasTextFormFieldEnable);
     }
     return orElse();
   }
@@ -1564,11 +2356,19 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
 abstract class _CreateAndUpdateBid extends BidRequestState {
   const factory _CreateAndUpdateBid(
       final CreateBidResponseModel createBidResponseModel,
-      {final BidStatus bidEnum}) = _$_CreateAndUpdateBid;
+      {final BidStatus bidEnum,
+      final AsyncBtnState buttonState,
+      final dynamic data,
+      final BidStatus currentBidStatus,
+      final bool hasTextFormFieldEnable}) = _$_CreateAndUpdateBid;
   const _CreateAndUpdateBid._() : super._();
 
   CreateBidResponseModel get createBidResponseModel;
   BidStatus get bidEnum;
+  AsyncBtnState get buttonState;
+  dynamic get data;
+  BidStatus get currentBidStatus;
+  bool get hasTextFormFieldEnable;
   @JsonKey(ignore: true)
   _$$_CreateAndUpdateBidCopyWith<_$_CreateAndUpdateBid> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1661,11 +2461,31 @@ class _$_DOrError extends _DOrError {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
@@ -1678,11 +2498,31 @@ class _$_DOrError extends _DOrError {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
@@ -1695,11 +2535,31 @@ class _$_DOrError extends _DOrError {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
@@ -1778,7 +2638,13 @@ abstract class _$$_BidRequestCancelCopyWith<$Res> {
           _$_BidRequestCancel value, $Res Function(_$_BidRequestCancel) then) =
       __$$_BidRequestCancelCopyWithImpl<$Res>;
   @useResult
-  $Res call({BidStatus bidEnum});
+  $Res call(
+      {AsyncBtnStatesController? asyncCancelButtonStatesController,
+      BidStatus bidEnum,
+      AsyncBtnState buttonState,
+      dynamic data,
+      BidStatus currentBidStatus,
+      bool hasTextFormFieldEnable});
 }
 
 /// @nodoc
@@ -1792,13 +2658,38 @@ class __$$_BidRequestCancelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? asyncCancelButtonStatesController = freezed,
     Object? bidEnum = null,
+    Object? buttonState = null,
+    Object? data = freezed,
+    Object? currentBidStatus = null,
+    Object? hasTextFormFieldEnable = null,
   }) {
     return _then(_$_BidRequestCancel(
+      freezed == asyncCancelButtonStatesController
+          ? _value.asyncCancelButtonStatesController
+          : asyncCancelButtonStatesController // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnStatesController?,
       bidEnum: null == bidEnum
           ? _value.bidEnum
           : bidEnum // ignore: cast_nullable_to_non_nullable
               as BidStatus,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnState,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      currentBidStatus: null == currentBidStatus
+          ? _value.currentBidStatus
+          : currentBidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      hasTextFormFieldEnable: null == hasTextFormFieldEnable
+          ? _value.hasTextFormFieldEnable
+          : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1806,16 +2697,34 @@ class __$$_BidRequestCancelCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_BidRequestCancel extends _BidRequestCancel {
-  const _$_BidRequestCancel({this.bidEnum = BidStatus.requestCancelByDriver})
+  const _$_BidRequestCancel(this.asyncCancelButtonStatesController,
+      {this.bidEnum = BidStatus.requestCancelByDriver,
+      this.buttonState = AsyncBtnState.idle,
+      this.data,
+      this.currentBidStatus = BidStatus.create,
+      this.hasTextFormFieldEnable = false})
       : super._();
 
   @override
+  final AsyncBtnStatesController? asyncCancelButtonStatesController;
+  @override
   @JsonKey()
   final BidStatus bidEnum;
+  @override
+  @JsonKey()
+  final AsyncBtnState buttonState;
+  @override
+  final dynamic data;
+  @override
+  @JsonKey()
+  final BidStatus currentBidStatus;
+  @override
+  @JsonKey()
+  final bool hasTextFormFieldEnable;
 
   @override
   String toString() {
-    return 'BidRequestState.bidRequestCancel(bidEnum: $bidEnum)';
+    return 'BidRequestState.bidRequestCancel(asyncCancelButtonStatesController: $asyncCancelButtonStatesController, bidEnum: $bidEnum, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
   }
 
   @override
@@ -1823,11 +2732,29 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_BidRequestCancel &&
-            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
+            (identical(other.asyncCancelButtonStatesController,
+                    asyncCancelButtonStatesController) ||
+                other.asyncCancelButtonStatesController ==
+                    asyncCancelButtonStatesController) &&
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
+            (identical(other.buttonState, buttonState) ||
+                other.buttonState == buttonState) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            (identical(other.currentBidStatus, currentBidStatus) ||
+                other.currentBidStatus == currentBidStatus) &&
+            (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bidEnum);
+  int get hashCode => Object.hash(
+      runtimeType,
+      asyncCancelButtonStatesController,
+      bidEnum,
+      buttonState,
+      const DeepCollectionEquality().hash(data),
+      currentBidStatus,
+      hasTextFormFieldEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -1842,15 +2769,36 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
-    return bidRequestCancel(bidEnum);
+    return bidRequestCancel(asyncCancelButtonStatesController, bidEnum,
+        buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
@@ -1859,15 +2807,36 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
-    return bidRequestCancel?.call(bidEnum);
+    return bidRequestCancel?.call(asyncCancelButtonStatesController, bidEnum,
+        buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
@@ -1876,17 +2845,38 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (bidRequestCancel != null) {
-      return bidRequestCancel(bidEnum);
+      return bidRequestCancel(asyncCancelButtonStatesController, bidEnum,
+          buttonState, data, currentBidStatus, hasTextFormFieldEnable);
     }
     return orElse();
   }
@@ -1942,11 +2932,21 @@ class _$_BidRequestCancel extends _BidRequestCancel {
 }
 
 abstract class _BidRequestCancel extends BidRequestState {
-  const factory _BidRequestCancel({final BidStatus bidEnum}) =
-      _$_BidRequestCancel;
+  const factory _BidRequestCancel(
+      final AsyncBtnStatesController? asyncCancelButtonStatesController,
+      {final BidStatus bidEnum,
+      final AsyncBtnState buttonState,
+      final dynamic data,
+      final BidStatus currentBidStatus,
+      final bool hasTextFormFieldEnable}) = _$_BidRequestCancel;
   const _BidRequestCancel._() : super._();
 
+  AsyncBtnStatesController? get asyncCancelButtonStatesController;
   BidStatus get bidEnum;
+  AsyncBtnState get buttonState;
+  dynamic get data;
+  BidStatus get currentBidStatus;
+  bool get hasTextFormFieldEnable;
   @JsonKey(ignore: true)
   _$$_BidRequestCancelCopyWith<_$_BidRequestCancel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1958,7 +2958,14 @@ abstract class _$$_UpdateBidStatusCopyWith<$Res> {
           _$_UpdateBidStatus value, $Res Function(_$_UpdateBidStatus) then) =
       __$$_UpdateBidStatusCopyWithImpl<$Res>;
   @useResult
-  $Res call({BidStatus bidEnum, String name});
+  $Res call(
+      {AsyncBtnStatesController? asyncSubmitButtonStatesController,
+      BidStatus bidEnum,
+      String name,
+      AsyncBtnState buttonState,
+      dynamic data,
+      BidStatus currentBidStatus,
+      bool hasTextFormFieldEnable});
 }
 
 /// @nodoc
@@ -1972,10 +2979,19 @@ class __$$_UpdateBidStatusCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? asyncSubmitButtonStatesController = freezed,
     Object? bidEnum = null,
     Object? name = null,
+    Object? buttonState = null,
+    Object? data = freezed,
+    Object? currentBidStatus = null,
+    Object? hasTextFormFieldEnable = null,
   }) {
     return _then(_$_UpdateBidStatus(
+      freezed == asyncSubmitButtonStatesController
+          ? _value.asyncSubmitButtonStatesController
+          : asyncSubmitButtonStatesController // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnStatesController?,
       bidEnum: null == bidEnum
           ? _value.bidEnum
           : bidEnum // ignore: cast_nullable_to_non_nullable
@@ -1984,6 +3000,22 @@ class __$$_UpdateBidStatusCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      buttonState: null == buttonState
+          ? _value.buttonState
+          : buttonState // ignore: cast_nullable_to_non_nullable
+              as AsyncBtnState,
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      currentBidStatus: null == currentBidStatus
+          ? _value.currentBidStatus
+          : currentBidStatus // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      hasTextFormFieldEnable: null == hasTextFormFieldEnable
+          ? _value.hasTextFormFieldEnable
+          : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1991,20 +3023,38 @@ class __$$_UpdateBidStatusCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_UpdateBidStatus extends _UpdateBidStatus {
-  const _$_UpdateBidStatus(
-      {this.bidEnum = BidStatus.pending, this.name = 'Create Bid'})
+  const _$_UpdateBidStatus(this.asyncSubmitButtonStatesController,
+      {this.bidEnum = BidStatus.pending,
+      this.name = 'Create Bid',
+      this.buttonState = AsyncBtnState.idle,
+      this.data,
+      this.currentBidStatus = BidStatus.create,
+      this.hasTextFormFieldEnable = false})
       : super._();
 
+  @override
+  final AsyncBtnStatesController? asyncSubmitButtonStatesController;
   @override
   @JsonKey()
   final BidStatus bidEnum;
   @override
   @JsonKey()
   final String name;
+  @override
+  @JsonKey()
+  final AsyncBtnState buttonState;
+  @override
+  final dynamic data;
+  @override
+  @JsonKey()
+  final BidStatus currentBidStatus;
+  @override
+  @JsonKey()
+  final bool hasTextFormFieldEnable;
 
   @override
   String toString() {
-    return 'BidRequestState.updateBidStatus(bidEnum: $bidEnum, name: $name)';
+    return 'BidRequestState.updateBidStatus(asyncSubmitButtonStatesController: $asyncSubmitButtonStatesController, bidEnum: $bidEnum, name: $name, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
   }
 
   @override
@@ -2012,12 +3062,31 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UpdateBidStatus &&
+            (identical(other.asyncSubmitButtonStatesController,
+                    asyncSubmitButtonStatesController) ||
+                other.asyncSubmitButtonStatesController ==
+                    asyncSubmitButtonStatesController) &&
             (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.buttonState, buttonState) ||
+                other.buttonState == buttonState) &&
+            const DeepCollectionEquality().equals(other.data, data) &&
+            (identical(other.currentBidStatus, currentBidStatus) ||
+                other.currentBidStatus == currentBidStatus) &&
+            (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bidEnum, name);
+  int get hashCode => Object.hash(
+      runtimeType,
+      asyncSubmitButtonStatesController,
+      bidEnum,
+      name,
+      buttonState,
+      const DeepCollectionEquality().hash(data),
+      currentBidStatus,
+      hasTextFormFieldEnable);
 
   @JsonKey(ignore: true)
   @override
@@ -2032,15 +3101,36 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
-    return updateBidStatus(bidEnum, name);
+    return updateBidStatus(asyncSubmitButtonStatesController, bidEnum, name,
+        buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
@@ -2049,15 +3139,36 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
-    return updateBidStatus?.call(bidEnum, name);
+    return updateBidStatus?.call(asyncSubmitButtonStatesController, bidEnum,
+        name, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
   }
 
   @override
@@ -2066,17 +3177,38 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (updateBidStatus != null) {
-      return updateBidStatus(bidEnum, name);
+      return updateBidStatus(asyncSubmitButtonStatesController, bidEnum, name,
+          buttonState, data, currentBidStatus, hasTextFormFieldEnable);
     }
     return orElse();
   }
@@ -2132,12 +3264,23 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
 }
 
 abstract class _UpdateBidStatus extends BidRequestState {
-  const factory _UpdateBidStatus({final BidStatus bidEnum, final String name}) =
-      _$_UpdateBidStatus;
+  const factory _UpdateBidStatus(
+      final AsyncBtnStatesController? asyncSubmitButtonStatesController,
+      {final BidStatus bidEnum,
+      final String name,
+      final AsyncBtnState buttonState,
+      final dynamic data,
+      final BidStatus currentBidStatus,
+      final bool hasTextFormFieldEnable}) = _$_UpdateBidStatus;
   const _UpdateBidStatus._() : super._();
 
+  AsyncBtnStatesController? get asyncSubmitButtonStatesController;
   BidStatus get bidEnum;
   String get name;
+  AsyncBtnState get buttonState;
+  dynamic get data;
+  BidStatus get currentBidStatus;
+  bool get hasTextFormFieldEnable;
   @JsonKey(ignore: true)
   _$$_UpdateBidStatusCopyWith<_$_UpdateBidStatus> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2219,11 +3362,31 @@ class _$_GetCurrentTextOfAcceptButtonEvent
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
     required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
-    required TResult Function(BidStatus bidEnum) bidRequestCancel,
-    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
   }) {
@@ -2236,11 +3399,31 @@ class _$_GetCurrentTextOfAcceptButtonEvent
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
-    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
   }) {
@@ -2253,11 +3436,31 @@ class _$_GetCurrentTextOfAcceptButtonEvent
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
     TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
-    TResult Function(BidStatus bidEnum)? bidRequestCancel,
-    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
     required TResult orElse(),

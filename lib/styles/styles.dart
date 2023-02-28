@@ -29,6 +29,7 @@ Color page = const Color(0xffFFFFFF);
 // Color buttonColor = const Color(0xffFCB13D);
 Color buttonColor = Colors.red;
 Color acceptButtonColor = const Color(0xff39BF4E);
+Color acceptButtonLoadingColor = const Color(0xff39BF4E).withOpacity(0.6);
 Color buttonText = const Color(0xffFFFFFF);
 Color inputFieldSeparator = const Color(0xff1DA1F2);
 Color termsCheckBox = const Color(0xff39BF4E);
