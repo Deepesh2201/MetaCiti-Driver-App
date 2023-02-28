@@ -1,0 +1,19 @@
+{
+  "@@locale": "et",
+  "requiredErrorText": "See väli ei tohi olla tühi.",
+  "equalErrorText": "See väärtus peab olema {value}.",
+  "notEqualErrorText": "See väärtus ei tohi olla {value}.",
+  "minErrorText": "Väärtus peab olema vähemalt {min}.",
+  "minLengthErrorText": "Sisendi pikkus peab olema vähemalt {minLength}",
+  "maxErrorText": "Väärtus ei tohi olla üle {max}",
+  "maxLengthErrorText": "Sisendi pikkus ei tohi olla üle {maxLength}",
+  "minWordsCountErrorText": "Väärtuse sõnade arv peab olema suurem kui {minWordsCount}",
+  "maxWordsCountErrorText": "Väärtuses peab olema sõnade arv vähem või võrdne {maxWordsCount}",
+  "urlErrorText": "Sellele väljale tuleb sisestada korrektne URL.",
+  "matchErrorText": "Sisend ei vasta mustrile.",
+  "numericErrorText": "Sisend peab olema arv.",
+  "integerErrorText": "Sisend peab olema täisarv.",
+  "creditCardErrorText": "Sellele väljale tuleb sisestada korrektne krediitkaardi number.",
+  "ipErrorText": "Sellele väljale tuleb sisestada korrektne IP-aadress.",
+  "dateStringErrorText": "Sellele väljale tuleb sisestada korrektne kuupäev."
+}

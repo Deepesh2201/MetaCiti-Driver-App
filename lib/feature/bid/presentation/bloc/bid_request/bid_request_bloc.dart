@@ -22,17 +22,32 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
     on<BidRequestEvent>((event, emit) {
       event.when(
         started: () {},
-        createAndUpdateBidEvent: (bidEntity) async{
-          final result=await createBidUseCase.call(bidEntity);
-         return result.fold((failure) {
-           var failureMessage=parseFailure(failure);
-           emit(BidRequestState.error(failure));
-           return;
-         }, (r) {
-          emit(BidRequestState.createAndUpdateBid(r));
-         });
+        createAndUpdateBidEvent: (bidEntity) async {
+          final result = await createBidUseCase.call(bidEntity);
+          return result.fold((failure) {
+            var failureMessage = parseFailure(failure);
+            emit(BidRequestState.error(failure));
+            return;
+          }, (r) {
+            emit(BidRequestState.createAndUpdateBid(r));
+            return;
+          });
+        },
+        bidRequestCancelEvent: (bidEnum) {
+          emit(BidRequestState.bidRequestCancel(bidEnum: bidEnum));
+          return;
+        },
+        updateBidStatusEvent: (bidEnum, name) {
+          emit(BidRequestState.updateBidStatus(bidEnum: bidEnum, name: name));
+          return;
+        },
+        setCurrentTextOfAcceptButton: (setTextWithBidStatus) {
+          emit(BidRequestState.getCurrentTextOfAcceptButton(
+              setTextWithBidStatus));
+          return;
         },
       );
     });
+    return;
   }
 }

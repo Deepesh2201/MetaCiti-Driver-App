@@ -174,7 +174,7 @@ class _$_CreateBidResponseModel implements _CreateBidResponseModel {
       {@JsonKey(name: 'success') this.success,
       @JsonKey(name: 'message') this.message,
       @JsonKey(name: 'data') this.data,
-      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.Create});
+      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.create});
 
   factory _$_CreateBidResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_CreateBidResponseModelFromJson(json);

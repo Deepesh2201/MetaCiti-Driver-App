@@ -1,0 +1,20 @@
+{
+  "@@locale": "pl",
+  "requiredErrorText": "To pole nie może być puste.",
+  "equalErrorText": "Wartość tego pola musi wynosić {value}.",
+  "notEqualErrorText": "Wartość tego pola nie może być {value}.",
+  "minErrorText": "Wartość musi być większa lub równa {min}.",
+  "minLengthErrorText": "Wartość musi mieć co najmniej {minLength} znaków.",
+  "minWordsCountErrorText": "Wartość musi mieć liczbę słów większą lub równą {minWordsCount}",
+  "maxErrorText": "Wartość musi być mniejsza lub równa {max}.",
+  "maxLengthErrorText": "Wartość nie może mieć więcej niż {maxLength} znaków.",
+  "maxWordsCountErrorText": "Wartość musi mieć liczbę słów mniejszych lub równych {maxWordsCount}",
+  "emailErrorText": "To pole wymaga prawidłowego adresu e-mail.",
+  "urlErrorText": "To pole wymaga prawidłowego adresu URL.",
+  "matchErrorText": "Wartość nie pasuje do oczekiwanego kształtu.",
+  "numericErrorText": "Wartość musi być liczbą.",
+  "integerErrorText": "Wartość musi być liczbą całkowitą.",
+  "creditCardErrorText": "To pole wymaga podania ważnego numeru karty kredytowej.",
+  "ipErrorText": "To pole wymaga prawidłowego adresu IP.",
+  "dateStringErrorText": "To pole wymaga prawidłowej daty."
+}

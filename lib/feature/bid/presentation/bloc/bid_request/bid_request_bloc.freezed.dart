@@ -21,18 +21,31 @@ mixin _$BidRequestEvent {
     required TResult Function() started,
     required TResult Function(CreateBidEntity bidEntity)
         createAndUpdateBidEvent,
+    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
+    required TResult Function(BidStatus bidEnum, String name)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -41,18 +54,31 @@ mixin _$BidRequestEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_CreateAndUpdateBidEvent value)
         createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +142,11 @@ class _$_Started implements _Started {
     required TResult Function() started,
     required TResult Function(CreateBidEntity bidEntity)
         createAndUpdateBidEvent,
+    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
+    required TResult Function(BidStatus bidEnum, String name)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
   }) {
     return started();
   }
@@ -125,6 +156,10 @@ class _$_Started implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
   }) {
     return started?.call();
   }
@@ -134,6 +169,10 @@ class _$_Started implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -148,6 +187,11 @@ class _$_Started implements _Started {
     required TResult Function(_Started value) started,
     required TResult Function(_CreateAndUpdateBidEvent value)
         createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
   }) {
     return started(this);
   }
@@ -157,6 +201,10 @@ class _$_Started implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
   }) {
     return started?.call(this);
   }
@@ -166,6 +214,10 @@ class _$_Started implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -259,6 +311,11 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
     required TResult Function() started,
     required TResult Function(CreateBidEntity bidEntity)
         createAndUpdateBidEvent,
+    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
+    required TResult Function(BidStatus bidEnum, String name)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBidEvent(bidEntity);
   }
@@ -268,6 +325,10 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBidEvent?.call(bidEntity);
   }
@@ -277,6 +338,10 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (createAndUpdateBidEvent != null) {
@@ -291,6 +356,11 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
     required TResult Function(_Started value) started,
     required TResult Function(_CreateAndUpdateBidEvent value)
         createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBidEvent(this);
   }
@@ -300,6 +370,10 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBidEvent?.call(this);
   }
@@ -309,6 +383,10 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (createAndUpdateBidEvent != null) {
@@ -329,82 +407,611 @@ abstract class _CreateAndUpdateBidEvent implements BidRequestEvent {
 }
 
 /// @nodoc
-mixin _$BidRequestState<T> {
+abstract class _$$_BidRequestCancelEventCopyWith<$Res> {
+  factory _$$_BidRequestCancelEventCopyWith(_$_BidRequestCancelEvent value,
+          $Res Function(_$_BidRequestCancelEvent) then) =
+      __$$_BidRequestCancelEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BidStatus bidEnum});
+}
+
+/// @nodoc
+class __$$_BidRequestCancelEventCopyWithImpl<$Res>
+    extends _$BidRequestEventCopyWithImpl<$Res, _$_BidRequestCancelEvent>
+    implements _$$_BidRequestCancelEventCopyWith<$Res> {
+  __$$_BidRequestCancelEventCopyWithImpl(_$_BidRequestCancelEvent _value,
+      $Res Function(_$_BidRequestCancelEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bidEnum = null,
+  }) {
+    return _then(_$_BidRequestCancelEvent(
+      bidEnum: null == bidEnum
+          ? _value.bidEnum
+          : bidEnum // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
+  const _$_BidRequestCancelEvent(
+      {this.bidEnum = BidStatus.requestCancelByDriver});
+
+  @override
+  @JsonKey()
+  final BidStatus bidEnum;
+
+  @override
+  String toString() {
+    return 'BidRequestEvent.bidRequestCancelEvent(bidEnum: $bidEnum)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BidRequestCancelEvent &&
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, bidEnum);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BidRequestCancelEventCopyWith<_$_BidRequestCancelEvent> get copyWith =>
+      __$$_BidRequestCancelEventCopyWithImpl<_$_BidRequestCancelEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CreateBidEntity bidEntity)
+        createAndUpdateBidEvent,
+    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
+    required TResult Function(BidStatus bidEnum, String name)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancelEvent(bidEnum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancelEvent?.call(bidEnum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (bidRequestCancelEvent != null) {
+      return bidRequestCancelEvent(bidEnum);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAndUpdateBidEvent value)
+        createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancelEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancelEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (bidRequestCancelEvent != null) {
+      return bidRequestCancelEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BidRequestCancelEvent implements BidRequestEvent {
+  const factory _BidRequestCancelEvent({final BidStatus bidEnum}) =
+      _$_BidRequestCancelEvent;
+
+  BidStatus get bidEnum;
+  @JsonKey(ignore: true)
+  _$$_BidRequestCancelEventCopyWith<_$_BidRequestCancelEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateBidStatusEventCopyWith<$Res> {
+  factory _$$_UpdateBidStatusEventCopyWith(_$_UpdateBidStatusEvent value,
+          $Res Function(_$_UpdateBidStatusEvent) then) =
+      __$$_UpdateBidStatusEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BidStatus bidEnum, String name});
+}
+
+/// @nodoc
+class __$$_UpdateBidStatusEventCopyWithImpl<$Res>
+    extends _$BidRequestEventCopyWithImpl<$Res, _$_UpdateBidStatusEvent>
+    implements _$$_UpdateBidStatusEventCopyWith<$Res> {
+  __$$_UpdateBidStatusEventCopyWithImpl(_$_UpdateBidStatusEvent _value,
+      $Res Function(_$_UpdateBidStatusEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bidEnum = null,
+    Object? name = null,
+  }) {
+    return _then(_$_UpdateBidStatusEvent(
+      bidEnum: null == bidEnum
+          ? _value.bidEnum
+          : bidEnum // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
+  const _$_UpdateBidStatusEvent(
+      {this.bidEnum = BidStatus.pending, this.name = 'Create Bid'});
+
+  @override
+  @JsonKey()
+  final BidStatus bidEnum;
+  @override
+  @JsonKey()
+  final String name;
+
+  @override
+  String toString() {
+    return 'BidRequestEvent.updateBidStatusEvent(bidEnum: $bidEnum, name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateBidStatusEvent &&
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, bidEnum, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateBidStatusEventCopyWith<_$_UpdateBidStatusEvent> get copyWith =>
+      __$$_UpdateBidStatusEventCopyWithImpl<_$_UpdateBidStatusEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CreateBidEntity bidEntity)
+        createAndUpdateBidEvent,
+    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
+    required TResult Function(BidStatus bidEnum, String name)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatusEvent(bidEnum, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatusEvent?.call(bidEnum, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (updateBidStatusEvent != null) {
+      return updateBidStatusEvent(bidEnum, name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAndUpdateBidEvent value)
+        createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatusEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatusEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (updateBidStatusEvent != null) {
+      return updateBidStatusEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateBidStatusEvent implements BidRequestEvent {
+  const factory _UpdateBidStatusEvent(
+      {final BidStatus bidEnum, final String name}) = _$_UpdateBidStatusEvent;
+
+  BidStatus get bidEnum;
+  String get name;
+  @JsonKey(ignore: true)
+  _$$_UpdateBidStatusEventCopyWith<_$_UpdateBidStatusEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetCurrentTextOfAcceptButtonEventCopyWith<$Res> {
+  factory _$$_SetCurrentTextOfAcceptButtonEventCopyWith(
+          _$_SetCurrentTextOfAcceptButtonEvent value,
+          $Res Function(_$_SetCurrentTextOfAcceptButtonEvent) then) =
+      __$$_SetCurrentTextOfAcceptButtonEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Tuple2<BidStatus, String> setTextWithBidStatus});
+}
+
+/// @nodoc
+class __$$_SetCurrentTextOfAcceptButtonEventCopyWithImpl<$Res>
+    extends _$BidRequestEventCopyWithImpl<$Res,
+        _$_SetCurrentTextOfAcceptButtonEvent>
+    implements _$$_SetCurrentTextOfAcceptButtonEventCopyWith<$Res> {
+  __$$_SetCurrentTextOfAcceptButtonEventCopyWithImpl(
+      _$_SetCurrentTextOfAcceptButtonEvent _value,
+      $Res Function(_$_SetCurrentTextOfAcceptButtonEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? setTextWithBidStatus = null,
+  }) {
+    return _then(_$_SetCurrentTextOfAcceptButtonEvent(
+      null == setTextWithBidStatus
+          ? _value.setTextWithBidStatus
+          : setTextWithBidStatus // ignore: cast_nullable_to_non_nullable
+              as Tuple2<BidStatus, String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetCurrentTextOfAcceptButtonEvent
+    implements _SetCurrentTextOfAcceptButtonEvent {
+  const _$_SetCurrentTextOfAcceptButtonEvent(this.setTextWithBidStatus);
+
+  @override
+  final Tuple2<BidStatus, String> setTextWithBidStatus;
+
+  @override
+  String toString() {
+    return 'BidRequestEvent.setCurrentTextOfAcceptButton(setTextWithBidStatus: $setTextWithBidStatus)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetCurrentTextOfAcceptButtonEvent &&
+            (identical(other.setTextWithBidStatus, setTextWithBidStatus) ||
+                other.setTextWithBidStatus == setTextWithBidStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, setTextWithBidStatus);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SetCurrentTextOfAcceptButtonEventCopyWith<
+          _$_SetCurrentTextOfAcceptButtonEvent>
+      get copyWith => __$$_SetCurrentTextOfAcceptButtonEventCopyWithImpl<
+          _$_SetCurrentTextOfAcceptButtonEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CreateBidEntity bidEntity)
+        createAndUpdateBidEvent,
+    required TResult Function(BidStatus bidEnum) bidRequestCancelEvent,
+    required TResult Function(BidStatus bidEnum, String name)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
+  }) {
+    return setCurrentTextOfAcceptButton(setTextWithBidStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+  }) {
+    return setCurrentTextOfAcceptButton?.call(setTextWithBidStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CreateBidEntity bidEntity)? createAndUpdateBidEvent,
+    TResult Function(BidStatus bidEnum)? bidRequestCancelEvent,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (setCurrentTextOfAcceptButton != null) {
+      return setCurrentTextOfAcceptButton(setTextWithBidStatus);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAndUpdateBidEvent value)
+        createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
+  }) {
+    return setCurrentTextOfAcceptButton(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+  }) {
+    return setCurrentTextOfAcceptButton?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (setCurrentTextOfAcceptButton != null) {
+      return setCurrentTextOfAcceptButton(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetCurrentTextOfAcceptButtonEvent implements BidRequestEvent {
+  const factory _SetCurrentTextOfAcceptButtonEvent(
+          final Tuple2<BidStatus, String> setTextWithBidStatus) =
+      _$_SetCurrentTextOfAcceptButtonEvent;
+
+  Tuple2<BidStatus, String> get setTextWithBidStatus;
+  @JsonKey(ignore: true)
+  _$$_SetCurrentTextOfAcceptButtonEventCopyWith<
+          _$_SetCurrentTextOfAcceptButtonEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$BidRequestState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
-    required TResult Function(T data, BidStatus bidEnum) data,
     required TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult? Function(T data, BidStatus bidEnum)? data,
     TResult? Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult Function(T data, BidStatus bidEnum)? data,
     TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_Loading<T> value) loading,
-    required TResult Function(_DataOrE<T> value) data,
-    required TResult Function(_CreateAndUpdateBid<T> value) createAndUpdateBid,
-    required TResult Function(_DOrError<T> value) error,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_Loading<T> value)? loading,
-    TResult? Function(_DataOrE<T> value)? data,
-    TResult? Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult? Function(_DOrError<T> value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_Loading<T> value)? loading,
-    TResult Function(_DataOrE<T> value)? data,
-    TResult Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult Function(_DOrError<T> value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BidRequestStateCopyWith<T, $Res> {
+abstract class $BidRequestStateCopyWith<$Res> {
   factory $BidRequestStateCopyWith(
-          BidRequestState<T> value, $Res Function(BidRequestState<T>) then) =
-      _$BidRequestStateCopyWithImpl<T, $Res, BidRequestState<T>>;
+          BidRequestState value, $Res Function(BidRequestState) then) =
+      _$BidRequestStateCopyWithImpl<$Res, BidRequestState>;
 }
 
 /// @nodoc
-class _$BidRequestStateCopyWithImpl<T, $Res, $Val extends BidRequestState<T>>
-    implements $BidRequestStateCopyWith<T, $Res> {
+class _$BidRequestStateCopyWithImpl<$Res, $Val extends BidRequestState>
+    implements $BidRequestStateCopyWith<$Res> {
   _$BidRequestStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -414,35 +1021,34 @@ class _$BidRequestStateCopyWithImpl<T, $Res, $Val extends BidRequestState<T>>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<T, $Res> {
+abstract class _$$_InitialCopyWith<$Res> {
   factory _$$_InitialCopyWith(
-          _$_Initial<T> value, $Res Function(_$_Initial<T>) then) =
-      __$$_InitialCopyWithImpl<T, $Res>;
+          _$_Initial value, $Res Function(_$_Initial) then) =
+      __$$_InitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<T, $Res>
-    extends _$BidRequestStateCopyWithImpl<T, $Res, _$_Initial<T>>
-    implements _$$_InitialCopyWith<T, $Res> {
-  __$$_InitialCopyWithImpl(
-      _$_Initial<T> _value, $Res Function(_$_Initial<T>) _then)
+class __$$_InitialCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res, _$_Initial>
+    implements _$$_InitialCopyWith<$Res> {
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Initial<T> extends _Initial<T> {
+class _$_Initial extends _Initial {
   const _$_Initial() : super._();
 
   @override
   String toString() {
-    return 'BidRequestState<$T>.initial()';
+    return 'BidRequestState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial<T>);
+        (other.runtimeType == runtimeType && other is _$_Initial);
   }
 
   @override
@@ -454,11 +1060,14 @@ class _$_Initial<T> extends _Initial<T> {
     required TResult Function() initial,
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
-    required TResult Function(T data, BidStatus bidEnum) data,
     required TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
   }) {
     return initial();
   }
@@ -468,11 +1077,14 @@ class _$_Initial<T> extends _Initial<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult? Function(T data, BidStatus bidEnum)? data,
     TResult? Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
   }) {
     return initial?.call();
   }
@@ -482,11 +1094,14 @@ class _$_Initial<T> extends _Initial<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult Function(T data, BidStatus bidEnum)? data,
     TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -498,11 +1113,14 @@ class _$_Initial<T> extends _Initial<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_Loading<T> value) loading,
-    required TResult Function(_DataOrE<T> value) data,
-    required TResult Function(_CreateAndUpdateBid<T> value) createAndUpdateBid,
-    required TResult Function(_DOrError<T> value) error,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
   }) {
     return initial(this);
   }
@@ -510,11 +1128,14 @@ class _$_Initial<T> extends _Initial<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_Loading<T> value)? loading,
-    TResult? Function(_DataOrE<T> value)? data,
-    TResult? Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult? Function(_DOrError<T> value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
   }) {
     return initial?.call(this);
   }
@@ -522,11 +1143,14 @@ class _$_Initial<T> extends _Initial<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_Loading<T> value)? loading,
-    TResult Function(_DataOrE<T> value)? data,
-    TResult Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult Function(_DOrError<T> value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -536,26 +1160,25 @@ class _$_Initial<T> extends _Initial<T> {
   }
 }
 
-abstract class _Initial<T> extends BidRequestState<T> {
-  const factory _Initial() = _$_Initial<T>;
+abstract class _Initial extends BidRequestState {
+  const factory _Initial() = _$_Initial;
   const _Initial._() : super._();
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<T, $Res> {
+abstract class _$$_LoadingCopyWith<$Res> {
   factory _$$_LoadingCopyWith(
-          _$_Loading<T> value, $Res Function(_$_Loading<T>) then) =
-      __$$_LoadingCopyWithImpl<T, $Res>;
+          _$_Loading value, $Res Function(_$_Loading) then) =
+      __$$_LoadingCopyWithImpl<$Res>;
   @useResult
   $Res call({BidStatus bidEnum, String text, bool isLoading});
 }
 
 /// @nodoc
-class __$$_LoadingCopyWithImpl<T, $Res>
-    extends _$BidRequestStateCopyWithImpl<T, $Res, _$_Loading<T>>
-    implements _$$_LoadingCopyWith<T, $Res> {
-  __$$_LoadingCopyWithImpl(
-      _$_Loading<T> _value, $Res Function(_$_Loading<T>) _then)
+class __$$_LoadingCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res, _$_Loading>
+    implements _$$_LoadingCopyWith<$Res> {
+  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -565,7 +1188,7 @@ class __$$_LoadingCopyWithImpl<T, $Res>
     Object? text = null,
     Object? isLoading = null,
   }) {
-    return _then(_$_Loading<T>(
+    return _then(_$_Loading(
       bidEnum: null == bidEnum
           ? _value.bidEnum
           : bidEnum // ignore: cast_nullable_to_non_nullable
@@ -584,9 +1207,9 @@ class __$$_LoadingCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_Loading<T> extends _Loading<T> {
+class _$_Loading extends _Loading {
   const _$_Loading(
-      {this.bidEnum = BidStatus.Create,
+      {this.bidEnum = BidStatus.create,
       this.text = "Please wait while you are processing...",
       this.isLoading = false})
       : super._();
@@ -603,14 +1226,14 @@ class _$_Loading<T> extends _Loading<T> {
 
   @override
   String toString() {
-    return 'BidRequestState<$T>.loading(bidEnum: $bidEnum, text: $text, isLoading: $isLoading)';
+    return 'BidRequestState.loading(bidEnum: $bidEnum, text: $text, isLoading: $isLoading)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loading<T> &&
+            other is _$_Loading &&
             (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.isLoading, isLoading) ||
@@ -623,8 +1246,8 @@ class _$_Loading<T> extends _Loading<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoadingCopyWith<T, _$_Loading<T>> get copyWith =>
-      __$$_LoadingCopyWithImpl<T, _$_Loading<T>>(this, _$identity);
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
+      __$$_LoadingCopyWithImpl<_$_Loading>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -632,11 +1255,14 @@ class _$_Loading<T> extends _Loading<T> {
     required TResult Function() initial,
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
-    required TResult Function(T data, BidStatus bidEnum) data,
     required TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
   }) {
     return loading(bidEnum, text, isLoading);
   }
@@ -646,11 +1272,14 @@ class _$_Loading<T> extends _Loading<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult? Function(T data, BidStatus bidEnum)? data,
     TResult? Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
   }) {
     return loading?.call(bidEnum, text, isLoading);
   }
@@ -660,11 +1289,14 @@ class _$_Loading<T> extends _Loading<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult Function(T data, BidStatus bidEnum)? data,
     TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -676,11 +1308,14 @@ class _$_Loading<T> extends _Loading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_Loading<T> value) loading,
-    required TResult Function(_DataOrE<T> value) data,
-    required TResult Function(_CreateAndUpdateBid<T> value) createAndUpdateBid,
-    required TResult Function(_DOrError<T> value) error,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
   }) {
     return loading(this);
   }
@@ -688,11 +1323,14 @@ class _$_Loading<T> extends _Loading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_Loading<T> value)? loading,
-    TResult? Function(_DataOrE<T> value)? data,
-    TResult? Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult? Function(_DOrError<T> value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
   }) {
     return loading?.call(this);
   }
@@ -700,11 +1338,14 @@ class _$_Loading<T> extends _Loading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_Loading<T> value)? loading,
-    TResult Function(_DataOrE<T> value)? data,
-    TResult Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult Function(_DOrError<T> value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -714,197 +1355,26 @@ class _$_Loading<T> extends _Loading<T> {
   }
 }
 
-abstract class _Loading<T> extends BidRequestState<T> {
+abstract class _Loading extends BidRequestState {
   const factory _Loading(
       {final BidStatus bidEnum,
       final String text,
-      final bool isLoading}) = _$_Loading<T>;
+      final bool isLoading}) = _$_Loading;
   const _Loading._() : super._();
 
   BidStatus get bidEnum;
   String get text;
   bool get isLoading;
   @JsonKey(ignore: true)
-  _$$_LoadingCopyWith<T, _$_Loading<T>> get copyWith =>
+  _$$_LoadingCopyWith<_$_Loading> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DataOrECopyWith<T, $Res> {
-  factory _$$_DataOrECopyWith(
-          _$_DataOrE<T> value, $Res Function(_$_DataOrE<T>) then) =
-      __$$_DataOrECopyWithImpl<T, $Res>;
-  @useResult
-  $Res call({T data, BidStatus bidEnum});
-}
-
-/// @nodoc
-class __$$_DataOrECopyWithImpl<T, $Res>
-    extends _$BidRequestStateCopyWithImpl<T, $Res, _$_DataOrE<T>>
-    implements _$$_DataOrECopyWith<T, $Res> {
-  __$$_DataOrECopyWithImpl(
-      _$_DataOrE<T> _value, $Res Function(_$_DataOrE<T>) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-    Object? bidEnum = null,
-  }) {
-    return _then(_$_DataOrE<T>(
-      freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T,
-      bidEnum: null == bidEnum
-          ? _value.bidEnum
-          : bidEnum // ignore: cast_nullable_to_non_nullable
-              as BidStatus,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_DataOrE<T> extends _DataOrE<T> {
-  const _$_DataOrE(this.data, {this.bidEnum = BidStatus.Create}) : super._();
-
-  @override
-  final T data;
-  @override
-  @JsonKey()
-  final BidStatus bidEnum;
-
-  @override
-  String toString() {
-    return 'BidRequestState<$T>.data(data: $data, bidEnum: $bidEnum)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DataOrE<T> &&
-            const DeepCollectionEquality().equals(other.data, data) &&
-            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(data), bidEnum);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_DataOrECopyWith<T, _$_DataOrE<T>> get copyWith =>
-      __$$_DataOrECopyWithImpl<T, _$_DataOrE<T>>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(BidStatus bidEnum, String text, bool isLoading)
-        loading,
-    required TResult Function(T data, BidStatus bidEnum) data,
-    required TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
-        createAndUpdateBid,
-    required TResult Function(Failure failure, BidStatus bidEnum) error,
-  }) {
-    return data(this.data, bidEnum);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult? Function(T data, BidStatus bidEnum)? data,
-    TResult? Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
-        createAndUpdateBid,
-    TResult? Function(Failure failure, BidStatus bidEnum)? error,
-  }) {
-    return data?.call(this.data, bidEnum);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult Function(T data, BidStatus bidEnum)? data,
-    TResult Function(
-            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
-        createAndUpdateBid,
-    TResult Function(Failure failure, BidStatus bidEnum)? error,
-    required TResult orElse(),
-  }) {
-    if (data != null) {
-      return data(this.data, bidEnum);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_Loading<T> value) loading,
-    required TResult Function(_DataOrE<T> value) data,
-    required TResult Function(_CreateAndUpdateBid<T> value) createAndUpdateBid,
-    required TResult Function(_DOrError<T> value) error,
-  }) {
-    return data(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_Loading<T> value)? loading,
-    TResult? Function(_DataOrE<T> value)? data,
-    TResult? Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult? Function(_DOrError<T> value)? error,
-  }) {
-    return data?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_Loading<T> value)? loading,
-    TResult Function(_DataOrE<T> value)? data,
-    TResult Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult Function(_DOrError<T> value)? error,
-    required TResult orElse(),
-  }) {
-    if (data != null) {
-      return data(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _DataOrE<T> extends BidRequestState<T> {
-  const factory _DataOrE(final T data, {final BidStatus bidEnum}) =
-      _$_DataOrE<T>;
-  const _DataOrE._() : super._();
-
-  T get data;
-  BidStatus get bidEnum;
-  @JsonKey(ignore: true)
-  _$$_DataOrECopyWith<T, _$_DataOrE<T>> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_CreateAndUpdateBidCopyWith<T, $Res> {
-  factory _$$_CreateAndUpdateBidCopyWith(_$_CreateAndUpdateBid<T> value,
-          $Res Function(_$_CreateAndUpdateBid<T>) then) =
-      __$$_CreateAndUpdateBidCopyWithImpl<T, $Res>;
+abstract class _$$_CreateAndUpdateBidCopyWith<$Res> {
+  factory _$$_CreateAndUpdateBidCopyWith(_$_CreateAndUpdateBid value,
+          $Res Function(_$_CreateAndUpdateBid) then) =
+      __$$_CreateAndUpdateBidCopyWithImpl<$Res>;
   @useResult
   $Res call({CreateBidResponseModel createBidResponseModel, BidStatus bidEnum});
 
@@ -912,11 +1382,11 @@ abstract class _$$_CreateAndUpdateBidCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class __$$_CreateAndUpdateBidCopyWithImpl<T, $Res>
-    extends _$BidRequestStateCopyWithImpl<T, $Res, _$_CreateAndUpdateBid<T>>
-    implements _$$_CreateAndUpdateBidCopyWith<T, $Res> {
-  __$$_CreateAndUpdateBidCopyWithImpl(_$_CreateAndUpdateBid<T> _value,
-      $Res Function(_$_CreateAndUpdateBid<T>) _then)
+class __$$_CreateAndUpdateBidCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res, _$_CreateAndUpdateBid>
+    implements _$$_CreateAndUpdateBidCopyWith<$Res> {
+  __$$_CreateAndUpdateBidCopyWithImpl(
+      _$_CreateAndUpdateBid _value, $Res Function(_$_CreateAndUpdateBid) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -925,7 +1395,7 @@ class __$$_CreateAndUpdateBidCopyWithImpl<T, $Res>
     Object? createBidResponseModel = null,
     Object? bidEnum = null,
   }) {
-    return _then(_$_CreateAndUpdateBid<T>(
+    return _then(_$_CreateAndUpdateBid(
       null == createBidResponseModel
           ? _value.createBidResponseModel
           : createBidResponseModel // ignore: cast_nullable_to_non_nullable
@@ -949,9 +1419,9 @@ class __$$_CreateAndUpdateBidCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
+class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
   const _$_CreateAndUpdateBid(this.createBidResponseModel,
-      {this.bidEnum = BidStatus.Create})
+      {this.bidEnum = BidStatus.create})
       : super._();
 
   @override
@@ -962,14 +1432,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
 
   @override
   String toString() {
-    return 'BidRequestState<$T>.createAndUpdateBid(createBidResponseModel: $createBidResponseModel, bidEnum: $bidEnum)';
+    return 'BidRequestState.createAndUpdateBid(createBidResponseModel: $createBidResponseModel, bidEnum: $bidEnum)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateAndUpdateBid<T> &&
+            other is _$_CreateAndUpdateBid &&
             (identical(other.createBidResponseModel, createBidResponseModel) ||
                 other.createBidResponseModel == createBidResponseModel) &&
             (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
@@ -981,8 +1451,8 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CreateAndUpdateBidCopyWith<T, _$_CreateAndUpdateBid<T>> get copyWith =>
-      __$$_CreateAndUpdateBidCopyWithImpl<T, _$_CreateAndUpdateBid<T>>(
+  _$$_CreateAndUpdateBidCopyWith<_$_CreateAndUpdateBid> get copyWith =>
+      __$$_CreateAndUpdateBidCopyWithImpl<_$_CreateAndUpdateBid>(
           this, _$identity);
 
   @override
@@ -991,11 +1461,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
     required TResult Function() initial,
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
-    required TResult Function(T data, BidStatus bidEnum) data,
     required TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBid(createBidResponseModel, bidEnum);
   }
@@ -1005,11 +1478,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult? Function(T data, BidStatus bidEnum)? data,
     TResult? Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBid?.call(createBidResponseModel, bidEnum);
   }
@@ -1019,11 +1495,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult Function(T data, BidStatus bidEnum)? data,
     TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (createAndUpdateBid != null) {
@@ -1035,11 +1514,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_Loading<T> value) loading,
-    required TResult Function(_DataOrE<T> value) data,
-    required TResult Function(_CreateAndUpdateBid<T> value) createAndUpdateBid,
-    required TResult Function(_DOrError<T> value) error,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBid(this);
   }
@@ -1047,11 +1529,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_Loading<T> value)? loading,
-    TResult? Function(_DataOrE<T> value)? data,
-    TResult? Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult? Function(_DOrError<T> value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
   }) {
     return createAndUpdateBid?.call(this);
   }
@@ -1059,11 +1544,14 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_Loading<T> value)? loading,
-    TResult Function(_DataOrE<T> value)? data,
-    TResult Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult Function(_DOrError<T> value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (createAndUpdateBid != null) {
@@ -1073,24 +1561,24 @@ class _$_CreateAndUpdateBid<T> extends _CreateAndUpdateBid<T> {
   }
 }
 
-abstract class _CreateAndUpdateBid<T> extends BidRequestState<T> {
+abstract class _CreateAndUpdateBid extends BidRequestState {
   const factory _CreateAndUpdateBid(
       final CreateBidResponseModel createBidResponseModel,
-      {final BidStatus bidEnum}) = _$_CreateAndUpdateBid<T>;
+      {final BidStatus bidEnum}) = _$_CreateAndUpdateBid;
   const _CreateAndUpdateBid._() : super._();
 
   CreateBidResponseModel get createBidResponseModel;
   BidStatus get bidEnum;
   @JsonKey(ignore: true)
-  _$$_CreateAndUpdateBidCopyWith<T, _$_CreateAndUpdateBid<T>> get copyWith =>
+  _$$_CreateAndUpdateBidCopyWith<_$_CreateAndUpdateBid> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_DOrErrorCopyWith<T, $Res> {
+abstract class _$$_DOrErrorCopyWith<$Res> {
   factory _$$_DOrErrorCopyWith(
-          _$_DOrError<T> value, $Res Function(_$_DOrError<T>) then) =
-      __$$_DOrErrorCopyWithImpl<T, $Res>;
+          _$_DOrError value, $Res Function(_$_DOrError) then) =
+      __$$_DOrErrorCopyWithImpl<$Res>;
   @useResult
   $Res call({Failure failure, BidStatus bidEnum});
 
@@ -1098,11 +1586,11 @@ abstract class _$$_DOrErrorCopyWith<T, $Res> {
 }
 
 /// @nodoc
-class __$$_DOrErrorCopyWithImpl<T, $Res>
-    extends _$BidRequestStateCopyWithImpl<T, $Res, _$_DOrError<T>>
-    implements _$$_DOrErrorCopyWith<T, $Res> {
+class __$$_DOrErrorCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res, _$_DOrError>
+    implements _$$_DOrErrorCopyWith<$Res> {
   __$$_DOrErrorCopyWithImpl(
-      _$_DOrError<T> _value, $Res Function(_$_DOrError<T>) _then)
+      _$_DOrError _value, $Res Function(_$_DOrError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1111,7 +1599,7 @@ class __$$_DOrErrorCopyWithImpl<T, $Res>
     Object? failure = null,
     Object? bidEnum = null,
   }) {
-    return _then(_$_DOrError<T>(
+    return _then(_$_DOrError(
       null == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -1134,8 +1622,8 @@ class __$$_DOrErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_DOrError<T> extends _DOrError<T> {
-  const _$_DOrError(this.failure, {this.bidEnum = BidStatus.Error}) : super._();
+class _$_DOrError extends _DOrError {
+  const _$_DOrError(this.failure, {this.bidEnum = BidStatus.error}) : super._();
 
   @override
   final Failure failure;
@@ -1145,14 +1633,14 @@ class _$_DOrError<T> extends _DOrError<T> {
 
   @override
   String toString() {
-    return 'BidRequestState<$T>.error(failure: $failure, bidEnum: $bidEnum)';
+    return 'BidRequestState.error(failure: $failure, bidEnum: $bidEnum)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DOrError<T> &&
+            other is _$_DOrError &&
             (identical(other.failure, failure) || other.failure == failure) &&
             (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
   }
@@ -1163,8 +1651,8 @@ class _$_DOrError<T> extends _DOrError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DOrErrorCopyWith<T, _$_DOrError<T>> get copyWith =>
-      __$$_DOrErrorCopyWithImpl<T, _$_DOrError<T>>(this, _$identity);
+  _$$_DOrErrorCopyWith<_$_DOrError> get copyWith =>
+      __$$_DOrErrorCopyWithImpl<_$_DOrError>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1172,11 +1660,14 @@ class _$_DOrError<T> extends _DOrError<T> {
     required TResult Function() initial,
     required TResult Function(BidStatus bidEnum, String text, bool isLoading)
         loading,
-    required TResult Function(T data, BidStatus bidEnum) data,
     required TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
         createAndUpdateBid,
     required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
   }) {
     return error(failure, bidEnum);
   }
@@ -1186,11 +1677,14 @@ class _$_DOrError<T> extends _DOrError<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult? Function(T data, BidStatus bidEnum)? data,
     TResult? Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
   }) {
     return error?.call(failure, bidEnum);
   }
@@ -1200,11 +1694,14 @@ class _$_DOrError<T> extends _DOrError<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
-    TResult Function(T data, BidStatus bidEnum)? data,
     TResult Function(
             CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
         createAndUpdateBid,
     TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1216,11 +1713,14 @@ class _$_DOrError<T> extends _DOrError<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial<T> value) initial,
-    required TResult Function(_Loading<T> value) loading,
-    required TResult Function(_DataOrE<T> value) data,
-    required TResult Function(_CreateAndUpdateBid<T> value) createAndUpdateBid,
-    required TResult Function(_DOrError<T> value) error,
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
   }) {
     return error(this);
   }
@@ -1228,11 +1728,14 @@ class _$_DOrError<T> extends _DOrError<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial<T> value)? initial,
-    TResult? Function(_Loading<T> value)? loading,
-    TResult? Function(_DataOrE<T> value)? data,
-    TResult? Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult? Function(_DOrError<T> value)? error,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
   }) {
     return error?.call(this);
   }
@@ -1240,11 +1743,14 @@ class _$_DOrError<T> extends _DOrError<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial<T> value)? initial,
-    TResult Function(_Loading<T> value)? loading,
-    TResult Function(_DataOrE<T> value)? data,
-    TResult Function(_CreateAndUpdateBid<T> value)? createAndUpdateBid,
-    TResult Function(_DOrError<T> value)? error,
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1254,14 +1760,573 @@ class _$_DOrError<T> extends _DOrError<T> {
   }
 }
 
-abstract class _DOrError<T> extends BidRequestState<T> {
+abstract class _DOrError extends BidRequestState {
   const factory _DOrError(final Failure failure, {final BidStatus bidEnum}) =
-      _$_DOrError<T>;
+      _$_DOrError;
   const _DOrError._() : super._();
 
   Failure get failure;
   BidStatus get bidEnum;
   @JsonKey(ignore: true)
-  _$$_DOrErrorCopyWith<T, _$_DOrError<T>> get copyWith =>
+  _$$_DOrErrorCopyWith<_$_DOrError> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_BidRequestCancelCopyWith<$Res> {
+  factory _$$_BidRequestCancelCopyWith(
+          _$_BidRequestCancel value, $Res Function(_$_BidRequestCancel) then) =
+      __$$_BidRequestCancelCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BidStatus bidEnum});
+}
+
+/// @nodoc
+class __$$_BidRequestCancelCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res, _$_BidRequestCancel>
+    implements _$$_BidRequestCancelCopyWith<$Res> {
+  __$$_BidRequestCancelCopyWithImpl(
+      _$_BidRequestCancel _value, $Res Function(_$_BidRequestCancel) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bidEnum = null,
+  }) {
+    return _then(_$_BidRequestCancel(
+      bidEnum: null == bidEnum
+          ? _value.bidEnum
+          : bidEnum // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_BidRequestCancel extends _BidRequestCancel {
+  const _$_BidRequestCancel({this.bidEnum = BidStatus.requestCancelByDriver})
+      : super._();
+
+  @override
+  @JsonKey()
+  final BidStatus bidEnum;
+
+  @override
+  String toString() {
+    return 'BidRequestState.bidRequestCancel(bidEnum: $bidEnum)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_BidRequestCancel &&
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, bidEnum);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_BidRequestCancelCopyWith<_$_BidRequestCancel> get copyWith =>
+      __$$_BidRequestCancelCopyWithImpl<_$_BidRequestCancel>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(BidStatus bidEnum, String text, bool isLoading)
+        loading,
+    required TResult Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+        createAndUpdateBid,
+    required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancel(bidEnum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult? Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+        createAndUpdateBid,
+    TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancel?.call(bidEnum);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+        createAndUpdateBid,
+    TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (bidRequestCancel != null) {
+      return bidRequestCancel(bidEnum);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancel(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+  }) {
+    return bidRequestCancel?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (bidRequestCancel != null) {
+      return bidRequestCancel(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BidRequestCancel extends BidRequestState {
+  const factory _BidRequestCancel({final BidStatus bidEnum}) =
+      _$_BidRequestCancel;
+  const _BidRequestCancel._() : super._();
+
+  BidStatus get bidEnum;
+  @JsonKey(ignore: true)
+  _$$_BidRequestCancelCopyWith<_$_BidRequestCancel> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateBidStatusCopyWith<$Res> {
+  factory _$$_UpdateBidStatusCopyWith(
+          _$_UpdateBidStatus value, $Res Function(_$_UpdateBidStatus) then) =
+      __$$_UpdateBidStatusCopyWithImpl<$Res>;
+  @useResult
+  $Res call({BidStatus bidEnum, String name});
+}
+
+/// @nodoc
+class __$$_UpdateBidStatusCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res, _$_UpdateBidStatus>
+    implements _$$_UpdateBidStatusCopyWith<$Res> {
+  __$$_UpdateBidStatusCopyWithImpl(
+      _$_UpdateBidStatus _value, $Res Function(_$_UpdateBidStatus) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? bidEnum = null,
+    Object? name = null,
+  }) {
+    return _then(_$_UpdateBidStatus(
+      bidEnum: null == bidEnum
+          ? _value.bidEnum
+          : bidEnum // ignore: cast_nullable_to_non_nullable
+              as BidStatus,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateBidStatus extends _UpdateBidStatus {
+  const _$_UpdateBidStatus(
+      {this.bidEnum = BidStatus.pending, this.name = 'Create Bid'})
+      : super._();
+
+  @override
+  @JsonKey()
+  final BidStatus bidEnum;
+  @override
+  @JsonKey()
+  final String name;
+
+  @override
+  String toString() {
+    return 'BidRequestState.updateBidStatus(bidEnum: $bidEnum, name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateBidStatus &&
+            (identical(other.bidEnum, bidEnum) || other.bidEnum == bidEnum) &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, bidEnum, name);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateBidStatusCopyWith<_$_UpdateBidStatus> get copyWith =>
+      __$$_UpdateBidStatusCopyWithImpl<_$_UpdateBidStatus>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(BidStatus bidEnum, String text, bool isLoading)
+        loading,
+    required TResult Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+        createAndUpdateBid,
+    required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatus(bidEnum, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult? Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+        createAndUpdateBid,
+    TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatus?.call(bidEnum, name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+        createAndUpdateBid,
+    TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (updateBidStatus != null) {
+      return updateBidStatus(bidEnum, name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+  }) {
+    return updateBidStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (updateBidStatus != null) {
+      return updateBidStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateBidStatus extends BidRequestState {
+  const factory _UpdateBidStatus({final BidStatus bidEnum, final String name}) =
+      _$_UpdateBidStatus;
+  const _UpdateBidStatus._() : super._();
+
+  BidStatus get bidEnum;
+  String get name;
+  @JsonKey(ignore: true)
+  _$$_UpdateBidStatusCopyWith<_$_UpdateBidStatus> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetCurrentTextOfAcceptButtonEventCopyWith<$Res> {
+  factory _$$_GetCurrentTextOfAcceptButtonEventCopyWith(
+          _$_GetCurrentTextOfAcceptButtonEvent value,
+          $Res Function(_$_GetCurrentTextOfAcceptButtonEvent) then) =
+      __$$_GetCurrentTextOfAcceptButtonEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Tuple2<BidStatus, String> getTextWithBidStatus});
+}
+
+/// @nodoc
+class __$$_GetCurrentTextOfAcceptButtonEventCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res,
+        _$_GetCurrentTextOfAcceptButtonEvent>
+    implements _$$_GetCurrentTextOfAcceptButtonEventCopyWith<$Res> {
+  __$$_GetCurrentTextOfAcceptButtonEventCopyWithImpl(
+      _$_GetCurrentTextOfAcceptButtonEvent _value,
+      $Res Function(_$_GetCurrentTextOfAcceptButtonEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? getTextWithBidStatus = null,
+  }) {
+    return _then(_$_GetCurrentTextOfAcceptButtonEvent(
+      null == getTextWithBidStatus
+          ? _value.getTextWithBidStatus
+          : getTextWithBidStatus // ignore: cast_nullable_to_non_nullable
+              as Tuple2<BidStatus, String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetCurrentTextOfAcceptButtonEvent
+    extends _GetCurrentTextOfAcceptButtonEvent {
+  const _$_GetCurrentTextOfAcceptButtonEvent(this.getTextWithBidStatus)
+      : super._();
+
+  @override
+  final Tuple2<BidStatus, String> getTextWithBidStatus;
+
+  @override
+  String toString() {
+    return 'BidRequestState.getCurrentTextOfAcceptButton(getTextWithBidStatus: $getTextWithBidStatus)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetCurrentTextOfAcceptButtonEvent &&
+            (identical(other.getTextWithBidStatus, getTextWithBidStatus) ||
+                other.getTextWithBidStatus == getTextWithBidStatus));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, getTextWithBidStatus);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetCurrentTextOfAcceptButtonEventCopyWith<
+          _$_GetCurrentTextOfAcceptButtonEvent>
+      get copyWith => __$$_GetCurrentTextOfAcceptButtonEventCopyWithImpl<
+          _$_GetCurrentTextOfAcceptButtonEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(BidStatus bidEnum, String text, bool isLoading)
+        loading,
+    required TResult Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)
+        createAndUpdateBid,
+    required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(BidStatus bidEnum) bidRequestCancel,
+    required TResult Function(BidStatus bidEnum, String name) updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
+  }) {
+    return getCurrentTextOfAcceptButton(getTextWithBidStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult? Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+        createAndUpdateBid,
+    TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult? Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+  }) {
+    return getCurrentTextOfAcceptButton?.call(getTextWithBidStatus);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult Function(
+            CreateBidResponseModel createBidResponseModel, BidStatus bidEnum)?
+        createAndUpdateBid,
+    TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(BidStatus bidEnum)? bidRequestCancel,
+    TResult Function(BidStatus bidEnum, String name)? updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (getCurrentTextOfAcceptButton != null) {
+      return getCurrentTextOfAcceptButton(getTextWithBidStatus);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
+  }) {
+    return getCurrentTextOfAcceptButton(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+  }) {
+    return getCurrentTextOfAcceptButton?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+    required TResult orElse(),
+  }) {
+    if (getCurrentTextOfAcceptButton != null) {
+      return getCurrentTextOfAcceptButton(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCurrentTextOfAcceptButtonEvent extends BidRequestState {
+  const factory _GetCurrentTextOfAcceptButtonEvent(
+          final Tuple2<BidStatus, String> getTextWithBidStatus) =
+      _$_GetCurrentTextOfAcceptButtonEvent;
+  const _GetCurrentTextOfAcceptButtonEvent._() : super._();
+
+  Tuple2<BidStatus, String> get getTextWithBidStatus;
+  @JsonKey(ignore: true)
+  _$$_GetCurrentTextOfAcceptButtonEventCopyWith<
+          _$_GetCurrentTextOfAcceptButtonEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }

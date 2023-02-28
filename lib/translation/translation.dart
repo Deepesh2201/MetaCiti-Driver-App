@@ -367,7 +367,14 @@ Map<String, dynamic> languages = {
     "text_city": "City",
     "text_postal_code": "Postal Code",
     "text_tax_number": "Tax Number",
-    "text_no_fleet_assigned": "No Fleet Assigned"
+    "text_no_fleet_assigned": "No Fleet Assigned",
+    "text_create_bid": "Create Bid",
+    "text_edit_bid": "Edit Bid",
+    "text_submit_bid": "Submit Bid",
+    "text_update_bid": "Update Bid",
+    "text_waiting_for_confirmation_bid": "Waiting for confirmation...",
+    "text_sorry_this_bid": "Sorry this bid confirmed at",
+    "text_confirm_bid": "Bid Confirmed",
   },
   "hi": {
     "text_enter_social": "या सोशल मीडिया में प्रवेश करें",

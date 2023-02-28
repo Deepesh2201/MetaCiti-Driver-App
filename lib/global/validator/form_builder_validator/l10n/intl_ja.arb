@@ -1,0 +1,20 @@
+{
+  "@@locale": "ja",
+  "requiredErrorText": "必須項目です。",
+  "equalErrorText": "{value}に一致していません。",
+  "notEqualErrorText": "{value}と違うものにしてください。",
+  "minErrorText": "{min}以上にしてください。",
+  "minLengthErrorText": "{minLength}文字以上で入力してください。",
+  "minWordsCountErrorText": "値は、{minWordsCount}以上の単語をカウントする必要があります",
+  "maxErrorText": "{max}以下にしてください。",
+  "maxLengthErrorText": "{maxLength}文字以下で入力してください。",
+  "maxWordsCountErrorText": "値には、単語が{maxWordsCount}以下にカウントされる必要があります",
+  "emailErrorText": "有効なメールアドレスを入力してください。",
+  "urlErrorText": "有効なURLを入力してください。",
+  "matchErrorText": "有効な正規表現を指定してください。",
+  "numericErrorText": "半角数字で入力してください。",
+  "integerErrorText": "整数で入力してください。",
+  "creditCardErrorText": "有効なクレジットカード番号を入力してください。",
+  "ipErrorText": "有効なIPアドレスを入力してください。",
+  "dateStringErrorText": "正しい日付を入力してください。"
+}

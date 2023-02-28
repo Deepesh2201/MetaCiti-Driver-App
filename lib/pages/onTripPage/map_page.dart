@@ -2709,7 +2709,7 @@ class _MapsState extends State<Maps>
                                                                                                     _isLoading = false;
                                                                                                   });
                                                                                                 },
-                                                                                                text: languages[choosenLanguage]['text_accept'],
+                                                                                                text: languages[choosenLanguage]['text_create_bid'],
                                                                                                 width: media.width * 0.38,
                                                                                               )
                                                                                             ],

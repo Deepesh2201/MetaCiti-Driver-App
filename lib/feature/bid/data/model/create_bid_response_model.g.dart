@@ -16,7 +16,7 @@ _$_CreateBidResponseModel _$$_CreateBidResponseModelFromJson(
           : CreateBidResponseData.fromJson(
               json['data'] as Map<String, dynamic>),
       bidStatus: $enumDecodeNullable(_$BidStatusEnumMap, json['bidStatus']) ??
-          BidStatus.Create,
+          BidStatus.create,
     );
 
 Map<String, dynamic> _$$_CreateBidResponseModelToJson(
@@ -29,21 +29,27 @@ Map<String, dynamic> _$$_CreateBidResponseModelToJson(
     };
 
 const _$BidStatusEnumMap = {
-  BidStatus.None: 'None',
-  BidStatus.Init: 'Init',
-  BidStatus.Create: 'Create',
-  BidStatus.Update: 'Update',
-  BidStatus.Delete: 'Delete',
-  BidStatus.GetRecent: 'GetRecent',
-  BidStatus.Waiting: 'Waiting',
-  BidStatus.ReceiveBidByAnotherDriver: 'ReceiveBidByAnotherDriver',
-  BidStatus.CloseCurrentBid: 'CloseCurrentBid',
-  BidStatus.TimeUpCurrentBid: 'TimeUpCurrentBid',
-  BidStatus.CancelByDriver: 'CancelByDriver',
-  BidStatus.CancelByUser: 'CancelByUser',
-  BidStatus.CancelByAdmin: 'CancelByAdmin',
-  BidStatus.Error: 'Error',
-  BidStatus.Exception: 'Exception',
+  BidStatus.none: 'none',
+  BidStatus.create: 'create',
+  BidStatus.update: 'update',
+  BidStatus.delete: 'delete',
+  BidStatus.getRecent: 'getRecent',
+  BidStatus.waiting: 'waiting',
+  BidStatus.receiveBidByAnotherDriver: 'receiveBidByAnotherDriver',
+  BidStatus.closeCurrentBid: 'closeCurrentBid',
+  BidStatus.timeUpCurrentBid: 'timeUpCurrentBid',
+  BidStatus.error: 'error',
+  BidStatus.exception: 'exception',
+  BidStatus.pending: 'pending',
+  BidStatus.idle: 'idle',
+  BidStatus.newlyCreated: 'newlyCreated',
+  BidStatus.acceptedByUser: 'acceptedByUser',
+  BidStatus.requestAcceptByDriver: 'requestAcceptByDriver',
+  BidStatus.requestAcceptByUser: 'requestAcceptByUser',
+  BidStatus.requestAcceptByAdmin: 'requestAcceptByAdmin',
+  BidStatus.requestCancelByDriver: 'requestCancelByDriver',
+  BidStatus.requestCancelByUser: 'requestCancelByUser',
+  BidStatus.requestCancelByAdmin: 'requestCancelByAdmin',
 };
 
 _$_CreateBidResponseData _$$_CreateBidResponseDataFromJson(

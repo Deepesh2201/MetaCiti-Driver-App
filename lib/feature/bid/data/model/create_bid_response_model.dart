@@ -6,14 +6,15 @@ part 'create_bid_response_model.g.dart';
 
 @unfreezed
 class CreateBidResponseModel with _$CreateBidResponseModel {
-   factory CreateBidResponseModel({
+  factory CreateBidResponseModel({
     @JsonKey(name: 'success') bool? success,
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'data') CreateBidResponseData? data,
-     @JsonKey(name: 'bidStatus') @Default(BidStatus.Create) BidStatus bidStatus,
+    @JsonKey(name: 'bidStatus') @Default(BidStatus.create) BidStatus bidStatus,
   }) = _CreateBidResponseModel;
 
-  factory CreateBidResponseModel.fromJson(Map<String, Object?> json) => _$CreateBidResponseModelFromJson(json);
+  factory CreateBidResponseModel.fromJson(Map<String, Object?> json) =>
+      _$CreateBidResponseModelFromJson(json);
 }
 
 @freezed
@@ -29,6 +30,6 @@ class CreateBidResponseData with _$CreateBidResponseData {
     @JsonKey(name: 'converted_created_at') String? convertedCreatedAt,
   }) = _CreateBidResponseData;
 
-  factory CreateBidResponseData.fromJson(Map<String, Object?> json) => _$CreateBidResponseDataFromJson(json);
+  factory CreateBidResponseData.fromJson(Map<String, Object?> json) =>
+      _$CreateBidResponseDataFromJson(json);
 }
-

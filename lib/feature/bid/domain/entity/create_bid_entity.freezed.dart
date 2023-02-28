@@ -205,7 +205,7 @@ class _$_CreateBidEntity implements _CreateBidEntity {
       @JsonKey(name: 'default_price') this.defaultPrice,
       @JsonKey(name: 'bid_price') this.bidPrice,
       @JsonKey(name: 'bid_id') this.bidId,
-      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.Create});
+      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.create});
 
   factory _$_CreateBidEntity.fromJson(Map<String, dynamic> json) =>
       _$$_CreateBidEntityFromJson(json);
