@@ -21,32 +21,32 @@ CreateBidEntity _$CreateBidEntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateBidEntity {
   @JsonKey(name: 'user_id')
-  String? get userId => throw _privateConstructorUsedError;
+  int? get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_id')
-  set userId(String? value) => throw _privateConstructorUsedError;
+  set userId(int? value) => throw _privateConstructorUsedError;
   @JsonKey(name: 'driver_id')
-  String? get driverId => throw _privateConstructorUsedError;
+  int? get driverId => throw _privateConstructorUsedError;
   @JsonKey(name: 'driver_id')
-  set driverId(String? value) => throw _privateConstructorUsedError;
+  set driverId(int? value) => throw _privateConstructorUsedError;
   @JsonKey(name: 'request_id')
   String? get requestId => throw _privateConstructorUsedError;
   @JsonKey(name: 'request_id')
   set requestId(String? value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'default_price')
-  String? get defaultPrice => throw _privateConstructorUsedError;
-  @JsonKey(name: 'default_price')
-  set defaultPrice(String? value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'request_eta_amount')
+  double? get defaultPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'request_eta_amount')
+  set defaultPrice(double? value) => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_price')
-  String? get bidPrice => throw _privateConstructorUsedError;
+  double? get bidPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_price')
-  set bidPrice(String? value) => throw _privateConstructorUsedError;
+  set bidPrice(double? value) => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_id')
-  String? get bidId => throw _privateConstructorUsedError;
+  int? get bidId => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_id')
-  set bidId(String? value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bidStatus')
+  set bidId(int? value) => throw _privateConstructorUsedError;
+  @JsonKey(name: 'bid_status')
   BidStatus get bidStatus => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   set bidStatus(BidStatus value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -62,13 +62,13 @@ abstract class $CreateBidEntityCopyWith<$Res> {
       _$CreateBidEntityCopyWithImpl<$Res, CreateBidEntity>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'user_id') String? userId,
-      @JsonKey(name: 'driver_id') String? driverId,
+      {@JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'driver_id') int? driverId,
       @JsonKey(name: 'request_id') String? requestId,
-      @JsonKey(name: 'default_price') String? defaultPrice,
-      @JsonKey(name: 'bid_price') String? bidPrice,
-      @JsonKey(name: 'bid_id') String? bidId,
-      @JsonKey(name: 'bidStatus') BidStatus bidStatus});
+      @JsonKey(name: 'request_eta_amount') double? defaultPrice,
+      @JsonKey(name: 'bid_price') double? bidPrice,
+      @JsonKey(name: 'bid_id') int? bidId,
+      @JsonKey(name: 'bid_status') BidStatus bidStatus});
 }
 
 /// @nodoc
@@ -96,11 +96,11 @@ class _$CreateBidEntityCopyWithImpl<$Res, $Val extends CreateBidEntity>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       driverId: freezed == driverId
           ? _value.driverId
           : driverId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       requestId: freezed == requestId
           ? _value.requestId
           : requestId // ignore: cast_nullable_to_non_nullable
@@ -108,15 +108,15 @@ class _$CreateBidEntityCopyWithImpl<$Res, $Val extends CreateBidEntity>
       defaultPrice: freezed == defaultPrice
           ? _value.defaultPrice
           : defaultPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidPrice: freezed == bidPrice
           ? _value.bidPrice
           : bidPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidId: freezed == bidId
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       bidStatus: null == bidStatus
           ? _value.bidStatus
           : bidStatus // ignore: cast_nullable_to_non_nullable
@@ -134,13 +134,13 @@ abstract class _$$_CreateBidEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'user_id') String? userId,
-      @JsonKey(name: 'driver_id') String? driverId,
+      {@JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'driver_id') int? driverId,
       @JsonKey(name: 'request_id') String? requestId,
-      @JsonKey(name: 'default_price') String? defaultPrice,
-      @JsonKey(name: 'bid_price') String? bidPrice,
-      @JsonKey(name: 'bid_id') String? bidId,
-      @JsonKey(name: 'bidStatus') BidStatus bidStatus});
+      @JsonKey(name: 'request_eta_amount') double? defaultPrice,
+      @JsonKey(name: 'bid_price') double? bidPrice,
+      @JsonKey(name: 'bid_id') int? bidId,
+      @JsonKey(name: 'bid_status') BidStatus bidStatus});
 }
 
 /// @nodoc
@@ -166,11 +166,11 @@ class __$$_CreateBidEntityCopyWithImpl<$Res>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       driverId: freezed == driverId
           ? _value.driverId
           : driverId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       requestId: freezed == requestId
           ? _value.requestId
           : requestId // ignore: cast_nullable_to_non_nullable
@@ -178,15 +178,15 @@ class __$$_CreateBidEntityCopyWithImpl<$Res>
       defaultPrice: freezed == defaultPrice
           ? _value.defaultPrice
           : defaultPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidPrice: freezed == bidPrice
           ? _value.bidPrice
           : bidPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidId: freezed == bidId
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       bidStatus: null == bidStatus
           ? _value.bidStatus
           : bidStatus // ignore: cast_nullable_to_non_nullable
@@ -202,34 +202,34 @@ class _$_CreateBidEntity implements _CreateBidEntity {
       {@JsonKey(name: 'user_id') this.userId,
       @JsonKey(name: 'driver_id') this.driverId,
       @JsonKey(name: 'request_id') this.requestId,
-      @JsonKey(name: 'default_price') this.defaultPrice,
+      @JsonKey(name: 'request_eta_amount') this.defaultPrice,
       @JsonKey(name: 'bid_price') this.bidPrice,
       @JsonKey(name: 'bid_id') this.bidId,
-      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.create});
+      @JsonKey(name: 'bid_status') this.bidStatus = BidStatus.create});
 
   factory _$_CreateBidEntity.fromJson(Map<String, dynamic> json) =>
       _$$_CreateBidEntityFromJson(json);
 
   @override
   @JsonKey(name: 'user_id')
-  String? userId;
+  int? userId;
   @override
   @JsonKey(name: 'driver_id')
-  String? driverId;
+  int? driverId;
   @override
   @JsonKey(name: 'request_id')
   String? requestId;
   @override
-  @JsonKey(name: 'default_price')
-  String? defaultPrice;
+  @JsonKey(name: 'request_eta_amount')
+  double? defaultPrice;
   @override
   @JsonKey(name: 'bid_price')
-  String? bidPrice;
+  double? bidPrice;
   @override
   @JsonKey(name: 'bid_id')
-  String? bidId;
+  int? bidId;
   @override
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   BidStatus bidStatus;
 
   @override
@@ -253,51 +253,51 @@ class _$_CreateBidEntity implements _CreateBidEntity {
 
 abstract class _CreateBidEntity implements CreateBidEntity {
   factory _CreateBidEntity(
-      {@JsonKey(name: 'user_id') String? userId,
-      @JsonKey(name: 'driver_id') String? driverId,
+      {@JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'driver_id') int? driverId,
       @JsonKey(name: 'request_id') String? requestId,
-      @JsonKey(name: 'default_price') String? defaultPrice,
-      @JsonKey(name: 'bid_price') String? bidPrice,
-      @JsonKey(name: 'bid_id') String? bidId,
-      @JsonKey(name: 'bidStatus') BidStatus bidStatus}) = _$_CreateBidEntity;
+      @JsonKey(name: 'request_eta_amount') double? defaultPrice,
+      @JsonKey(name: 'bid_price') double? bidPrice,
+      @JsonKey(name: 'bid_id') int? bidId,
+      @JsonKey(name: 'bid_status') BidStatus bidStatus}) = _$_CreateBidEntity;
 
   factory _CreateBidEntity.fromJson(Map<String, dynamic> json) =
       _$_CreateBidEntity.fromJson;
 
   @override
   @JsonKey(name: 'user_id')
-  String? get userId;
+  int? get userId;
   @JsonKey(name: 'user_id')
-  set userId(String? value);
+  set userId(int? value);
   @override
   @JsonKey(name: 'driver_id')
-  String? get driverId;
+  int? get driverId;
   @JsonKey(name: 'driver_id')
-  set driverId(String? value);
+  set driverId(int? value);
   @override
   @JsonKey(name: 'request_id')
   String? get requestId;
   @JsonKey(name: 'request_id')
   set requestId(String? value);
   @override
-  @JsonKey(name: 'default_price')
-  String? get defaultPrice;
-  @JsonKey(name: 'default_price')
-  set defaultPrice(String? value);
+  @JsonKey(name: 'request_eta_amount')
+  double? get defaultPrice;
+  @JsonKey(name: 'request_eta_amount')
+  set defaultPrice(double? value);
   @override
   @JsonKey(name: 'bid_price')
-  String? get bidPrice;
+  double? get bidPrice;
   @JsonKey(name: 'bid_price')
-  set bidPrice(String? value);
+  set bidPrice(double? value);
   @override
   @JsonKey(name: 'bid_id')
-  String? get bidId;
+  int? get bidId;
   @JsonKey(name: 'bid_id')
-  set bidId(String? value);
+  set bidId(int? value);
   @override
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   BidStatus get bidStatus;
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   set bidStatus(BidStatus value);
   @override
   @JsonKey(ignore: true)

@@ -15,7 +15,7 @@ _$_CreateBidResponseModel _$$_CreateBidResponseModelFromJson(
           ? null
           : CreateBidResponseData.fromJson(
               json['data'] as Map<String, dynamic>),
-      bidStatus: $enumDecodeNullable(_$BidStatusEnumMap, json['bidStatus']) ??
+      bidStatus: $enumDecodeNullable(_$BidStatusEnumMap, json['bid_status']) ??
           BidStatus.create,
     );
 
@@ -25,7 +25,7 @@ Map<String, dynamic> _$$_CreateBidResponseModelToJson(
       'success': instance.success,
       'message': instance.message,
       'data': instance.data,
-      'bidStatus': _$BidStatusEnumMap[instance.bidStatus]!,
+      'bid_status': _$BidStatusEnumMap[instance.bidStatus]!,
     };
 
 const _$BidStatusEnumMap = {
@@ -55,12 +55,12 @@ const _$BidStatusEnumMap = {
 _$_CreateBidResponseData _$$_CreateBidResponseDataFromJson(
         Map<String, dynamic> json) =>
     _$_CreateBidResponseData(
-      userId: json['user_id'] as String?,
+      userId: json['user_id'] as int?,
       requestId: json['request_id'] as String?,
-      driverId: json['driver_id'] as String?,
-      defaultPrice: json['default_price'] as String?,
-      bidPrice: json['bid_price'] as String?,
-      bidId: json['bid_id'] as String?,
+      driverId: json['driver_id'] as int?,
+      defaultPrice: (json['request_eta_amount'] as num?)?.toDouble(),
+      bidPrice: (json['bid_price'] as num?)?.toDouble(),
+      bidId: json['bid_id'] as int?,
       convertedUpdatedAt: json['converted_updated_at'] as String?,
       convertedCreatedAt: json['converted_created_at'] as String?,
     );
@@ -71,7 +71,7 @@ Map<String, dynamic> _$$_CreateBidResponseDataToJson(
       'user_id': instance.userId,
       'request_id': instance.requestId,
       'driver_id': instance.driverId,
-      'default_price': instance.defaultPrice,
+      'request_eta_amount': instance.defaultPrice,
       'bid_price': instance.bidPrice,
       'bid_id': instance.bidId,
       'converted_updated_at': instance.convertedUpdatedAt,

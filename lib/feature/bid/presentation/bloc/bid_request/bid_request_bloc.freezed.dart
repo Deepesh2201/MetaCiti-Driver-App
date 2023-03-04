@@ -37,7 +37,8 @@ mixin _$BidRequestEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -64,7 +65,8 @@ mixin _$BidRequestEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -91,7 +93,8 @@ mixin _$BidRequestEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -207,7 +210,8 @@ class _$_Started implements _Started {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -237,7 +241,8 @@ class _$_Started implements _Started {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -267,7 +272,8 @@ class _$_Started implements _Started {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -451,7 +457,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -482,7 +489,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -513,7 +521,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -737,7 +746,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -768,7 +778,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -799,7 +810,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -891,7 +903,8 @@ abstract class _$$_UpdateBidStatusEventCopyWith<$Res> {
       AsyncBtnState buttonState,
       dynamic data,
       BidStatus currentBidStatus,
-      bool hasTextFormFieldEnable});
+      bool hasTextFormFieldEnable,
+      double bidRequestPrice});
 }
 
 /// @nodoc
@@ -912,6 +925,7 @@ class __$$_UpdateBidStatusEventCopyWithImpl<$Res>
     Object? data = freezed,
     Object? currentBidStatus = null,
     Object? hasTextFormFieldEnable = null,
+    Object? bidRequestPrice = null,
   }) {
     return _then(_$_UpdateBidStatusEvent(
       freezed == asyncSubmitButtonStatesController
@@ -942,6 +956,10 @@ class __$$_UpdateBidStatusEventCopyWithImpl<$Res>
           ? _value.hasTextFormFieldEnable
           : hasTextFormFieldEnable // ignore: cast_nullable_to_non_nullable
               as bool,
+      bidRequestPrice: null == bidRequestPrice
+          ? _value.bidRequestPrice
+          : bidRequestPrice // ignore: cast_nullable_to_non_nullable
+              as double,
     ));
   }
 }
@@ -955,7 +973,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
       this.buttonState = AsyncBtnState.idle,
       this.data,
       this.currentBidStatus = BidStatus.create,
-      this.hasTextFormFieldEnable = false});
+      this.hasTextFormFieldEnable = false,
+      this.bidRequestPrice = 0.0});
 
   @override
   final AsyncBtnStatesController? asyncSubmitButtonStatesController;
@@ -976,10 +995,13 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
   @override
   @JsonKey()
   final bool hasTextFormFieldEnable;
+  @override
+  @JsonKey()
+  final double bidRequestPrice;
 
   @override
   String toString() {
-    return 'BidRequestEvent.updateBidStatusEvent(asyncSubmitButtonStatesController: $asyncSubmitButtonStatesController, bidEnum: $bidEnum, name: $name, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable)';
+    return 'BidRequestEvent.updateBidStatusEvent(asyncSubmitButtonStatesController: $asyncSubmitButtonStatesController, bidEnum: $bidEnum, name: $name, buttonState: $buttonState, data: $data, currentBidStatus: $currentBidStatus, hasTextFormFieldEnable: $hasTextFormFieldEnable, bidRequestPrice: $bidRequestPrice)';
   }
 
   @override
@@ -999,7 +1021,9 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
             (identical(other.currentBidStatus, currentBidStatus) ||
                 other.currentBidStatus == currentBidStatus) &&
             (identical(other.hasTextFormFieldEnable, hasTextFormFieldEnable) ||
-                other.hasTextFormFieldEnable == hasTextFormFieldEnable));
+                other.hasTextFormFieldEnable == hasTextFormFieldEnable) &&
+            (identical(other.bidRequestPrice, bidRequestPrice) ||
+                other.bidRequestPrice == bidRequestPrice));
   }
 
   @override
@@ -1011,7 +1035,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
       buttonState,
       const DeepCollectionEquality().hash(data),
       currentBidStatus,
-      hasTextFormFieldEnable);
+      hasTextFormFieldEnable,
+      bidRequestPrice);
 
   @JsonKey(ignore: true)
   @override
@@ -1042,13 +1067,21 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
   }) {
-    return updateBidStatusEvent(asyncSubmitButtonStatesController, bidEnum,
-        name, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
+    return updateBidStatusEvent(
+        asyncSubmitButtonStatesController,
+        bidEnum,
+        name,
+        buttonState,
+        data,
+        currentBidStatus,
+        hasTextFormFieldEnable,
+        bidRequestPrice);
   }
 
   @override
@@ -1073,7 +1106,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -1085,7 +1119,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
         buttonState,
         data,
         currentBidStatus,
-        hasTextFormFieldEnable);
+        hasTextFormFieldEnable,
+        bidRequestPrice);
   }
 
   @override
@@ -1110,15 +1145,23 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
     required TResult orElse(),
   }) {
     if (updateBidStatusEvent != null) {
-      return updateBidStatusEvent(asyncSubmitButtonStatesController, bidEnum,
-          name, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
+      return updateBidStatusEvent(
+          asyncSubmitButtonStatesController,
+          bidEnum,
+          name,
+          buttonState,
+          data,
+          currentBidStatus,
+          hasTextFormFieldEnable,
+          bidRequestPrice);
     }
     return orElse();
   }
@@ -1177,7 +1220,8 @@ abstract class _UpdateBidStatusEvent implements BidRequestEvent {
       final AsyncBtnState buttonState,
       final dynamic data,
       final BidStatus currentBidStatus,
-      final bool hasTextFormFieldEnable}) = _$_UpdateBidStatusEvent;
+      final bool hasTextFormFieldEnable,
+      final double bidRequestPrice}) = _$_UpdateBidStatusEvent;
 
   AsyncBtnStatesController? get asyncSubmitButtonStatesController;
   BidStatus get bidEnum;
@@ -1186,6 +1230,7 @@ abstract class _UpdateBidStatusEvent implements BidRequestEvent {
   dynamic get data;
   BidStatus get currentBidStatus;
   bool get hasTextFormFieldEnable;
+  double get bidRequestPrice;
   @JsonKey(ignore: true)
   _$$_UpdateBidStatusEventCopyWith<_$_UpdateBidStatusEvent> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1281,7 +1326,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
@@ -1311,7 +1357,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
@@ -1341,7 +1388,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
             AsyncBtnState buttonState,
             dynamic data,
             BidStatus currentBidStatus,
-            bool hasTextFormFieldEnable)?
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,

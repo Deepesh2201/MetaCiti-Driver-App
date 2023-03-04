@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:tagyourtaxi_driver/feature/bid/common/constant/api_constant.dart';
 import 'package:tagyourtaxi_driver/feature/bid/common/enums.dart';
 import 'package:tagyourtaxi_driver/feature/bid/data/model/create_bid_response_model.dart';
@@ -14,11 +15,15 @@ import 'package:tagyourtaxi_driver/functions/functions.dart';
 
 class BidRemoteDataSource {
   BidRemoteDataSource();
+
   Future<Either<Failure, CreateBidResponseModel>> createBid(
       BidStatus bidEnum, CreateBidEntity createBidEntity) async {
     try {
       // call create bid request api
-      var bodyData = createBidEntity.toJson()..remove('bidStatus');
+      var bodyData = createBidEntity.toJson()
+        ..remove('bid_status')
+        ..remove('bid_id');
+      debugPrint('Create bid api calling - ${jsonEncode(bodyData)}');
       var headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -28,9 +33,16 @@ class BidRemoteDataSource {
           Uri.parse(BidApiConstant.createAndUpdateApi),
           body: jsonEncode(bodyData),
           headers: headers);
-      var result = CreateBidResponseModel.fromJson(jsonDecode(response.body))
-        ..bidStatus = BidStatus.create;
-      return Right(result);
+      if (response.statusCode == 200) {
+        var result = CreateBidResponseModel.fromJson(jsonDecode(response.body))
+          ..bidStatus = BidStatus.create;
+        debugPrint('createBid api response');
+        return Right(result);
+      } else {
+        debugPrint('createBid api response error- ${response.statusCode}');
+        return Left(Failure.unprocessableEntity(
+            message: 'Something went wrong - ${response.statusCode}'));
+      }
     } catch (e) {
       return Left(Failure.unprocessableEntity(message: e.toString()));
     }
@@ -40,7 +52,7 @@ class BidRemoteDataSource {
       BidStatus bidEnum, CreateBidEntity createBidEntity) async {
     try {
       // call update bid request api
-      var bodyData = createBidEntity.toJson()..remove('bidStatus');
+      var bodyData = createBidEntity.toJson()..remove('bid_status');
       var headers = {
         'Accept': 'application/json',
         'Content-Type': 'application/json',

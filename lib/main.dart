@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:log_print/log_print.dart';
+import 'package:log_print/log_print_config.dart';
 import 'package:one_context/one_context.dart';
 import 'package:tagyourtaxi_driver/feature/bid/presentation/bloc/bid_request/bid_request_bloc.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
@@ -18,6 +20,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  setLogPrintConfig(LogPrintConfig(colorful: true, debugMode: true));
   await setupInjection();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -77,7 +80,7 @@ class MyApp extends StatelessWidget {
                 OverrideFormBuilderLocalizationsEn.delegate,
                 FormBuilderLocalizations.delegate,
               ],
-              home: const BidButtonWidget())),
+              home: const LoadingPage())),
     );
   }
 }

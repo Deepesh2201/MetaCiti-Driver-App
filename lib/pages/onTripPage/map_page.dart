@@ -7,8 +7,11 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart' as geolocator;
 import 'package:google_fonts/google_fonts.dart';
 import 'package:location/location.dart';
+import 'package:tagyourtaxi_driver/feature/bid/presentation/widget/bid_button_widget.dart';
+import 'package:tagyourtaxi_driver/feature/common/model/user_info_model.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/functions/geohash.dart';
+import 'package:tagyourtaxi_driver/global/di/injector_provider.dart';
 import 'package:tagyourtaxi_driver/pages/chatPage/chat_page.dart';
 import 'package:tagyourtaxi_driver/pages/onTripPage/invoice.dart';
 import 'package:tagyourtaxi_driver/pages/loadingPage/loading.dart';
@@ -2680,7 +2683,23 @@ class _MapsState extends State<Maps>
                                                                                           SizedBox(
                                                                                             height: media.width * 0.04,
                                                                                           ),
-                                                                                          Row(
+                                                                                          BidButtonWidget(
+                                                                                            key: ObjectKey(injector<UserInfoModel>().data?.metaRequest?.data),
+                                                                                            driverReq: driverReq,
+                                                                                            onCancelPressed: () async{
+                                                                                              await requestReject();
+                                                                                              return;
+                                                                                            },
+                                                                                            onCreateBidPressed: () {
+                                                                                              return;
+                                                                                            },
+                                                                                            onLoadingProgressChanged: (value) {
+                                                                                              setState(() {
+                                                                                                _isLoading=value;
+                                                                                              });
+                                                                                            },
+                                                                                          ),
+                                                                                          /*Row(
                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                             children: [
                                                                                               Button(
@@ -2713,7 +2732,8 @@ class _MapsState extends State<Maps>
                                                                                                 width: media.width * 0.38,
                                                                                               )
                                                                                             ],
-                                                                                          )
+                                                                                          )*/
+
                                                                                         ],
                                                                                       ),
                                                                                     )

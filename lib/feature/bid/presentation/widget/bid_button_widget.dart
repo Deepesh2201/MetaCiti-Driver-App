@@ -2,12 +2,15 @@ import 'package:dartz/dartz.dart' as dartz;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tagyourtaxi_driver/feature/bid/common/enums.dart';
+import 'package:tagyourtaxi_driver/feature/bid/data/remote/data_sources/bid_firebase_datasource.dart';
 import 'package:tagyourtaxi_driver/feature/bid/domain/entity/create_bid_entity.dart';
 import 'package:tagyourtaxi_driver/feature/bid/presentation/bloc/bid_request/bid_request_bloc.dart';
+import 'package:tagyourtaxi_driver/feature/common/model/request_trip_meta_model.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/global/di/injector_provider.dart';
 import 'package:tagyourtaxi_driver/global/responsive/responsive_units.dart';
 import 'package:tagyourtaxi_driver/global/style/button_style.dart';
+import 'package:tagyourtaxi_driver/global/widgets/async_builder/simple_async_builder.dart';
 import 'package:tagyourtaxi_driver/global/widgets/async_button/async_button.dart';
 import 'package:tagyourtaxi_driver/global/widgets/conditional_rendering/conditional_switch.dart';
 import 'package:tagyourtaxi_driver/global/widgets/gap/gap.dart';
@@ -20,11 +23,21 @@ import 'package:tagyourtaxi_driver/global/widgets/conditional_rendering/flutter_
 import 'bid_request_text_form_field.dart';
 
 class BidButtonWidget extends StatefulWidget {
-  const BidButtonWidget(
-      {Key? key, this.bidStatus = BidStatus.none, this.createBidEntity})
-      : super(key: key);
+  const BidButtonWidget({
+    Key? key,
+    this.bidStatus = BidStatus.none,
+    this.createBidEntity,
+    required this.driverReq,
+    required this.onCancelPressed,
+    required this.onCreateBidPressed,
+    required this.onLoadingProgressChanged,
+  }) : super(key: key);
   final BidStatus bidStatus;
   final CreateBidEntity? createBidEntity;
+  final Map<String, dynamic> driverReq;
+  final VoidCallback onCreateBidPressed;
+  final VoidCallback onCancelPressed;
+  final ValueChanged<bool> onLoadingProgressChanged;
 
   @override
   _BidButtonWidgetState createState() => _BidButtonWidgetState();
@@ -72,6 +85,9 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
   // Form key
   final _bidCreateFormStateKey = GlobalKey<FormState>();
 
+  //Request-Meta model
+  RequestTripMetaModel requestTripMetaModel = RequestTripMetaModel();
+
   @override
   void initState() {
     super.initState();
@@ -88,13 +104,14 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
 
   @override
   void dispose() {
-    updateBidSubmitStateController.dispose();
+    //updateBidSubmitStateController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 10.h,
       child: Form(
         key: _bidCreateFormStateKey,
         child: Center(
@@ -164,16 +181,22 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                                   asyncBtnStatesController:
                                       bidCancelStateController,
                                   onPressed: () async {
-                                    bidStatus = BidStatus.create;
+                                    widget.onLoadingProgressChanged(true);
                                     context.read<BidRequestBloc>().add(
-                                        BidRequestEvent.updateBidStatusEvent(
-                                            bidCancelStateController,
-                                            bidEnum: bidStatus));
+                                            BidRequestEvent
+                                                .updateBidStatusEvent(
+                                          bidCancelStateController,
+                                          bidEnum: BidStatus.none,
+                                          currentBidStatus: bidStatus,
+                                        ));
 
                                     bidCancelStateController.update(
                                       AsyncBtnState.idle,
                                       data: textOfCancelButton,
                                     );
+                                    widget.onCancelPressed();
+                                    widget.onLoadingProgressChanged(false);
+                                    return;
                                   },
                                   style: injector<ElevatedButtonStyleConfig>()
                                       .style!
@@ -321,12 +344,14 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
           caseBuilders: {
             BidStatus.none: () {
               //bidStatus = BidStatus.create;
-              context.read<BidRequestBloc>().add(
-                  BidRequestEvent.updateBidStatusEvent(
-                      updateBidSubmitStateController,
-                      bidEnum: BidStatus.create,
-                      currentBidStatus: bidStatus,
-                      name: 'Submit'));
+              context
+                  .read<BidRequestBloc>()
+                  .add(BidRequestEvent.updateBidStatusEvent(
+                    updateBidSubmitStateController,
+                    bidEnum: BidStatus.create,
+                    currentBidStatus: bidStatus,
+                    name: 'Submit',
+                  ));
               return;
             },
             BidStatus.create: () {
@@ -337,23 +362,29 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Processing Data')),
                 );
-                context.read<BidRequestBloc>().add(
-                    BidRequestEvent.updateBidStatusEvent(
-                        updateBidSubmitStateController,
-                        bidEnum: BidStatus.pending,
-                        currentBidStatus: bidStatus,
-                        name: 'Edit'));
+                context
+                    .read<BidRequestBloc>()
+                    .add(BidRequestEvent.updateBidStatusEvent(
+                      updateBidSubmitStateController,
+                      bidEnum: BidStatus.pending,
+                      currentBidStatus: bidStatus,
+                      name: 'Edit',
+                      bidRequestPrice: double.parse(
+                          currentBidPriceController.value.text.toString()),
+                    ));
               }
 
               return;
             },
             BidStatus.pending: () {
-              context.read<BidRequestBloc>().add(
-                  BidRequestEvent.updateBidStatusEvent(
-                      updateBidSubmitStateController,
-                      bidEnum: BidStatus.update,
-                      currentBidStatus: bidStatus,
-                      name: 'Update'));
+              context
+                  .read<BidRequestBloc>()
+                  .add(BidRequestEvent.updateBidStatusEvent(
+                    updateBidSubmitStateController,
+                    bidEnum: BidStatus.update,
+                    currentBidStatus: bidStatus,
+                    name: 'Update',
+                  ));
               return;
             },
             BidStatus.update: () {
@@ -363,24 +394,30 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Processing Data')),
                 );
-                context.read<BidRequestBloc>().add(
-                    BidRequestEvent.updateBidStatusEvent(
-                        updateBidSubmitStateController,
-                        bidEnum: BidStatus.pending,
-                        currentBidStatus: bidStatus,
-                        name: 'Edit'));
+                context
+                    .read<BidRequestBloc>()
+                    .add(BidRequestEvent.updateBidStatusEvent(
+                      updateBidSubmitStateController,
+                      bidEnum: BidStatus.pending,
+                      currentBidStatus: bidStatus,
+                      name: 'Edit',
+                      bidRequestPrice: double.parse(
+                          currentBidPriceController.value.text.toString()),
+                    ));
               }
               return;
             },
           },
           fallbackBuilder: () {
             //bidStatus = BidStatus.create;
-            context.read<BidRequestBloc>().add(
-                BidRequestEvent.updateBidStatusEvent(
-                    updateBidSubmitStateController,
-                    bidEnum: BidStatus.create,
-                    currentBidStatus: bidStatus,
-                    name: 'Submit'));
+            context
+                .read<BidRequestBloc>()
+                .add(BidRequestEvent.updateBidStatusEvent(
+                  updateBidSubmitStateController,
+                  bidEnum: BidStatus.create,
+                  currentBidStatus: bidStatus,
+                  name: 'Submit',
+                ));
             return;
           },
         );

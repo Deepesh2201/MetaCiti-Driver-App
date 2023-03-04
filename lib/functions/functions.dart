@@ -9,6 +9,9 @@ import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart' as geolocs;
 import 'package:http_interceptor/http_interceptor.dart';
 import 'package:location/location.dart';
+import 'package:tagyourtaxi_driver/feature/bid/data/remote/data_sources/bid_firebase_datasource.dart';
+import 'package:tagyourtaxi_driver/feature/common/model/user_info_model.dart';
+import 'package:tagyourtaxi_driver/global/di/injector_provider.dart';
 import 'package:tagyourtaxi_driver/global/interceptor/authentication.dart';
 // import 'package:location/location.dart';
 import 'package:tagyourtaxi_driver/pages/NavigatorPages/editprofile.dart';
@@ -58,15 +61,15 @@ dynamic centerCheck;
 String ischeckownerordriver = '';
 
 //base url
-String url =
-    'http://metaciti.in/public/';
+String url = 'http://metaciti.in/public/';
 //add '/' at the end of url as 'yourwebsite.com/'
-String mapkey ='AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ'; // enter the google map api key
+String mapkey =
+    'AIzaSyB8uMui2d0RADfQucm22_ogcZ5jaIbHjGQ'; // enter the google map api key
 String mapStyle = '';
-Client http = InterceptedClient.build(interceptors:[
+Client http = InterceptedClient.build(interceptors: [
   AuthenticationInterceptor(),
 ]);
-int currentCountryIndex=0;
+int currentCountryIndex = 0;
 getDetailsOfDevice() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   if (connectivityResult == ConnectivityResult.none) {
@@ -80,6 +83,7 @@ getDetailsOfDevice() async {
     });
     var token = await FirebaseMessaging.instance.getToken();
     fcm = token;
+    debugPrint("FCM token - $fcm");
     pref = await SharedPreferences.getInstance();
   } catch (e) {
     if (e is SocketException) {
@@ -237,8 +241,7 @@ uploadDocs() async {
         'POST', Uri.parse('${url}api/v1/driver/upload/documents'));
     response.headers
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
-    response.files
-        .add(await MultipartFile.fromPath('document', imageFile));
+    response.files.add(await MultipartFile.fromPath('document', imageFile));
     if (documentsNeeded[choosenDocs]['has_expiry_date'] == true) {
       response.fields['expiry_date'] = expDate.toString().substring(0, 19);
     }
@@ -341,8 +344,10 @@ getCountryCode() async {
           countries.where((element) => element['default'] == true).isNotEmpty
               ? countries.indexWhere((element) => element['default'] == true)
               : 0;
-      int selectedCountryIndex=countries.indexOf((country)=>country['default']==true);
-      currentCountryIndex=selectedCountryIndex!=-1?selectedCountryIndex:0;
+      int selectedCountryIndex =
+          countries.indexOf((country) => country['default'] == true);
+      currentCountryIndex =
+          selectedCountryIndex != -1 ? selectedCountryIndex : 0;
       result = 'success';
     } else {
       debugPrint(response.body);
@@ -555,13 +560,13 @@ registerDriver() async {
   bearerToken.clear();
   dynamic result;
   try {
-    final response = MultipartRequest(
-        'POST', Uri.parse('${url}api/v1/driver/register'));
+    final response =
+        MultipartRequest('POST', Uri.parse('${url}api/v1/driver/register'));
 
     response.headers.addAll({'Content-Type': 'application/json'});
 
-    response.files.add(
-        await MultipartFile.fromPath('profile_picture', proImageFile1));
+    response.files
+        .add(await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": name,
       "mobile": phnumber,
@@ -659,8 +664,8 @@ registerOwner() async {
     final response =
         MultipartRequest('POST', Uri.parse('${url}api/v1/owner/register'));
     response.headers.addAll({'Content-Type': 'application/json'});
-    response.files.add(
-        await MultipartFile.fromPath('profile_picture', proImageFile1));
+    response.files
+        .add(await MultipartFile.fromPath('profile_picture', proImageFile1));
     response.fields.addAll({
       "name": ownerName,
       "mobile": phnumber,
@@ -825,29 +830,29 @@ fleetDriver(Map<String, dynamic> map) async {
 updateReferral(String txt) async {
   dynamic result;
   try {
-    print("usernumber"+pref.getString("userphone"));
-    String cmp=pref.getString("userphone");
-    if(cmp!=txt){
-    var response =
-        await http.post(Uri.parse('${url}api/v1/update/driver-mobile-referral'),
-            headers: {
-              'Authorization': 'Bearer ${bearerToken[0].token}',
-              'Content-Type': 'application/json'
-            },
-            body: jsonEncode({"refferal_mobile_num": txt}));
-    print('Bearer ${bearerToken[0].token}');
-    if (response.statusCode == 200) {
-      if (jsonDecode(response.body)['success'] == true) {
-        result = 'true';
+    print("usernumber" + pref.getString("userphone"));
+    String cmp = pref.getString("userphone");
+    if (cmp != txt) {
+      var response = await http.post(
+          Uri.parse('${url}api/v1/update/driver-mobile-referral'),
+          headers: {
+            'Authorization': 'Bearer ${bearerToken[0].token}',
+            'Content-Type': 'application/json'
+          },
+          body: jsonEncode({"refferal_mobile_num": txt}));
+      print('Bearer ${bearerToken[0].token}');
+      if (response.statusCode == 200) {
+        if (jsonDecode(response.body)['success'] == true) {
+          result = 'true';
+        } else {
+          debugPrint(response.body);
+          result = 'false';
+        }
       } else {
         debugPrint(response.body);
         result = 'false';
       }
     } else {
-      debugPrint(response.body);
-      result = 'false';
-    }
-    }else{
       result = 'fatal';
     }
   } catch (e) {
@@ -860,15 +865,13 @@ updateReferral(String txt) async {
 }
 
 Future<List<UserReferal>> getReferalList() async {
-  List<UserReferal> result=[];
+  List<UserReferal> result = [];
   try {
     var response =
-    await http.get(Uri.parse('${url}api/v1/getDriverReferral'),
-
-        headers: {
-          'Authorization': 'Bearer ${bearerToken[0].token}',
-          'Content-Type': 'application/json'
-        });
+        await http.get(Uri.parse('${url}api/v1/getDriverReferral'), headers: {
+      'Authorization': 'Bearer ${bearerToken[0].token}',
+      'Content-Type': 'application/json'
+    });
     print('Bearer ${bearerToken[0].token}');
     if (response.statusCode == 200) {
       if (jsonDecode(response.body)['success'] == true) {
@@ -899,19 +902,22 @@ Future<List<UserReferal>> getReferalList() async {
   }
   return result;
 }
+
 getReferral() async {
   dynamic result;
   try {
     var response =
-    await http.get(Uri.parse('${url}api/v1/get/referral'), headers: {
+        await http.get(Uri.parse('${url}api/v1/get/referral'), headers: {
       'Authorization': 'Bearer ${bearerToken[0].token}',
       'Content-Type': 'application/json'
     });
     if (response.statusCode == 200) {
       result = 'success';
       // Map<String,String> code=<String,String>{};
-      myReferralCode.putIfAbsent("refferal_code", () => pref.getString("userphone"));
-      myReferralCode.putIfAbsent("referral_comission_string", () => jsonDecode(response.body)["data"]["referral_comission_string"]);
+      myReferralCode.putIfAbsent(
+          "refferal_code", () => pref.getString("userphone"));
+      myReferralCode.putIfAbsent("referral_comission_string",
+          () => jsonDecode(response.body)["data"]["referral_comission_string"]);
 
       // myReferralCode = jsonDecode(code.toString());
       valueNotifierHome.incrementNotifier();
@@ -996,8 +1002,8 @@ otpCall() async {
   try {
     var otp = await FirebaseDatabase.instance.ref().child('call_FB_OTP').get();
     result = otp;
-    print("testing sir "+ result.value);
-    if(result.value != null){
+    print("testing sir " + result.value);
+    if (result.value != null) {
       return result;
     }
   } catch (e) {
@@ -1062,7 +1068,7 @@ driverLogin() async {
           "role": ischeckownerordriver,
         }));
     // var pref=SharedPreferences.getInstance();
-    pref.setString("userphone",phnumber);
+    pref.setString("userphone", phnumber);
     if (response.statusCode == 200) {
       var jsonVal = jsonDecode(response.body);
       bearerToken.add(BearerClass(
@@ -1106,6 +1112,9 @@ getUserDetails() async {
     if (response.statusCode == 200) {
       printWrapped(response.body);
       userDetails = jsonDecode(response.body)['data'];
+      // Assign response.body.data to UserDataModel
+      injector<UserInfoModel>().data =
+          UserDataModel.fromJson(jsonDecode(response.body)['data']);
       if (userDetails['role'] != 'owner') {
         if (userDetails['sos']['data'] != null) {
           sosData = userDetails['sos']['data'];
@@ -1622,7 +1631,8 @@ requestReject() async {
 }
 
 audioPlay() async {
-  audioPlayers = (await audioPlayer.loadAsFile('audio/request_sound.mp3')) as AudioPlayer;
+  audioPlayers =
+      (await audioPlayer.loadAsFile('audio/request_sound.mp3')) as AudioPlayer;
 }
 
 //sound
@@ -2335,8 +2345,8 @@ updateProfile(name, email) async {
     );
     response.headers
         .addAll({'Authorization': 'Bearer ${bearerToken[0].token}'});
-    response.files.add(
-        await MultipartFile.fromPath('profile_picture', proImageFile));
+    response.files
+        .add(await MultipartFile.fromPath('profile_picture', proImageFile));
     response.fields['email'] = email;
     response.fields['name'] = name;
     var request = await http.send(response);
@@ -2503,7 +2513,7 @@ List walletHistory = [];
 Map<String, dynamic> walletPages = {};
 
 void printWrapped(String text) {
-  final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
+  final pattern = RegExp('.{1,1000}'); // 1000 is the size of each chunk
   pattern.allMatches(text).forEach((match) => debugPrint(match.group(0)));
 }
 
@@ -3512,7 +3522,11 @@ streamRequest() {
       .onChildAdded
       .handleError((onError) {
     requestStreamStart?.cancel();
+    injector<FirebaseBidDatabase>().cancelListen();
   }).listen((event) {
+    debugPrint(
+        'requestStreamStart listening...event ${event.snapshot.value as Map}');
+    injector<FirebaseBidDatabase>().addRequestStream(event);
     if (driverReq.isEmpty) {
       streamEnd(event.snapshot.key.toString());
       getUserDetails();
@@ -3527,6 +3541,7 @@ streamEnd(id) {
       .onChildRemoved
       .handleError((onError) {
     requestStreamEnd?.cancel();
+    injector<FirebaseBidDatabase>().cancelListen();
   }).listen((event) {
     if (driverReject != true && driverReq['accepted_at'] == null) {
       // userReject = true;

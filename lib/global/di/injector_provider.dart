@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:one_context/one_context.dart';
+import 'package:tagyourtaxi_driver/feature/bid/data/remote/data_sources/bid_firebase_datasource.dart';
 import 'package:tagyourtaxi_driver/feature/bid/data/remote/data_sources/bid_remote_datasource.dart';
 import 'package:tagyourtaxi_driver/feature/bid/data/repository/bid_repository_impl.dart';
 import 'package:tagyourtaxi_driver/feature/bid/domain/repository/bid_repository.dart';
 import 'package:tagyourtaxi_driver/feature/bid/domain/usecase/create_bid_usecase.dart';
 import 'package:tagyourtaxi_driver/feature/bid/presentation/bloc/bid_request/bid_request_bloc.dart';
+import 'package:tagyourtaxi_driver/feature/common/model/user_info_model.dart';
 import 'package:tagyourtaxi_driver/global/style/button_style.dart';
 import 'package:tagyourtaxi_driver/styles/styles.dart';
 
@@ -18,6 +20,8 @@ Future<void> setupInjection() async {
   setupRemoteDataSource();
   setupRepository();
   setupUseCase();
+  setupFirebaseService();
+  setupModel();
   await setUpBlocProviders();
 }
 
@@ -50,6 +54,17 @@ void setupRepository() {
 void setupUseCase() {
   injector
       .registerFactory<CreateBidUseCase>(() => CreateBidUseCase(injector()));
+  return;
+}
+
+void setupFirebaseService() {
+  injector
+      .registerLazySingleton<FirebaseBidDatabase>(() => FirebaseBidDatabase());
+  return;
+}
+
+void setupModel() {
+  injector.registerLazySingleton<UserInfoModel>(() => UserInfoModel());
   return;
 }
 

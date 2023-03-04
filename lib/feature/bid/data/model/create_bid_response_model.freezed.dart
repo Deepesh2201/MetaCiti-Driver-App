@@ -33,9 +33,9 @@ mixin _$CreateBidResponseModel {
   CreateBidResponseData? get data => throw _privateConstructorUsedError;
   @JsonKey(name: 'data')
   set data(CreateBidResponseData? value) => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   BidStatus get bidStatus => throw _privateConstructorUsedError;
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   set bidStatus(BidStatus value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $CreateBidResponseModelCopyWith<$Res> {
       {@JsonKey(name: 'success') bool? success,
       @JsonKey(name: 'message') String? message,
       @JsonKey(name: 'data') CreateBidResponseData? data,
-      @JsonKey(name: 'bidStatus') BidStatus bidStatus});
+      @JsonKey(name: 'bid_status') BidStatus bidStatus});
 
   $CreateBidResponseDataCopyWith<$Res>? get data;
 }
@@ -123,7 +123,7 @@ abstract class _$$_CreateBidResponseModelCopyWith<$Res>
       {@JsonKey(name: 'success') bool? success,
       @JsonKey(name: 'message') String? message,
       @JsonKey(name: 'data') CreateBidResponseData? data,
-      @JsonKey(name: 'bidStatus') BidStatus bidStatus});
+      @JsonKey(name: 'bid_status') BidStatus bidStatus});
 
   @override
   $CreateBidResponseDataCopyWith<$Res>? get data;
@@ -174,7 +174,7 @@ class _$_CreateBidResponseModel implements _CreateBidResponseModel {
       {@JsonKey(name: 'success') this.success,
       @JsonKey(name: 'message') this.message,
       @JsonKey(name: 'data') this.data,
-      @JsonKey(name: 'bidStatus') this.bidStatus = BidStatus.create});
+      @JsonKey(name: 'bid_status') this.bidStatus = BidStatus.create});
 
   factory _$_CreateBidResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_CreateBidResponseModelFromJson(json);
@@ -189,7 +189,7 @@ class _$_CreateBidResponseModel implements _CreateBidResponseModel {
   @JsonKey(name: 'data')
   CreateBidResponseData? data;
   @override
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   BidStatus bidStatus;
 
   @override
@@ -217,7 +217,7 @@ abstract class _CreateBidResponseModel implements CreateBidResponseModel {
           {@JsonKey(name: 'success') bool? success,
           @JsonKey(name: 'message') String? message,
           @JsonKey(name: 'data') CreateBidResponseData? data,
-          @JsonKey(name: 'bidStatus') BidStatus bidStatus}) =
+          @JsonKey(name: 'bid_status') BidStatus bidStatus}) =
       _$_CreateBidResponseModel;
 
   factory _CreateBidResponseModel.fromJson(Map<String, dynamic> json) =
@@ -239,9 +239,9 @@ abstract class _CreateBidResponseModel implements CreateBidResponseModel {
   @JsonKey(name: 'data')
   set data(CreateBidResponseData? value);
   @override
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   BidStatus get bidStatus;
-  @JsonKey(name: 'bidStatus')
+  @JsonKey(name: 'bid_status')
   set bidStatus(BidStatus value);
   @override
   @JsonKey(ignore: true)
@@ -257,17 +257,17 @@ CreateBidResponseData _$CreateBidResponseDataFromJson(
 /// @nodoc
 mixin _$CreateBidResponseData {
   @JsonKey(name: 'user_id')
-  String? get userId => throw _privateConstructorUsedError;
+  int? get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'request_id')
   String? get requestId => throw _privateConstructorUsedError;
   @JsonKey(name: 'driver_id')
-  String? get driverId => throw _privateConstructorUsedError;
-  @JsonKey(name: 'default_price')
-  String? get defaultPrice => throw _privateConstructorUsedError;
+  int? get driverId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'request_eta_amount')
+  double? get defaultPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_price')
-  String? get bidPrice => throw _privateConstructorUsedError;
+  double? get bidPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_id')
-  String? get bidId => throw _privateConstructorUsedError;
+  int? get bidId => throw _privateConstructorUsedError;
   @JsonKey(name: 'converted_updated_at')
   String? get convertedUpdatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'converted_created_at')
@@ -286,12 +286,12 @@ abstract class $CreateBidResponseDataCopyWith<$Res> {
       _$CreateBidResponseDataCopyWithImpl<$Res, CreateBidResponseData>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'user_id') String? userId,
+      {@JsonKey(name: 'user_id') int? userId,
       @JsonKey(name: 'request_id') String? requestId,
-      @JsonKey(name: 'driver_id') String? driverId,
-      @JsonKey(name: 'default_price') String? defaultPrice,
-      @JsonKey(name: 'bid_price') String? bidPrice,
-      @JsonKey(name: 'bid_id') String? bidId,
+      @JsonKey(name: 'driver_id') int? driverId,
+      @JsonKey(name: 'request_eta_amount') double? defaultPrice,
+      @JsonKey(name: 'bid_price') double? bidPrice,
+      @JsonKey(name: 'bid_id') int? bidId,
       @JsonKey(name: 'converted_updated_at') String? convertedUpdatedAt,
       @JsonKey(name: 'converted_created_at') String? convertedCreatedAt});
 }
@@ -323,7 +323,7 @@ class _$CreateBidResponseDataCopyWithImpl<$Res,
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       requestId: freezed == requestId
           ? _value.requestId
           : requestId // ignore: cast_nullable_to_non_nullable
@@ -331,19 +331,19 @@ class _$CreateBidResponseDataCopyWithImpl<$Res,
       driverId: freezed == driverId
           ? _value.driverId
           : driverId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       defaultPrice: freezed == defaultPrice
           ? _value.defaultPrice
           : defaultPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidPrice: freezed == bidPrice
           ? _value.bidPrice
           : bidPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidId: freezed == bidId
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       convertedUpdatedAt: freezed == convertedUpdatedAt
           ? _value.convertedUpdatedAt
           : convertedUpdatedAt // ignore: cast_nullable_to_non_nullable
@@ -365,12 +365,12 @@ abstract class _$$_CreateBidResponseDataCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'user_id') String? userId,
+      {@JsonKey(name: 'user_id') int? userId,
       @JsonKey(name: 'request_id') String? requestId,
-      @JsonKey(name: 'driver_id') String? driverId,
-      @JsonKey(name: 'default_price') String? defaultPrice,
-      @JsonKey(name: 'bid_price') String? bidPrice,
-      @JsonKey(name: 'bid_id') String? bidId,
+      @JsonKey(name: 'driver_id') int? driverId,
+      @JsonKey(name: 'request_eta_amount') double? defaultPrice,
+      @JsonKey(name: 'bid_price') double? bidPrice,
+      @JsonKey(name: 'bid_id') int? bidId,
       @JsonKey(name: 'converted_updated_at') String? convertedUpdatedAt,
       @JsonKey(name: 'converted_created_at') String? convertedCreatedAt});
 }
@@ -399,7 +399,7 @@ class __$$_CreateBidResponseDataCopyWithImpl<$Res>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       requestId: freezed == requestId
           ? _value.requestId
           : requestId // ignore: cast_nullable_to_non_nullable
@@ -407,19 +407,19 @@ class __$$_CreateBidResponseDataCopyWithImpl<$Res>
       driverId: freezed == driverId
           ? _value.driverId
           : driverId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       defaultPrice: freezed == defaultPrice
           ? _value.defaultPrice
           : defaultPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidPrice: freezed == bidPrice
           ? _value.bidPrice
           : bidPrice // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as double?,
       bidId: freezed == bidId
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       convertedUpdatedAt: freezed == convertedUpdatedAt
           ? _value.convertedUpdatedAt
           : convertedUpdatedAt // ignore: cast_nullable_to_non_nullable
@@ -439,7 +439,7 @@ class _$_CreateBidResponseData implements _CreateBidResponseData {
       {@JsonKey(name: 'user_id') this.userId,
       @JsonKey(name: 'request_id') this.requestId,
       @JsonKey(name: 'driver_id') this.driverId,
-      @JsonKey(name: 'default_price') this.defaultPrice,
+      @JsonKey(name: 'request_eta_amount') this.defaultPrice,
       @JsonKey(name: 'bid_price') this.bidPrice,
       @JsonKey(name: 'bid_id') this.bidId,
       @JsonKey(name: 'converted_updated_at') this.convertedUpdatedAt,
@@ -450,22 +450,22 @@ class _$_CreateBidResponseData implements _CreateBidResponseData {
 
   @override
   @JsonKey(name: 'user_id')
-  final String? userId;
+  final int? userId;
   @override
   @JsonKey(name: 'request_id')
   final String? requestId;
   @override
   @JsonKey(name: 'driver_id')
-  final String? driverId;
+  final int? driverId;
   @override
-  @JsonKey(name: 'default_price')
-  final String? defaultPrice;
+  @JsonKey(name: 'request_eta_amount')
+  final double? defaultPrice;
   @override
   @JsonKey(name: 'bid_price')
-  final String? bidPrice;
+  final double? bidPrice;
   @override
   @JsonKey(name: 'bid_id')
-  final String? bidId;
+  final int? bidId;
   @override
   @JsonKey(name: 'converted_updated_at')
   final String? convertedUpdatedAt;
@@ -522,17 +522,17 @@ class _$_CreateBidResponseData implements _CreateBidResponseData {
 abstract class _CreateBidResponseData implements CreateBidResponseData {
   const factory _CreateBidResponseData(
       {@JsonKey(name: 'user_id')
-          final String? userId,
+          final int? userId,
       @JsonKey(name: 'request_id')
           final String? requestId,
       @JsonKey(name: 'driver_id')
-          final String? driverId,
-      @JsonKey(name: 'default_price')
-          final String? defaultPrice,
+          final int? driverId,
+      @JsonKey(name: 'request_eta_amount')
+          final double? defaultPrice,
       @JsonKey(name: 'bid_price')
-          final String? bidPrice,
+          final double? bidPrice,
       @JsonKey(name: 'bid_id')
-          final String? bidId,
+          final int? bidId,
       @JsonKey(name: 'converted_updated_at')
           final String? convertedUpdatedAt,
       @JsonKey(name: 'converted_created_at')
@@ -543,22 +543,22 @@ abstract class _CreateBidResponseData implements CreateBidResponseData {
 
   @override
   @JsonKey(name: 'user_id')
-  String? get userId;
+  int? get userId;
   @override
   @JsonKey(name: 'request_id')
   String? get requestId;
   @override
   @JsonKey(name: 'driver_id')
-  String? get driverId;
+  int? get driverId;
   @override
-  @JsonKey(name: 'default_price')
-  String? get defaultPrice;
+  @JsonKey(name: 'request_eta_amount')
+  double? get defaultPrice;
   @override
   @JsonKey(name: 'bid_price')
-  String? get bidPrice;
+  double? get bidPrice;
   @override
   @JsonKey(name: 'bid_id')
-  String? get bidId;
+  int? get bidId;
   @override
   @JsonKey(name: 'converted_updated_at')
   String? get convertedUpdatedAt;

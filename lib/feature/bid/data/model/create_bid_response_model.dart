@@ -10,7 +10,7 @@ class CreateBidResponseModel with _$CreateBidResponseModel {
     @JsonKey(name: 'success') bool? success,
     @JsonKey(name: 'message') String? message,
     @JsonKey(name: 'data') CreateBidResponseData? data,
-    @JsonKey(name: 'bidStatus') @Default(BidStatus.create) BidStatus bidStatus,
+    @JsonKey(name: 'bid_status') @Default(BidStatus.create) BidStatus bidStatus,
   }) = _CreateBidResponseModel;
 
   factory CreateBidResponseModel.fromJson(Map<String, Object?> json) =>
@@ -20,12 +20,12 @@ class CreateBidResponseModel with _$CreateBidResponseModel {
 @freezed
 class CreateBidResponseData with _$CreateBidResponseData {
   const factory CreateBidResponseData({
-    @JsonKey(name: 'user_id') String? userId,
+    @JsonKey(name: 'user_id') int? userId,
     @JsonKey(name: 'request_id') String? requestId,
-    @JsonKey(name: 'driver_id') String? driverId,
-    @JsonKey(name: 'default_price') String? defaultPrice,
-    @JsonKey(name: 'bid_price') String? bidPrice,
-    @JsonKey(name: 'bid_id') String? bidId,
+    @JsonKey(name: 'driver_id') int? driverId,
+    @JsonKey(name: 'request_eta_amount') double? defaultPrice,
+    @JsonKey(name: 'bid_price') double? bidPrice,
+    @JsonKey(name: 'bid_id') int? bidId,
     @JsonKey(name: 'converted_updated_at') String? convertedUpdatedAt,
     @JsonKey(name: 'converted_created_at') String? convertedCreatedAt,
   }) = _CreateBidResponseData;

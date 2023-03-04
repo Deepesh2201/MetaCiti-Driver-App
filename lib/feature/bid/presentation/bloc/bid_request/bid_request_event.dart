@@ -30,6 +30,7 @@ class BidRequestEvent with _$BidRequestEvent {
     dynamic data,
     @Default(BidStatus.create) BidStatus currentBidStatus,
     @Default(false) bool hasTextFormFieldEnable,
+    @Default(0.0) double bidRequestPrice,
   }) = _UpdateBidStatusEvent;
 
   //setCurrentTextOfAcceptButton
