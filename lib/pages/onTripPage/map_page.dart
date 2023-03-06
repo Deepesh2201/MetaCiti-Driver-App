@@ -2683,7 +2683,7 @@ class _MapsState extends State<Maps>
                                                                                           SizedBox(
                                                                                             height: media.width * 0.04,
                                                                                           ),
-                                                                                          BidButtonWidget(
+                                                                                          /*BidButtonWidget(
                                                                                             key: ObjectKey(injector<UserInfoModel>().data?.metaRequest?.data),
                                                                                             driverReq: driverReq,
                                                                                             onCancelPressed: () async{
@@ -2698,8 +2698,8 @@ class _MapsState extends State<Maps>
                                                                                                 _isLoading=value;
                                                                                               });
                                                                                             },
-                                                                                          ),
-                                                                                          /*Row(
+                                                                                          ),*/
+                                                                                          Row(
                                                                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                                                             children: [
                                                                                               Button(
@@ -2728,11 +2728,11 @@ class _MapsState extends State<Maps>
                                                                                                     _isLoading = false;
                                                                                                   });
                                                                                                 },
-                                                                                                text: languages[choosenLanguage]['text_create_bid'],
+                                                                                                text: languages[choosenLanguage]['text_accept'],
                                                                                                 width: media.width * 0.38,
                                                                                               )
                                                                                             ],
-                                                                                          )*/
+                                                                                          )
 
                                                                                         ],
                                                                                       ),
