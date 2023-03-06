@@ -93,8 +93,9 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                   name: 'Submit',
                   buttonState: AsyncBtnState.idle,
                   currentBidStatus: currentBidStatus,
-                  data: data,
-                  hasTextFormFieldEnable: internetTrue(),
+                  data: 'Submit',
+                  hasTextFormFieldEnable: true,
+                  updateButtonStateByApiResponse: true,
                 ));
               } else {
                 // Handle success
@@ -108,8 +109,9 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                   name: 'Edit',
                   buttonState: AsyncBtnState.idle,
                   currentBidStatus: currentBidStatus,
-                  data: data,
+                  data: 'Edit',
                   hasTextFormFieldEnable: false,
+                  updateButtonStateByApiResponse: true,
                 ));
               }
             }
@@ -133,13 +135,13 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
               data: data,
             ));
             final userRequestMeta = injector<UserInfoModel>().data?.metaRequest;
+            final requestTripBidModel =
+                injector<UserInfoModel>().data?.requestTripBidModel;
             if (userRequestMeta != null) {
-              // fetch bid_id from firebase trip_ids collection against request_id
-              final RequestTripBidModel requestTripBidModel =
-                  await _firebaseTripBidCollection.getByID(
-                      requestID: userRequestMeta.data?.id ?? '');
+              // fetch bid_id from userRequestMeta model
+
               final CreateBidEntity createBidEntity = CreateBidEntity(
-                  bidId: requestTripBidModel.data?.bidId,
+                  bidId: requestTripBidModel?.data?.bidId,
                   bidPrice: currentBidPrice,
                   bidStatus: currentBidStatus,
                   defaultPrice: userRequestMeta.data?.requestEtaAmount ?? 0.0,
@@ -151,13 +153,15 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                 // Handle error
                 debugPrint('Create bid error');
                 emit(BidRequestState.updateBidStatus(
-                    asyncSubmitButtonStatesController,
-                    bidEnum: currentBidStatus,
-                    name: 'Update',
-                    buttonState: AsyncBtnState.idle,
-                    currentBidStatus: currentBidStatus,
-                    data: data,
-                    hasTextFormFieldEnable: true));
+                  asyncSubmitButtonStatesController,
+                  bidEnum: currentBidStatus,
+                  name: 'Update',
+                  buttonState: AsyncBtnState.idle,
+                  currentBidStatus: currentBidStatus,
+                  data: 'Update',
+                  hasTextFormFieldEnable: true,
+                  updateButtonStateByApiResponse: true,
+                ));
               } else {
                 // Handle success
                 var response = result.asRight();
@@ -165,13 +169,15 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                 debugPrint(
                     'Update Bid Id - ${response.data?.bidId}-${response.data?.bidPrice}');
                 emit(BidRequestState.updateBidStatus(
-                    asyncSubmitButtonStatesController,
-                    bidEnum: BidStatus.pending,
-                    name: 'Edit',
-                    buttonState: AsyncBtnState.idle,
-                    currentBidStatus: currentBidStatus,
-                    data: data,
-                    hasTextFormFieldEnable: true));
+                  asyncSubmitButtonStatesController,
+                  bidEnum: BidStatus.pending,
+                  name: 'Edit',
+                  buttonState: AsyncBtnState.idle,
+                  currentBidStatus: currentBidStatus,
+                  data: 'Edit',
+                  hasTextFormFieldEnable: true,
+                  updateButtonStateByApiResponse: true,
+                ));
               }
             }
             /*await Future.delayed(const Duration(seconds: 5)).whenComplete(() =>

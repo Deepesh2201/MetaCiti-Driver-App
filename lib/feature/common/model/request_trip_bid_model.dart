@@ -23,8 +23,11 @@ class TripBidModel with _$TripBidModel {
     @JsonKey(name: 'is_accepted') int? isAccepted,
     @JsonKey(name: 'request_id') String? requestId,
     @JsonKey(name: 'updated_at') int? updatedAt,
-    @JsonKey(name: 'user_id') String? userId,
+    @JsonKey(name: 'user_id') int? userId,
     @JsonKey(name: 'bid_id') int? bidId,
+    @JsonKey(name: 'status') int? status,
+    @JsonKey(name: 'converted_updated_at') String? convertedUpdatedAt,
+    @JsonKey(name: 'converted_created_at') String? convertedCreatedAt,
   }) = _TripBidModel;
 
   factory TripBidModel.fromJson(Map<String, Object?> json) =>

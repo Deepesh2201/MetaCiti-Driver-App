@@ -68,6 +68,10 @@ _$_UserDataModel _$$_UserDataModelFromJson(Map<String, dynamic> json) =>
           ? null
           : RequestMetaInfo.fromJson(
               json['metaRequest'] as Map<String, dynamic>),
+      requestTripBidModel: json['tripBid'] == null
+          ? null
+          : RequestTripBidModel.fromJson(
+              json['tripBid'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_UserDataModelToJson(_$_UserDataModel instance) =>
@@ -113,6 +117,7 @@ Map<String, dynamic> _$$_UserDataModelToJson(_$_UserDataModel instance) =>
       'low_balance': instance.lowBalance,
       'sos': instance.sos,
       'metaRequest': instance.metaRequest,
+      'tripBid': instance.requestTripBidModel,
     };
 
 _$_RequestMetaInfo _$$_RequestMetaInfoFromJson(Map<String, dynamic> json) =>

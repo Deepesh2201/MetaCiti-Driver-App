@@ -40,6 +40,7 @@ class BidRequestState with _$BidRequestState {
     dynamic data,
     @Default(BidStatus.create) BidStatus currentBidStatus,
     @Default(false) bool hasTextFormFieldEnable,
+    @Default(false) bool updateButtonStateByApiResponse,
   }) = _UpdateBidStatus;
 
   const factory BidRequestState.getCurrentTextOfAcceptButton(

@@ -279,6 +279,9 @@ mixin _$UserDataModel {
   SosBean? get sos => throw _privateConstructorUsedError;
   @JsonKey(name: 'metaRequest')
   RequestMetaInfo? get metaRequest => throw _privateConstructorUsedError;
+  @JsonKey(name: 'tripBid')
+  RequestTripBidModel? get requestTripBidModel =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -372,10 +375,13 @@ abstract class $UserDataModelCopyWith<$Res> {
       @JsonKey(name: 'sos')
           SosBean? sos,
       @JsonKey(name: 'metaRequest')
-          RequestMetaInfo? metaRequest});
+          RequestMetaInfo? metaRequest,
+      @JsonKey(name: 'tripBid')
+          RequestTripBidModel? requestTripBidModel});
 
   $SosBeanCopyWith<$Res>? get sos;
   $RequestMetaInfoCopyWith<$Res>? get metaRequest;
+  $RequestTripBidModelCopyWith<$Res>? get requestTripBidModel;
 }
 
 /// @nodoc
@@ -431,6 +437,7 @@ class _$UserDataModelCopyWithImpl<$Res, $Val extends UserDataModel>
     Object? lowBalance = freezed,
     Object? sos = freezed,
     Object? metaRequest = freezed,
+    Object? requestTripBidModel = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -594,6 +601,10 @@ class _$UserDataModelCopyWithImpl<$Res, $Val extends UserDataModel>
           ? _value.metaRequest
           : metaRequest // ignore: cast_nullable_to_non_nullable
               as RequestMetaInfo?,
+      requestTripBidModel: freezed == requestTripBidModel
+          ? _value.requestTripBidModel
+          : requestTripBidModel // ignore: cast_nullable_to_non_nullable
+              as RequestTripBidModel?,
     ) as $Val);
   }
 
@@ -618,6 +629,19 @@ class _$UserDataModelCopyWithImpl<$Res, $Val extends UserDataModel>
 
     return $RequestMetaInfoCopyWith<$Res>(_value.metaRequest!, (value) {
       return _then(_value.copyWith(metaRequest: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RequestTripBidModelCopyWith<$Res>? get requestTripBidModel {
+    if (_value.requestTripBidModel == null) {
+      return null;
+    }
+
+    return $RequestTripBidModelCopyWith<$Res>(_value.requestTripBidModel!,
+        (value) {
+      return _then(_value.copyWith(requestTripBidModel: value) as $Val);
     });
   }
 }
@@ -710,12 +734,16 @@ abstract class _$$_UserDataModelCopyWith<$Res>
       @JsonKey(name: 'sos')
           SosBean? sos,
       @JsonKey(name: 'metaRequest')
-          RequestMetaInfo? metaRequest});
+          RequestMetaInfo? metaRequest,
+      @JsonKey(name: 'tripBid')
+          RequestTripBidModel? requestTripBidModel});
 
   @override
   $SosBeanCopyWith<$Res>? get sos;
   @override
   $RequestMetaInfoCopyWith<$Res>? get metaRequest;
+  @override
+  $RequestTripBidModelCopyWith<$Res>? get requestTripBidModel;
 }
 
 /// @nodoc
@@ -769,6 +797,7 @@ class __$$_UserDataModelCopyWithImpl<$Res>
     Object? lowBalance = freezed,
     Object? sos = freezed,
     Object? metaRequest = freezed,
+    Object? requestTripBidModel = freezed,
   }) {
     return _then(_$_UserDataModel(
       id: freezed == id
@@ -932,6 +961,10 @@ class __$$_UserDataModelCopyWithImpl<$Res>
           ? _value.metaRequest
           : metaRequest // ignore: cast_nullable_to_non_nullable
               as RequestMetaInfo?,
+      requestTripBidModel: freezed == requestTripBidModel
+          ? _value.requestTripBidModel
+          : requestTripBidModel // ignore: cast_nullable_to_non_nullable
+              as RequestTripBidModel?,
     ));
   }
 }
@@ -1019,7 +1052,9 @@ class _$_UserDataModel implements _UserDataModel {
       @JsonKey(name: 'sos')
           this.sos,
       @JsonKey(name: 'metaRequest')
-          this.metaRequest});
+          this.metaRequest,
+      @JsonKey(name: 'tripBid')
+          this.requestTripBidModel});
 
   factory _$_UserDataModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserDataModelFromJson(json);
@@ -1144,10 +1179,13 @@ class _$_UserDataModel implements _UserDataModel {
   @override
   @JsonKey(name: 'metaRequest')
   final RequestMetaInfo? metaRequest;
+  @override
+  @JsonKey(name: 'tripBid')
+  final RequestTripBidModel? requestTripBidModel;
 
   @override
   String toString() {
-    return 'UserDataModel(id: $id, name: $name, email: $email, mobile: $mobile, profilePicture: $profilePicture, active: $active, approve: $approve, available: $available, uploadedDocument: $uploadedDocument, serviceLocationId: $serviceLocationId, serviceLocationName: $serviceLocationName, vehicleYear: $vehicleYear, vehicleTypeId: $vehicleTypeId, vehicleTypeName: $vehicleTypeName, vehicleTypeImage: $vehicleTypeImage, carMake: $carMake, carModel: $carModel, carMakeName: $carMakeName, carModelName: $carModelName, carColor: $carColor, carNumber: $carNumber, rating: $rating, noOfRatings: $noOfRatings, timezone: $timezone, refferalCode: $refferalCode, showInstantRide: $showInstantRide, countryId: $countryId, currencySymbol: $currencySymbol, role: $role, adminCommission: $adminCommission, contactUsMobile1: $contactUsMobile1, contactUsMobile2: $contactUsMobile2, contactUsLink: $contactUsLink, notificationsCount: $notificationsCount, totalEarnings: $totalEarnings, currentDate: $currentDate, tripAcceptRejectDurationForDriver: $tripAcceptRejectDurationForDriver, lowBalance: $lowBalance, sos: $sos, metaRequest: $metaRequest)';
+    return 'UserDataModel(id: $id, name: $name, email: $email, mobile: $mobile, profilePicture: $profilePicture, active: $active, approve: $approve, available: $available, uploadedDocument: $uploadedDocument, serviceLocationId: $serviceLocationId, serviceLocationName: $serviceLocationName, vehicleYear: $vehicleYear, vehicleTypeId: $vehicleTypeId, vehicleTypeName: $vehicleTypeName, vehicleTypeImage: $vehicleTypeImage, carMake: $carMake, carModel: $carModel, carMakeName: $carMakeName, carModelName: $carModelName, carColor: $carColor, carNumber: $carNumber, rating: $rating, noOfRatings: $noOfRatings, timezone: $timezone, refferalCode: $refferalCode, showInstantRide: $showInstantRide, countryId: $countryId, currencySymbol: $currencySymbol, role: $role, adminCommission: $adminCommission, contactUsMobile1: $contactUsMobile1, contactUsMobile2: $contactUsMobile2, contactUsLink: $contactUsLink, notificationsCount: $notificationsCount, totalEarnings: $totalEarnings, currentDate: $currentDate, tripAcceptRejectDurationForDriver: $tripAcceptRejectDurationForDriver, lowBalance: $lowBalance, sos: $sos, metaRequest: $metaRequest, requestTripBidModel: $requestTripBidModel)';
   }
 
   @override
@@ -1226,7 +1264,9 @@ class _$_UserDataModel implements _UserDataModel {
                 other.lowBalance == lowBalance) &&
             (identical(other.sos, sos) || other.sos == sos) &&
             (identical(other.metaRequest, metaRequest) ||
-                other.metaRequest == metaRequest));
+                other.metaRequest == metaRequest) &&
+            (identical(other.requestTripBidModel, requestTripBidModel) ||
+                other.requestTripBidModel == requestTripBidModel));
   }
 
   @JsonKey(ignore: true)
@@ -1272,7 +1312,8 @@ class _$_UserDataModel implements _UserDataModel {
         tripAcceptRejectDurationForDriver,
         lowBalance,
         sos,
-        metaRequest
+        metaRequest,
+        requestTripBidModel
       ]);
 
   @JsonKey(ignore: true)
@@ -1370,7 +1411,9 @@ abstract class _UserDataModel implements UserDataModel {
       @JsonKey(name: 'sos')
           final SosBean? sos,
       @JsonKey(name: 'metaRequest')
-          final RequestMetaInfo? metaRequest}) = _$_UserDataModel;
+          final RequestMetaInfo? metaRequest,
+      @JsonKey(name: 'tripBid')
+          final RequestTripBidModel? requestTripBidModel}) = _$_UserDataModel;
 
   factory _UserDataModel.fromJson(Map<String, dynamic> json) =
       _$_UserDataModel.fromJson;
@@ -1495,6 +1538,9 @@ abstract class _UserDataModel implements UserDataModel {
   @override
   @JsonKey(name: 'metaRequest')
   RequestMetaInfo? get metaRequest;
+  @override
+  @JsonKey(name: 'tripBid')
+  RequestTripBidModel? get requestTripBidModel;
   @override
   @JsonKey(ignore: true)
   _$$_UserDataModelCopyWith<_$_UserDataModel> get copyWith =>

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tagyourtaxi_driver/feature/common/model/request_trip_bid_model.dart';
 
 part 'user_info_model.freezed.dart';
 part 'user_info_model.g.dart';
@@ -58,6 +59,7 @@ class UserDataModel with _$UserDataModel {
     @JsonKey(name: 'low_balance') bool? lowBalance,
     @JsonKey(name: 'sos') SosBean? sos,
     @JsonKey(name: 'metaRequest') RequestMetaInfo? metaRequest,
+    @JsonKey(name: 'tripBid') RequestTripBidModel? requestTripBidModel,
   }) = _UserDataModel;
 
   factory UserDataModel.fromJson(Map<String, Object?> json) =>

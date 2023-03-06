@@ -144,18 +144,22 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                   bidStatus = bidEnum;
                   bidCancelStateController = asyncCancelButtonStatesController!;
                 },
-                updateBidStatus: (asyncSubmitButtonStatesController,
-                    bidEnum,
-                    name,
-                    buttonState,
-                    data,
-                    currentBidStatus,
-                    hasTextFormFieldEnabled) {
+                updateBidStatus: (
+                  asyncSubmitButtonStatesController,
+                  bidEnum,
+                  name,
+                  buttonState,
+                  data,
+                  currentBidStatus,
+                  hasTextFormFieldEnabled,
+                  updateButtonStateByApiResponse,
+                ) {
                   bidStatus = bidEnum;
-                  textOfAcceptButton = name;
+
                   //updateBidSubmitStateController = asyncSubmitButtonStatesController!;
                   updateBidSubmitStateController.update(buttonState,
                       data: data);
+                  textOfAcceptButton = name;
                   hasTextFormFieldEnable = hasTextFormFieldEnabled;
                 },
                 getCurrentTextOfAcceptButton: (getTextWithBidStatus) {
@@ -351,6 +355,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                     bidEnum: BidStatus.create,
                     currentBidStatus: bidStatus,
                     name: 'Submit',
+                    data: 'Submit',
                   ));
               return;
             },
@@ -369,6 +374,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                       bidEnum: BidStatus.pending,
                       currentBidStatus: bidStatus,
                       name: 'Edit',
+                      data: 'Edit',
                       bidRequestPrice: double.parse(
                           currentBidPriceController.value.text.toString()),
                     ));
@@ -384,6 +390,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                     bidEnum: BidStatus.update,
                     currentBidStatus: bidStatus,
                     name: 'Update',
+                    data: 'Update',
                   ));
               return;
             },
@@ -401,6 +408,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                       bidEnum: BidStatus.pending,
                       currentBidStatus: bidStatus,
                       name: 'Edit',
+                      data: 'Edit',
                       bidRequestPrice: double.parse(
                           currentBidPriceController.value.text.toString()),
                     ));

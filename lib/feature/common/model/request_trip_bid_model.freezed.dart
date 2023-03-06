@@ -204,9 +204,15 @@ mixin _$TripBidModel {
   @JsonKey(name: 'updated_at')
   int? get updatedAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'user_id')
-  String? get userId => throw _privateConstructorUsedError;
+  int? get userId => throw _privateConstructorUsedError;
   @JsonKey(name: 'bid_id')
   int? get bidId => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status')
+  int? get status => throw _privateConstructorUsedError;
+  @JsonKey(name: 'converted_updated_at')
+  String? get convertedUpdatedAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'converted_created_at')
+  String? get convertedCreatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -227,8 +233,11 @@ abstract class $TripBidModelCopyWith<$Res> {
       @JsonKey(name: 'is_accepted') int? isAccepted,
       @JsonKey(name: 'request_id') String? requestId,
       @JsonKey(name: 'updated_at') int? updatedAt,
-      @JsonKey(name: 'user_id') String? userId,
-      @JsonKey(name: 'bid_id') int? bidId});
+      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'bid_id') int? bidId,
+      @JsonKey(name: 'status') int? status,
+      @JsonKey(name: 'converted_updated_at') String? convertedUpdatedAt,
+      @JsonKey(name: 'converted_created_at') String? convertedCreatedAt});
 }
 
 /// @nodoc
@@ -252,6 +261,9 @@ class _$TripBidModelCopyWithImpl<$Res, $Val extends TripBidModel>
     Object? updatedAt = freezed,
     Object? userId = freezed,
     Object? bidId = freezed,
+    Object? status = freezed,
+    Object? convertedUpdatedAt = freezed,
+    Object? convertedCreatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       bidPrice: freezed == bidPrice
@@ -281,11 +293,23 @@ class _$TripBidModelCopyWithImpl<$Res, $Val extends TripBidModel>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       bidId: freezed == bidId
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
               as int?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int?,
+      convertedUpdatedAt: freezed == convertedUpdatedAt
+          ? _value.convertedUpdatedAt
+          : convertedUpdatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      convertedCreatedAt: freezed == convertedCreatedAt
+          ? _value.convertedCreatedAt
+          : convertedCreatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -305,8 +329,11 @@ abstract class _$$_TripBidModelCopyWith<$Res>
       @JsonKey(name: 'is_accepted') int? isAccepted,
       @JsonKey(name: 'request_id') String? requestId,
       @JsonKey(name: 'updated_at') int? updatedAt,
-      @JsonKey(name: 'user_id') String? userId,
-      @JsonKey(name: 'bid_id') int? bidId});
+      @JsonKey(name: 'user_id') int? userId,
+      @JsonKey(name: 'bid_id') int? bidId,
+      @JsonKey(name: 'status') int? status,
+      @JsonKey(name: 'converted_updated_at') String? convertedUpdatedAt,
+      @JsonKey(name: 'converted_created_at') String? convertedCreatedAt});
 }
 
 /// @nodoc
@@ -328,6 +355,9 @@ class __$$_TripBidModelCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? userId = freezed,
     Object? bidId = freezed,
+    Object? status = freezed,
+    Object? convertedUpdatedAt = freezed,
+    Object? convertedCreatedAt = freezed,
   }) {
     return _then(_$_TripBidModel(
       bidPrice: freezed == bidPrice
@@ -357,11 +387,23 @@ class __$$_TripBidModelCopyWithImpl<$Res>
       userId: freezed == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       bidId: freezed == bidId
           ? _value.bidId
           : bidId // ignore: cast_nullable_to_non_nullable
               as int?,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as int?,
+      convertedUpdatedAt: freezed == convertedUpdatedAt
+          ? _value.convertedUpdatedAt
+          : convertedUpdatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      convertedCreatedAt: freezed == convertedCreatedAt
+          ? _value.convertedCreatedAt
+          : convertedCreatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -377,7 +419,10 @@ class _$_TripBidModel implements _TripBidModel {
       @JsonKey(name: 'request_id') this.requestId,
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'user_id') this.userId,
-      @JsonKey(name: 'bid_id') this.bidId});
+      @JsonKey(name: 'bid_id') this.bidId,
+      @JsonKey(name: 'status') this.status,
+      @JsonKey(name: 'converted_updated_at') this.convertedUpdatedAt,
+      @JsonKey(name: 'converted_created_at') this.convertedCreatedAt});
 
   factory _$_TripBidModel.fromJson(Map<String, dynamic> json) =>
       _$$_TripBidModelFromJson(json);
@@ -402,14 +447,23 @@ class _$_TripBidModel implements _TripBidModel {
   final int? updatedAt;
   @override
   @JsonKey(name: 'user_id')
-  final String? userId;
+  final int? userId;
   @override
   @JsonKey(name: 'bid_id')
   final int? bidId;
+  @override
+  @JsonKey(name: 'status')
+  final int? status;
+  @override
+  @JsonKey(name: 'converted_updated_at')
+  final String? convertedUpdatedAt;
+  @override
+  @JsonKey(name: 'converted_created_at')
+  final String? convertedCreatedAt;
 
   @override
   String toString() {
-    return 'TripBidModel(bidPrice: $bidPrice, defaultPrice: $defaultPrice, driverId: $driverId, isAccepted: $isAccepted, requestId: $requestId, updatedAt: $updatedAt, userId: $userId, bidId: $bidId)';
+    return 'TripBidModel(bidPrice: $bidPrice, defaultPrice: $defaultPrice, driverId: $driverId, isAccepted: $isAccepted, requestId: $requestId, updatedAt: $updatedAt, userId: $userId, bidId: $bidId, status: $status, convertedUpdatedAt: $convertedUpdatedAt, convertedCreatedAt: $convertedCreatedAt)';
   }
 
   @override
@@ -430,13 +484,29 @@ class _$_TripBidModel implements _TripBidModel {
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.bidId, bidId) || other.bidId == bidId));
+            (identical(other.bidId, bidId) || other.bidId == bidId) &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.convertedUpdatedAt, convertedUpdatedAt) ||
+                other.convertedUpdatedAt == convertedUpdatedAt) &&
+            (identical(other.convertedCreatedAt, convertedCreatedAt) ||
+                other.convertedCreatedAt == convertedCreatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, bidPrice, defaultPrice, driverId,
-      isAccepted, requestId, updatedAt, userId, bidId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bidPrice,
+      defaultPrice,
+      driverId,
+      isAccepted,
+      requestId,
+      updatedAt,
+      userId,
+      bidId,
+      status,
+      convertedUpdatedAt,
+      convertedCreatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -454,14 +524,28 @@ class _$_TripBidModel implements _TripBidModel {
 
 abstract class _TripBidModel implements TripBidModel {
   const factory _TripBidModel(
-      {@JsonKey(name: 'bid_price') final double? bidPrice,
-      @JsonKey(name: 'request_eta_amount') final double? defaultPrice,
-      @JsonKey(name: 'driver_id') final int? driverId,
-      @JsonKey(name: 'is_accepted') final int? isAccepted,
-      @JsonKey(name: 'request_id') final String? requestId,
-      @JsonKey(name: 'updated_at') final int? updatedAt,
-      @JsonKey(name: 'user_id') final String? userId,
-      @JsonKey(name: 'bid_id') final int? bidId}) = _$_TripBidModel;
+      {@JsonKey(name: 'bid_price')
+          final double? bidPrice,
+      @JsonKey(name: 'request_eta_amount')
+          final double? defaultPrice,
+      @JsonKey(name: 'driver_id')
+          final int? driverId,
+      @JsonKey(name: 'is_accepted')
+          final int? isAccepted,
+      @JsonKey(name: 'request_id')
+          final String? requestId,
+      @JsonKey(name: 'updated_at')
+          final int? updatedAt,
+      @JsonKey(name: 'user_id')
+          final int? userId,
+      @JsonKey(name: 'bid_id')
+          final int? bidId,
+      @JsonKey(name: 'status')
+          final int? status,
+      @JsonKey(name: 'converted_updated_at')
+          final String? convertedUpdatedAt,
+      @JsonKey(name: 'converted_created_at')
+          final String? convertedCreatedAt}) = _$_TripBidModel;
 
   factory _TripBidModel.fromJson(Map<String, dynamic> json) =
       _$_TripBidModel.fromJson;
@@ -486,10 +570,19 @@ abstract class _TripBidModel implements TripBidModel {
   int? get updatedAt;
   @override
   @JsonKey(name: 'user_id')
-  String? get userId;
+  int? get userId;
   @override
   @JsonKey(name: 'bid_id')
   int? get bidId;
+  @override
+  @JsonKey(name: 'status')
+  int? get status;
+  @override
+  @JsonKey(name: 'converted_updated_at')
+  String? get convertedUpdatedAt;
+  @override
+  @JsonKey(name: 'converted_created_at')
+  String? get convertedCreatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_TripBidModelCopyWith<_$_TripBidModel> get copyWith =>

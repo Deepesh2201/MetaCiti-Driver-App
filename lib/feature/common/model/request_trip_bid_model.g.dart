@@ -30,8 +30,11 @@ _$_TripBidModel _$$_TripBidModelFromJson(Map<String, dynamic> json) =>
       isAccepted: json['is_accepted'] as int?,
       requestId: json['request_id'] as String?,
       updatedAt: json['updated_at'] as int?,
-      userId: json['user_id'] as String?,
+      userId: json['user_id'] as int?,
       bidId: json['bid_id'] as int?,
+      status: json['status'] as int?,
+      convertedUpdatedAt: json['converted_updated_at'] as String?,
+      convertedCreatedAt: json['converted_created_at'] as String?,
     );
 
 Map<String, dynamic> _$$_TripBidModelToJson(_$_TripBidModel instance) =>
@@ -44,4 +47,7 @@ Map<String, dynamic> _$$_TripBidModelToJson(_$_TripBidModel instance) =>
       'updated_at': instance.updatedAt,
       'user_id': instance.userId,
       'bid_id': instance.bidId,
+      'status': instance.status,
+      'converted_updated_at': instance.convertedUpdatedAt,
+      'converted_created_at': instance.convertedCreatedAt,
     };
