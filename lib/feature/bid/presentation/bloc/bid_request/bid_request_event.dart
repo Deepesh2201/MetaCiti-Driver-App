@@ -37,4 +37,9 @@ class BidRequestEvent with _$BidRequestEvent {
   const factory BidRequestEvent.setCurrentTextOfAcceptButton(
           Tuple2<BidStatus, String> setTextWithBidStatus) =
       _SetCurrentTextOfAcceptButtonEvent;
+
+  const factory BidRequestEvent.setCurrentValueOfBidTextField(
+          {@Default('0.0') String valueInString,
+          @Default(0.0) double valueInDouble}) =
+      _SetCurrentValueOfBidTextFieldEvent;
 }

@@ -46,6 +46,10 @@ class BidRequestState with _$BidRequestState {
   const factory BidRequestState.getCurrentTextOfAcceptButton(
           Tuple2<BidStatus, String> getTextWithBidStatus) =
       _GetCurrentTextOfAcceptButtonEvent;
+  const factory BidRequestState.getCurrentValueOfBidTextField(
+          {@Default('0.0') String valueInString,
+          @Default(0.0) double valueInDouble}) =
+      _GetCurrentValueOfBidTextFieldState;
 
   bool get isInit => maybeWhen(initial: () => true, orElse: () => false);
 

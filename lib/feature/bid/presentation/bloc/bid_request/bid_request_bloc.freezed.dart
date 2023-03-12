@@ -42,6 +42,8 @@ mixin _$BidRequestEvent {
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +72,8 @@ mixin _$BidRequestEvent {
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,6 +102,8 @@ mixin _$BidRequestEvent {
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -111,6 +117,8 @@ mixin _$BidRequestEvent {
     required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
     required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
         setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -121,6 +129,8 @@ mixin _$BidRequestEvent {
     TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -131,6 +141,8 @@ mixin _$BidRequestEvent {
     TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -215,6 +227,8 @@ class _$_Started implements _Started {
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
   }) {
     return started();
   }
@@ -246,6 +260,8 @@ class _$_Started implements _Started {
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
   }) {
     return started?.call();
   }
@@ -277,6 +293,8 @@ class _$_Started implements _Started {
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -296,6 +314,8 @@ class _$_Started implements _Started {
     required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
     required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
         setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
   }) {
     return started(this);
   }
@@ -309,6 +329,8 @@ class _$_Started implements _Started {
     TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
   }) {
     return started?.call(this);
   }
@@ -322,6 +344,8 @@ class _$_Started implements _Started {
     TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -462,6 +486,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBidEvent(
         bidEntity, currentBidStatus, hasTextFormFieldEnable);
@@ -494,6 +520,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBidEvent?.call(
         bidEntity, currentBidStatus, hasTextFormFieldEnable);
@@ -526,6 +554,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (createAndUpdateBidEvent != null) {
@@ -546,6 +576,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
     required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
     required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
         setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBidEvent(this);
   }
@@ -559,6 +591,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
     TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBidEvent?.call(this);
   }
@@ -572,6 +606,8 @@ class _$_CreateAndUpdateBidEvent implements _CreateAndUpdateBidEvent {
     TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (createAndUpdateBidEvent != null) {
@@ -751,6 +787,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
   }) {
     return bidRequestCancelEvent(asyncCancelButtonStatesController, bidEnum,
         buttonState, data, currentBidStatus, hasTextFormFieldEnable);
@@ -783,6 +821,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
   }) {
     return bidRequestCancelEvent?.call(asyncCancelButtonStatesController,
         bidEnum, buttonState, data, currentBidStatus, hasTextFormFieldEnable);
@@ -815,6 +855,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (bidRequestCancelEvent != null) {
@@ -835,6 +877,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
     required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
     required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
         setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
   }) {
     return bidRequestCancelEvent(this);
   }
@@ -848,6 +892,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
     TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
   }) {
     return bidRequestCancelEvent?.call(this);
   }
@@ -861,6 +907,8 @@ class _$_BidRequestCancelEvent implements _BidRequestCancelEvent {
     TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (bidRequestCancelEvent != null) {
@@ -1072,6 +1120,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
   }) {
     return updateBidStatusEvent(
         asyncSubmitButtonStatesController,
@@ -1111,6 +1161,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
   }) {
     return updateBidStatusEvent?.call(
         asyncSubmitButtonStatesController,
@@ -1150,6 +1202,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (updateBidStatusEvent != null) {
@@ -1177,6 +1231,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
     required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
     required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
         setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
   }) {
     return updateBidStatusEvent(this);
   }
@@ -1190,6 +1246,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
     TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
   }) {
     return updateBidStatusEvent?.call(this);
   }
@@ -1203,6 +1261,8 @@ class _$_UpdateBidStatusEvent implements _UpdateBidStatusEvent {
     TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (updateBidStatusEvent != null) {
@@ -1331,6 +1391,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
         updateBidStatusEvent,
     required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
         setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
   }) {
     return setCurrentTextOfAcceptButton(setTextWithBidStatus);
   }
@@ -1362,6 +1424,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
         updateBidStatusEvent,
     TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
   }) {
     return setCurrentTextOfAcceptButton?.call(setTextWithBidStatus);
   }
@@ -1393,6 +1457,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
         updateBidStatusEvent,
     TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
         setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (setCurrentTextOfAcceptButton != null) {
@@ -1412,6 +1478,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
     required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
     required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
         setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
   }) {
     return setCurrentTextOfAcceptButton(this);
   }
@@ -1425,6 +1493,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
     TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
   }) {
     return setCurrentTextOfAcceptButton?.call(this);
   }
@@ -1438,6 +1508,8 @@ class _$_SetCurrentTextOfAcceptButtonEvent
     TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
     TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
         setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (setCurrentTextOfAcceptButton != null) {
@@ -1456,6 +1528,254 @@ abstract class _SetCurrentTextOfAcceptButtonEvent implements BidRequestEvent {
   @JsonKey(ignore: true)
   _$$_SetCurrentTextOfAcceptButtonEventCopyWith<
           _$_SetCurrentTextOfAcceptButtonEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SetCurrentValueOfBidTextFieldEventCopyWith<$Res> {
+  factory _$$_SetCurrentValueOfBidTextFieldEventCopyWith(
+          _$_SetCurrentValueOfBidTextFieldEvent value,
+          $Res Function(_$_SetCurrentValueOfBidTextFieldEvent) then) =
+      __$$_SetCurrentValueOfBidTextFieldEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String valueInString, double valueInDouble});
+}
+
+/// @nodoc
+class __$$_SetCurrentValueOfBidTextFieldEventCopyWithImpl<$Res>
+    extends _$BidRequestEventCopyWithImpl<$Res,
+        _$_SetCurrentValueOfBidTextFieldEvent>
+    implements _$$_SetCurrentValueOfBidTextFieldEventCopyWith<$Res> {
+  __$$_SetCurrentValueOfBidTextFieldEventCopyWithImpl(
+      _$_SetCurrentValueOfBidTextFieldEvent _value,
+      $Res Function(_$_SetCurrentValueOfBidTextFieldEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? valueInString = null,
+    Object? valueInDouble = null,
+  }) {
+    return _then(_$_SetCurrentValueOfBidTextFieldEvent(
+      valueInString: null == valueInString
+          ? _value.valueInString
+          : valueInString // ignore: cast_nullable_to_non_nullable
+              as String,
+      valueInDouble: null == valueInDouble
+          ? _value.valueInDouble
+          : valueInDouble // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SetCurrentValueOfBidTextFieldEvent
+    implements _SetCurrentValueOfBidTextFieldEvent {
+  const _$_SetCurrentValueOfBidTextFieldEvent(
+      {this.valueInString = '0.0', this.valueInDouble = 0.0});
+
+  @override
+  @JsonKey()
+  final String valueInString;
+  @override
+  @JsonKey()
+  final double valueInDouble;
+
+  @override
+  String toString() {
+    return 'BidRequestEvent.setCurrentValueOfBidTextField(valueInString: $valueInString, valueInDouble: $valueInDouble)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SetCurrentValueOfBidTextFieldEvent &&
+            (identical(other.valueInString, valueInString) ||
+                other.valueInString == valueInString) &&
+            (identical(other.valueInDouble, valueInDouble) ||
+                other.valueInDouble == valueInDouble));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, valueInString, valueInDouble);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SetCurrentValueOfBidTextFieldEventCopyWith<
+          _$_SetCurrentValueOfBidTextFieldEvent>
+      get copyWith => __$$_SetCurrentValueOfBidTextFieldEventCopyWithImpl<
+          _$_SetCurrentValueOfBidTextFieldEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function(CreateBidEntity bidEntity,
+            BidStatus currentBidStatus, bool hasTextFormFieldEnable)
+        createAndUpdateBidEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancelEvent,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)
+        updateBidStatusEvent,
+    required TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)
+        setCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        setCurrentValueOfBidTextField,
+  }) {
+    return setCurrentValueOfBidTextField(valueInString, valueInDouble);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
+        updateBidStatusEvent,
+    TResult? Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
+  }) {
+    return setCurrentValueOfBidTextField?.call(valueInString, valueInDouble);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function(CreateBidEntity bidEntity, BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBidEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancelEvent,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable,
+            double bidRequestPrice)?
+        updateBidStatusEvent,
+    TResult Function(Tuple2<BidStatus, String> setTextWithBidStatus)?
+        setCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        setCurrentValueOfBidTextField,
+    required TResult orElse(),
+  }) {
+    if (setCurrentValueOfBidTextField != null) {
+      return setCurrentValueOfBidTextField(valueInString, valueInDouble);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_CreateAndUpdateBidEvent value)
+        createAndUpdateBidEvent,
+    required TResult Function(_BidRequestCancelEvent value)
+        bidRequestCancelEvent,
+    required TResult Function(_UpdateBidStatusEvent value) updateBidStatusEvent,
+    required TResult Function(_SetCurrentTextOfAcceptButtonEvent value)
+        setCurrentTextOfAcceptButton,
+    required TResult Function(_SetCurrentValueOfBidTextFieldEvent value)
+        setCurrentValueOfBidTextField,
+  }) {
+    return setCurrentValueOfBidTextField(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult? Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult? Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult? Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+    TResult? Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
+  }) {
+    return setCurrentValueOfBidTextField?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_CreateAndUpdateBidEvent value)? createAndUpdateBidEvent,
+    TResult Function(_BidRequestCancelEvent value)? bidRequestCancelEvent,
+    TResult Function(_UpdateBidStatusEvent value)? updateBidStatusEvent,
+    TResult Function(_SetCurrentTextOfAcceptButtonEvent value)?
+        setCurrentTextOfAcceptButton,
+    TResult Function(_SetCurrentValueOfBidTextFieldEvent value)?
+        setCurrentValueOfBidTextField,
+    required TResult orElse(),
+  }) {
+    if (setCurrentValueOfBidTextField != null) {
+      return setCurrentValueOfBidTextField(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SetCurrentValueOfBidTextFieldEvent implements BidRequestEvent {
+  const factory _SetCurrentValueOfBidTextFieldEvent(
+      {final String valueInString,
+      final double valueInDouble}) = _$_SetCurrentValueOfBidTextFieldEvent;
+
+  String get valueInString;
+  double get valueInDouble;
+  @JsonKey(ignore: true)
+  _$$_SetCurrentValueOfBidTextFieldEventCopyWith<
+          _$_SetCurrentValueOfBidTextFieldEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1495,6 +1815,8 @@ mixin _$BidRequestState {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1530,6 +1852,8 @@ mixin _$BidRequestState {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1565,6 +1889,8 @@ mixin _$BidRequestState {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1578,6 +1904,8 @@ mixin _$BidRequestState {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1590,6 +1918,8 @@ mixin _$BidRequestState {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1602,6 +1932,8 @@ mixin _$BidRequestState {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1694,6 +2026,8 @@ class _$_Initial extends _Initial {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return initial();
   }
@@ -1732,6 +2066,8 @@ class _$_Initial extends _Initial {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return initial?.call();
   }
@@ -1770,6 +2106,8 @@ class _$_Initial extends _Initial {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1789,6 +2127,8 @@ class _$_Initial extends _Initial {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return initial(this);
   }
@@ -1804,6 +2144,8 @@ class _$_Initial extends _Initial {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return initial?.call(this);
   }
@@ -1819,6 +2161,8 @@ class _$_Initial extends _Initial {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1952,6 +2296,8 @@ class _$_Loading extends _Loading {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return loading(bidEnum, text, isLoading);
   }
@@ -1990,6 +2336,8 @@ class _$_Loading extends _Loading {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return loading?.call(bidEnum, text, isLoading);
   }
@@ -2028,6 +2376,8 @@ class _$_Loading extends _Loading {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2047,6 +2397,8 @@ class _$_Loading extends _Loading {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return loading(this);
   }
@@ -2062,6 +2414,8 @@ class _$_Loading extends _Loading {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return loading?.call(this);
   }
@@ -2077,6 +2431,8 @@ class _$_Loading extends _Loading {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -2276,6 +2632,8 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBid(createBidResponseModel, bidEnum, buttonState,
         data, currentBidStatus, hasTextFormFieldEnable);
@@ -2315,6 +2673,8 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBid?.call(createBidResponseModel, bidEnum,
         buttonState, data, currentBidStatus, hasTextFormFieldEnable);
@@ -2354,6 +2714,8 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (createAndUpdateBid != null) {
@@ -2374,6 +2736,8 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBid(this);
   }
@@ -2389,6 +2753,8 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return createAndUpdateBid?.call(this);
   }
@@ -2404,6 +2770,8 @@ class _$_CreateAndUpdateBid extends _CreateAndUpdateBid {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (createAndUpdateBid != null) {
@@ -2549,6 +2917,8 @@ class _$_DOrError extends _DOrError {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return error(failure, bidEnum);
   }
@@ -2587,6 +2957,8 @@ class _$_DOrError extends _DOrError {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return error?.call(failure, bidEnum);
   }
@@ -2625,6 +2997,8 @@ class _$_DOrError extends _DOrError {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2644,6 +3018,8 @@ class _$_DOrError extends _DOrError {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return error(this);
   }
@@ -2659,6 +3035,8 @@ class _$_DOrError extends _DOrError {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return error?.call(this);
   }
@@ -2674,6 +3052,8 @@ class _$_DOrError extends _DOrError {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2860,6 +3240,8 @@ class _$_BidRequestCancel extends _BidRequestCancel {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return bidRequestCancel(asyncCancelButtonStatesController, bidEnum,
         buttonState, data, currentBidStatus, hasTextFormFieldEnable);
@@ -2899,6 +3281,8 @@ class _$_BidRequestCancel extends _BidRequestCancel {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return bidRequestCancel?.call(asyncCancelButtonStatesController, bidEnum,
         buttonState, data, currentBidStatus, hasTextFormFieldEnable);
@@ -2938,6 +3322,8 @@ class _$_BidRequestCancel extends _BidRequestCancel {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (bidRequestCancel != null) {
@@ -2958,6 +3344,8 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return bidRequestCancel(this);
   }
@@ -2973,6 +3361,8 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return bidRequestCancel?.call(this);
   }
@@ -2988,6 +3378,8 @@ class _$_BidRequestCancel extends _BidRequestCancel {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (bidRequestCancel != null) {
@@ -3210,6 +3602,8 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return updateBidStatus(
         asyncSubmitButtonStatesController,
@@ -3256,6 +3650,8 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return updateBidStatus?.call(
         asyncSubmitButtonStatesController,
@@ -3302,6 +3698,8 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (updateBidStatus != null) {
@@ -3329,6 +3727,8 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return updateBidStatus(this);
   }
@@ -3344,6 +3744,8 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return updateBidStatus?.call(this);
   }
@@ -3359,6 +3761,8 @@ class _$_UpdateBidStatus extends _UpdateBidStatus {
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (updateBidStatus != null) {
@@ -3497,6 +3901,8 @@ class _$_GetCurrentTextOfAcceptButtonEvent
         updateBidStatus,
     required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
         getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
   }) {
     return getCurrentTextOfAcceptButton(getTextWithBidStatus);
   }
@@ -3535,6 +3941,8 @@ class _$_GetCurrentTextOfAcceptButtonEvent
         updateBidStatus,
     TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
   }) {
     return getCurrentTextOfAcceptButton?.call(getTextWithBidStatus);
   }
@@ -3573,6 +3981,8 @@ class _$_GetCurrentTextOfAcceptButtonEvent
         updateBidStatus,
     TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
         getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (getCurrentTextOfAcceptButton != null) {
@@ -3592,6 +4002,8 @@ class _$_GetCurrentTextOfAcceptButtonEvent
     required TResult Function(_UpdateBidStatus value) updateBidStatus,
     required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
         getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
   }) {
     return getCurrentTextOfAcceptButton(this);
   }
@@ -3607,6 +4019,8 @@ class _$_GetCurrentTextOfAcceptButtonEvent
     TResult? Function(_UpdateBidStatus value)? updateBidStatus,
     TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
   }) {
     return getCurrentTextOfAcceptButton?.call(this);
   }
@@ -3622,6 +4036,8 @@ class _$_GetCurrentTextOfAcceptButtonEvent
     TResult Function(_UpdateBidStatus value)? updateBidStatus,
     TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
         getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
     required TResult orElse(),
   }) {
     if (getCurrentTextOfAcceptButton != null) {
@@ -3641,5 +4057,281 @@ abstract class _GetCurrentTextOfAcceptButtonEvent extends BidRequestState {
   @JsonKey(ignore: true)
   _$$_GetCurrentTextOfAcceptButtonEventCopyWith<
           _$_GetCurrentTextOfAcceptButtonEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetCurrentValueOfBidTextFieldStateCopyWith<$Res> {
+  factory _$$_GetCurrentValueOfBidTextFieldStateCopyWith(
+          _$_GetCurrentValueOfBidTextFieldState value,
+          $Res Function(_$_GetCurrentValueOfBidTextFieldState) then) =
+      __$$_GetCurrentValueOfBidTextFieldStateCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String valueInString, double valueInDouble});
+}
+
+/// @nodoc
+class __$$_GetCurrentValueOfBidTextFieldStateCopyWithImpl<$Res>
+    extends _$BidRequestStateCopyWithImpl<$Res,
+        _$_GetCurrentValueOfBidTextFieldState>
+    implements _$$_GetCurrentValueOfBidTextFieldStateCopyWith<$Res> {
+  __$$_GetCurrentValueOfBidTextFieldStateCopyWithImpl(
+      _$_GetCurrentValueOfBidTextFieldState _value,
+      $Res Function(_$_GetCurrentValueOfBidTextFieldState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? valueInString = null,
+    Object? valueInDouble = null,
+  }) {
+    return _then(_$_GetCurrentValueOfBidTextFieldState(
+      valueInString: null == valueInString
+          ? _value.valueInString
+          : valueInString // ignore: cast_nullable_to_non_nullable
+              as String,
+      valueInDouble: null == valueInDouble
+          ? _value.valueInDouble
+          : valueInDouble // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetCurrentValueOfBidTextFieldState
+    extends _GetCurrentValueOfBidTextFieldState {
+  const _$_GetCurrentValueOfBidTextFieldState(
+      {this.valueInString = '0.0', this.valueInDouble = 0.0})
+      : super._();
+
+  @override
+  @JsonKey()
+  final String valueInString;
+  @override
+  @JsonKey()
+  final double valueInDouble;
+
+  @override
+  String toString() {
+    return 'BidRequestState.getCurrentValueOfBidTextField(valueInString: $valueInString, valueInDouble: $valueInDouble)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetCurrentValueOfBidTextFieldState &&
+            (identical(other.valueInString, valueInString) ||
+                other.valueInString == valueInString) &&
+            (identical(other.valueInDouble, valueInDouble) ||
+                other.valueInDouble == valueInDouble));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, valueInString, valueInDouble);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetCurrentValueOfBidTextFieldStateCopyWith<
+          _$_GetCurrentValueOfBidTextFieldState>
+      get copyWith => __$$_GetCurrentValueOfBidTextFieldStateCopyWithImpl<
+          _$_GetCurrentValueOfBidTextFieldState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(BidStatus bidEnum, String text, bool isLoading)
+        loading,
+    required TResult Function(
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        createAndUpdateBid,
+    required TResult Function(Failure failure, BidStatus bidEnum) error,
+    required TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)
+        bidRequestCancel,
+    required TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable,
+            bool updateButtonStateByApiResponse)
+        updateBidStatus,
+    required TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)
+        getCurrentTextOfAcceptButton,
+    required TResult Function(String valueInString, double valueInDouble)
+        getCurrentValueOfBidTextField,
+  }) {
+    return getCurrentValueOfBidTextField(valueInString, valueInDouble);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult? Function(
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBid,
+    TResult? Function(Failure failure, BidStatus bidEnum)? error,
+    TResult? Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult? Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable,
+            bool updateButtonStateByApiResponse)?
+        updateBidStatus,
+    TResult? Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+    TResult? Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
+  }) {
+    return getCurrentValueOfBidTextField?.call(valueInString, valueInDouble);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(BidStatus bidEnum, String text, bool isLoading)? loading,
+    TResult Function(
+            CreateBidResponseModel createBidResponseModel,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        createAndUpdateBid,
+    TResult Function(Failure failure, BidStatus bidEnum)? error,
+    TResult Function(
+            AsyncBtnStatesController? asyncCancelButtonStatesController,
+            BidStatus bidEnum,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable)?
+        bidRequestCancel,
+    TResult Function(
+            AsyncBtnStatesController? asyncSubmitButtonStatesController,
+            BidStatus bidEnum,
+            String name,
+            AsyncBtnState buttonState,
+            dynamic data,
+            BidStatus currentBidStatus,
+            bool hasTextFormFieldEnable,
+            bool updateButtonStateByApiResponse)?
+        updateBidStatus,
+    TResult Function(Tuple2<BidStatus, String> getTextWithBidStatus)?
+        getCurrentTextOfAcceptButton,
+    TResult Function(String valueInString, double valueInDouble)?
+        getCurrentValueOfBidTextField,
+    required TResult orElse(),
+  }) {
+    if (getCurrentValueOfBidTextField != null) {
+      return getCurrentValueOfBidTextField(valueInString, valueInDouble);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_CreateAndUpdateBid value) createAndUpdateBid,
+    required TResult Function(_DOrError value) error,
+    required TResult Function(_BidRequestCancel value) bidRequestCancel,
+    required TResult Function(_UpdateBidStatus value) updateBidStatus,
+    required TResult Function(_GetCurrentTextOfAcceptButtonEvent value)
+        getCurrentTextOfAcceptButton,
+    required TResult Function(_GetCurrentValueOfBidTextFieldState value)
+        getCurrentValueOfBidTextField,
+  }) {
+    return getCurrentValueOfBidTextField(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult? Function(_DOrError value)? error,
+    TResult? Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult? Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult? Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+    TResult? Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
+  }) {
+    return getCurrentValueOfBidTextField?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_CreateAndUpdateBid value)? createAndUpdateBid,
+    TResult Function(_DOrError value)? error,
+    TResult Function(_BidRequestCancel value)? bidRequestCancel,
+    TResult Function(_UpdateBidStatus value)? updateBidStatus,
+    TResult Function(_GetCurrentTextOfAcceptButtonEvent value)?
+        getCurrentTextOfAcceptButton,
+    TResult Function(_GetCurrentValueOfBidTextFieldState value)?
+        getCurrentValueOfBidTextField,
+    required TResult orElse(),
+  }) {
+    if (getCurrentValueOfBidTextField != null) {
+      return getCurrentValueOfBidTextField(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetCurrentValueOfBidTextFieldState extends BidRequestState {
+  const factory _GetCurrentValueOfBidTextFieldState(
+      {final String valueInString,
+      final double valueInDouble}) = _$_GetCurrentValueOfBidTextFieldState;
+  const _GetCurrentValueOfBidTextFieldState._() : super._();
+
+  String get valueInString;
+  double get valueInDouble;
+  @JsonKey(ignore: true)
+  _$$_GetCurrentValueOfBidTextFieldStateCopyWith<
+          _$_GetCurrentValueOfBidTextFieldState>
       get copyWith => throw _privateConstructorUsedError;
 }

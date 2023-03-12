@@ -6,6 +6,7 @@ import 'package:tagyourtaxi_driver/feature/bid/data/remote/data_sources/bid_fire
 import 'package:tagyourtaxi_driver/feature/bid/domain/entity/create_bid_entity.dart';
 import 'package:tagyourtaxi_driver/feature/bid/presentation/bloc/bid_request/bid_request_bloc.dart';
 import 'package:tagyourtaxi_driver/feature/common/model/request_trip_meta_model.dart';
+import 'package:tagyourtaxi_driver/feature/common/model/user_info_model.dart';
 import 'package:tagyourtaxi_driver/functions/functions.dart';
 import 'package:tagyourtaxi_driver/global/di/injector_provider.dart';
 import 'package:tagyourtaxi_driver/global/responsive/responsive_units.dart';
@@ -87,6 +88,7 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
 
   //Request-Meta model
   RequestTripMetaModel requestTripMetaModel = RequestTripMetaModel();
+  UserInfoModel userInfoModel = UserInfoModel();
 
   @override
   void initState() {
@@ -95,6 +97,15 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
     context.read<BidRequestBloc>().add(
         BidRequestEvent.setCurrentTextOfAcceptButton(
             getCurrentTextOfAcceptButton(bidStatus)));
+    userInfoModel = injector<UserInfoModel>();
+    if (userInfoModel.data != null &&
+        userInfoModel.data?.metaRequest?.data != null) {
+      context.read<BidRequestBloc>().add(
+          BidRequestEvent.setCurrentValueOfBidTextField(
+              valueInDouble:
+                  userInfoModel.data?.metaRequest?.data?.requestEtaAmount ??
+                      0));
+    }
   }
 
   @override
@@ -165,165 +176,165 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                 getCurrentTextOfAcceptButton: (getTextWithBidStatus) {
                   textOfAcceptButton = getTextWithBidStatus.value2;
                 },
+                getCurrentValueOfBidTextField: (valueInString, valueInDouble) {
+                  currentBidPriceController.text = valueInDouble.toString();
+                },
               );
               return Container(
                 height: 10.h,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: IntrinsicHeight(
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: ConditionalSwitch.single<BidStatus>(
-                          context: context,
-                          valueBuilder: (BuildContext context) => bidStatus,
-                          caseBuilders: {
-                            BidStatus.none: (BuildContext context) =>
-                                AsyncElevatedBtn.withDefaultStyles(
-                                  key: cancelBidButtonKey,
-                                  asyncBtnStatesController:
-                                      bidCancelStateController,
-                                  onPressed: () async {
-                                    widget.onLoadingProgressChanged(true);
-                                    context.read<BidRequestBloc>().add(
-                                            BidRequestEvent
-                                                .updateBidStatusEvent(
-                                          bidCancelStateController,
-                                          bidEnum: BidStatus.none,
-                                          currentBidStatus: bidStatus,
-                                        ));
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: ConditionalSwitch.single<BidStatus>(
+                        context: context,
+                        valueBuilder: (BuildContext context) => bidStatus,
+                        caseBuilders: {
+                          BidStatus.none: (BuildContext context) =>
+                              AsyncElevatedBtn.withDefaultStyles(
+                                key: cancelBidButtonKey,
+                                asyncBtnStatesController:
+                                    bidCancelStateController,
+                                onPressed: () async {
+                                  widget.onLoadingProgressChanged(true);
+                                  context
+                                      .read<BidRequestBloc>()
+                                      .add(BidRequestEvent.updateBidStatusEvent(
+                                        bidCancelStateController,
+                                        bidEnum: BidStatus.none,
+                                        currentBidStatus: bidStatus,
+                                      ));
 
-                                    bidCancelStateController.update(
-                                      AsyncBtnState.idle,
-                                      data: textOfCancelButton,
-                                    );
-                                    widget.onCancelPressed();
-                                    widget.onLoadingProgressChanged(false);
-                                    return;
-                                  },
-                                  style: injector<ElevatedButtonStyleConfig>()
-                                      .style!
-                                      .copyWith(
-                                        backgroundColor:
-                                            MaterialStatePropertyAll<Color>(
-                                          buttonColor,
-                                        ),
+                                  bidCancelStateController.update(
+                                    AsyncBtnState.idle,
+                                    data: textOfCancelButton,
+                                  );
+                                  widget.onCancelPressed();
+                                  widget.onLoadingProgressChanged(false);
+                                  return;
+                                },
+                                style: injector<ElevatedButtonStyleConfig>()
+                                    .style!
+                                    .copyWith(
+                                      backgroundColor:
+                                          MaterialStatePropertyAll<Color>(
+                                        buttonColor,
                                       ),
-                                  child: Text(textOfCancelButton),
+                                    ),
+                                child: Text(textOfCancelButton),
+                              ),
+                        },
+                        fallbackBuilder: (BuildContext context) => SizedBox(
+                          //height: 56,
+                          child: TextFormField(
+                            controller: currentBidPriceController,
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
-                          },
-                          fallbackBuilder: (BuildContext context) => SizedBox(
-                            child: TextFormField(
-                              controller: currentBidPriceController,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    width: 1,
                                   ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    width: 1,
                                   ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                disabledBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                    width: 1,
                                   ),
-                                  disabledBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                      width: 1,
-                                    ),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 1, color: Colors.redAccent),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        width: 1, color: Colors.redAccent),
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  hintText: 'Enter bid price',
-                                  prefix: const Text('\u20B9 '),
-                                  contentPadding: const EdgeInsets.symmetric(
-                                      vertical: 8, horizontal: 12)),
-                              onChanged: (value) {},
-                              onSaved: (newValue) {},
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              keyboardType: TextInputType.number,
-                              enabled: hasTextFormFieldEnable,
-                              inputFormatters: [
-                                CurrencyTextInputFormatter(
-                                  integerDigits: 6,
-                                  decimalDigits: 2,
-                                  maxValue: '10000.00',
-                                  //prefix: '\u20B9',
-                                  decimalSeparator: '.',
-                                  groupDigits: 3,
-                                  groupSeparator: ',',
-                                  allowNegative: false,
-                                  overrideDecimalPoint: true,
-                                  insertDecimalPoint: false,
-                                  insertDecimalDigits: true,
-                                )
-                              ],
-                              validator: (value) {
-                                return ConditionalSwitch.singleRule<BidStatus,
-                                    String?>(
-                                  valueBuilder: () => bidStatus,
-                                  caseBuilders: {
-                                    BidStatus.create: () {
-                                      var result =
-                                          FormBuilderValidators.compose([
-                                        /// Makes this field required
-                                        FormBuilderValidators.required(
-                                            errorText: 'Price cannot be empty'),
-                                        FormBuilderValidators.min(2,
-                                            errorText:
-                                                'Invalid bid price Rs 1.0'),
-                                      ])(value);
-                                      debugPrint('Validate - ${result}');
-                                      return result;
-                                    },
-                                    BidStatus.update: () {
-                                      var result =
-                                          FormBuilderValidators.compose([
-                                        /// Makes this field required
-                                        FormBuilderValidators.required(
-                                            errorText: 'Price cannot be empty'),
-                                        FormBuilderValidators.min(2,
-                                            errorText:
-                                                'Invalid bid price Rs 1.0'),
-                                      ])(value);
-                                      debugPrint('Validate - ${result}');
-                                      return result;
-                                    },
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      width: 1, color: Colors.redAccent),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: const BorderSide(
+                                      width: 1, color: Colors.redAccent),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                hintText: 'Enter bid price',
+                                prefix: const Text('\u20B9 '),
+                                contentPadding: const EdgeInsets.symmetric(
+                                    vertical: 8, horizontal: 12)),
+                            onChanged: (value) {},
+                            onSaved: (newValue) {},
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            keyboardType: TextInputType.number,
+                            enabled: hasTextFormFieldEnable,
+                            inputFormatters: [
+                              CurrencyTextInputFormatter(
+                                integerDigits: 6,
+                                decimalDigits: 2,
+                                maxValue: '10000.00',
+                                //prefix: '\u20B9',
+                                decimalSeparator: '.',
+                                groupDigits: 3,
+                                groupSeparator: ',',
+                                allowNegative: false,
+                                overrideDecimalPoint: true,
+                                insertDecimalPoint: false,
+                                insertDecimalDigits: true,
+                              )
+                            ],
+                            validator: (value) {
+                              return ConditionalSwitch.singleRule<BidStatus,
+                                  String?>(
+                                valueBuilder: () => bidStatus,
+                                caseBuilders: {
+                                  BidStatus.create: () {
+                                    var result = FormBuilderValidators.compose([
+                                      /// Makes this field required
+                                      FormBuilderValidators.required(
+                                          errorText: 'Price cannot be empty'),
+                                      FormBuilderValidators.min(2,
+                                          errorText:
+                                              'Invalid bid price Rs 1.0'),
+                                    ])(value);
+                                    debugPrint('Validate - ${result}');
+                                    return result;
                                   },
-                                  fallbackBuilder: () {
-                                    return null;
+                                  BidStatus.update: () {
+                                    var result = FormBuilderValidators.compose([
+                                      /// Makes this field required
+                                      FormBuilderValidators.required(
+                                          errorText: 'Price cannot be empty'),
+                                      FormBuilderValidators.min(2,
+                                          errorText:
+                                              'Invalid bid price Rs 1.0'),
+                                    ])(value);
+                                    debugPrint('Validate - ${result}');
+                                    return result;
                                   },
-                                );
-                              },
-                              //validator: (value) => ,
-                            ),
+                                },
+                                fallbackBuilder: () {
+                                  return null;
+                                },
+                              );
+                            },
+                            //validator: (value) => ,
                           ),
                         ),
                       ),
-                      const Gap(20),
-                      Expanded(
-                        child: buildBidButton(context),
-                      ),
-                    ],
-                  ),
+                    ),
+                    const Gap(20),
+                    Expanded(
+                      child: buildBidButton(context),
+                    ),
+                  ],
                 ),
               );
             },
@@ -354,8 +365,9 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                     updateBidSubmitStateController,
                     bidEnum: BidStatus.create,
                     currentBidStatus: bidStatus,
-                    name: 'Submit',
-                    data: 'Submit',
+                    name: 'Submit Bid',
+                    data: 'Submit Bid',
+                    hasTextFormFieldEnable: true,
                   ));
               return;
             },
@@ -373,8 +385,8 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                       updateBidSubmitStateController,
                       bidEnum: BidStatus.pending,
                       currentBidStatus: bidStatus,
-                      name: 'Edit',
-                      data: 'Edit',
+                      name: 'Edit Bid',
+                      data: 'Edit Bid',
                       bidRequestPrice: double.parse(
                           currentBidPriceController.value.text.toString()),
                     ));
@@ -389,8 +401,9 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                     updateBidSubmitStateController,
                     bidEnum: BidStatus.update,
                     currentBidStatus: bidStatus,
-                    name: 'Update',
-                    data: 'Update',
+                    name: 'Update Bid',
+                    data: 'Update Bid',
+                    hasTextFormFieldEnable: true,
                   ));
               return;
             },
@@ -407,8 +420,8 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                       updateBidSubmitStateController,
                       bidEnum: BidStatus.pending,
                       currentBidStatus: bidStatus,
-                      name: 'Edit',
-                      data: 'Edit',
+                      name: 'Edit Bid',
+                      data: 'Edit Bid',
                       bidRequestPrice: double.parse(
                           currentBidPriceController.value.text.toString()),
                     ));
@@ -424,7 +437,9 @@ class _BidButtonWidgetState extends State<BidButtonWidget> {
                   updateBidSubmitStateController,
                   bidEnum: BidStatus.create,
                   currentBidStatus: bidStatus,
-                  name: 'Submit',
+                  name: 'Submit Bid',
+                  data: 'Submit Bid',
+                  hasTextFormFieldEnable: true,
                 ));
             return;
           },

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:log_print/log_print.dart';
 import 'package:log_print/log_print_config.dart';
 import 'package:one_context/one_context.dart';
@@ -59,7 +60,11 @@ class MyApp extends StatelessWidget {
           child: MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Metaciti Driver',
-              theme: ThemeData(),
+              theme: ThemeData(
+                textTheme: GoogleFonts.robotoTextTheme(
+                  Theme.of(context).textTheme,
+                ),
+              ),
               navigatorKey: OneContext().key,
               builder: (context, child) {
                 return AppSizer(

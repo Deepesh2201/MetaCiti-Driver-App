@@ -63,6 +63,7 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
             currentBidStatus,
             hasTextFormFieldEnable,
             currentBidPrice) async {
+          // Execute this bloc when Bidstatus->create
           if (currentBidStatus == BidStatus.create) {
             // Call create bid price by POST method
             emit(BidRequestState.updateBidStatus(
@@ -82,21 +83,27 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                   driverId: injector<UserInfoModel>().data?.id,
                   requestId: userRequestMeta.data?.id,
                   userId: userRequestMeta.data?.userDetail?.data?.id);
+
               // Call create bid usecase
               final result = await createBidUseCase(createBidEntity);
+
               if (result.isLeft()) {
                 // Handle error
                 debugPrint('Create bid error');
                 emit(BidRequestState.updateBidStatus(
                   asyncSubmitButtonStatesController,
                   bidEnum: currentBidStatus,
-                  name: 'Submit',
+                  name: 'Submit Bid',
                   buttonState: AsyncBtnState.idle,
                   currentBidStatus: currentBidStatus,
-                  data: 'Submit',
+                  data: 'Submit Bid',
                   hasTextFormFieldEnable: true,
                   updateButtonStateByApiResponse: true,
                 ));
+                await Future.delayed(const Duration(milliseconds: 300))
+                    .whenComplete(() => emit(
+                        BidRequestState.getCurrentValueOfBidTextField(
+                            valueInDouble: currentBidPrice)));
               } else {
                 // Handle success
                 debugPrint('Bid created successfully');
@@ -106,25 +113,23 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                 emit(BidRequestState.updateBidStatus(
                   asyncSubmitButtonStatesController,
                   bidEnum: BidStatus.pending,
-                  name: 'Edit',
+                  name: 'Edit Bid',
                   buttonState: AsyncBtnState.idle,
                   currentBidStatus: currentBidStatus,
-                  data: 'Edit',
+                  data: 'Edit Bid',
                   hasTextFormFieldEnable: false,
                   updateButtonStateByApiResponse: true,
                 ));
+                await Future.delayed(const Duration(milliseconds: 300))
+                    .whenComplete(() => emit(
+                        BidRequestState.getCurrentValueOfBidTextField(
+                            valueInDouble: currentBidPrice)));
               }
             }
-
-            /*await Future.delayed(const Duration(seconds: 5)).whenComplete(() =>
-                emit(BidRequestState.updateBidStatus(
-                    asyncSubmitButtonStatesController,
-                    bidEnum: bidEnum,
-                    name: name,
-                    buttonState: buttonState,
-                    currentBidStatus: currentBidStatus,
-                    data: data)));*/
-          } else if (currentBidStatus == BidStatus.update) {
+            return;
+          }
+          // Execute this bloc when Bidstatus->update
+          else if (currentBidStatus == BidStatus.update) {
             // Call update bid price by POST method
             emit(BidRequestState.updateBidStatus(
               asyncSubmitButtonStatesController,
@@ -148,20 +153,26 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                   driverId: injector<UserInfoModel>().data?.id,
                   requestId: userRequestMeta.data?.id,
                   userId: userRequestMeta.data?.userDetail?.data?.id);
+
               final result = await createBidUseCase(createBidEntity);
+
               if (result.isLeft()) {
                 // Handle error
                 debugPrint('Create bid error');
                 emit(BidRequestState.updateBidStatus(
                   asyncSubmitButtonStatesController,
                   bidEnum: currentBidStatus,
-                  name: 'Update',
+                  name: 'Edit Bid',
                   buttonState: AsyncBtnState.idle,
                   currentBidStatus: currentBidStatus,
-                  data: 'Update',
+                  data: 'Edit Bid',
                   hasTextFormFieldEnable: true,
                   updateButtonStateByApiResponse: true,
                 ));
+                await Future.delayed(const Duration(milliseconds: 300))
+                    .whenComplete(() => emit(
+                        BidRequestState.getCurrentValueOfBidTextField(
+                            valueInDouble: currentBidPrice)));
               } else {
                 // Handle success
                 var response = result.asRight();
@@ -171,25 +182,26 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                 emit(BidRequestState.updateBidStatus(
                   asyncSubmitButtonStatesController,
                   bidEnum: BidStatus.pending,
-                  name: 'Edit',
+                  name: 'Edit Bid',
                   buttonState: AsyncBtnState.idle,
                   currentBidStatus: currentBidStatus,
-                  data: 'Edit',
-                  hasTextFormFieldEnable: true,
+                  data: 'Edit Bid',
+                  hasTextFormFieldEnable: false,
                   updateButtonStateByApiResponse: true,
                 ));
+                await Future.delayed(const Duration(milliseconds: 300))
+                    .whenComplete(() => emit(
+                        BidRequestState.getCurrentValueOfBidTextField(
+                            valueInDouble: currentBidPrice)));
               }
             }
-            /*await Future.delayed(const Duration(seconds: 5)).whenComplete(() =>
-                emit(BidRequestState.updateBidStatus(
-                    asyncSubmitButtonStatesController,
-                    bidEnum: bidEnum,
-                    name: name,
-                    buttonState: buttonState,
-                    currentBidStatus: currentBidStatus,
-                    data: data)));*/
-          } else {
+            return;
+          }
+          // Execute this bloc when Bidstatus->other
+          else {
             // Call other state of button
+            debugPrint(
+                'Other bid status state - ${bidEnum}-${currentBidStatus}-${name}-${data}');
             emit(BidRequestState.updateBidStatus(
                 asyncSubmitButtonStatesController,
                 bidEnum: bidEnum,
@@ -197,7 +209,8 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
                 buttonState: buttonState,
                 currentBidStatus: currentBidStatus,
                 data: data,
-                hasTextFormFieldEnable: true));
+                hasTextFormFieldEnable: hasTextFormFieldEnable));
+            return;
           }
           //return;
         },
@@ -205,6 +218,14 @@ class BidRequestBloc extends Bloc<BidRequestEvent, BidRequestState> {
           emit(BidRequestState.getCurrentTextOfAcceptButton(
               setTextWithBidStatus));
           //return;
+        },
+        setCurrentValueOfBidTextField: (valueInString, valueInDouble) {
+          emit(
+            BidRequestState.getCurrentValueOfBidTextField(
+              valueInDouble: valueInDouble,
+              valueInString: valueInString,
+            ),
+          );
         },
       );
     });
